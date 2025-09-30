@@ -14,35 +14,999 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "guides/index",
+              "guides/get-started",
+              "guides/getting-started/index",
+              "guides/getting-started/first-application",
+              "guides/getting-started/publish-app",
+              "guides/getting-started/sandbox"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Applications",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "guides/applications/index",
+              {
+                "group": "App Types",
+                "pages": [
+                  "guides/applications/app-types/index",
+                  "guides/applications/app-types/select",
+                  "guides/applications/app-types/platform-apps",
+                  "guides/applications/app-types/limited-access-apps",
+                  "guides/applications/app-types/custom-skills"
+                ]
+              },
+              {
+                "group": "Web App Integrations",
+                "pages": [
+                  "guides/applications/web-app-integrations/index",
+                  "guides/applications/web-app-integrations/types",
+                  "guides/applications/web-app-integrations/configure",
+                  "guides/applications/web-app-integrations/user-experience"
+                ]
+              },
+              "guides/applications/integrations/index"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Authentication",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "guides/authentication/index",
+              "guides/authentication/select",
+              "guides/authentication/best-practices",
+              "guides/authentication/sso",
+              {
+                "group": "OAuth 2.0",
+                "pages": [
+                  "guides/authentication/oauth2/index",
+                  "guides/authentication/oauth2/oauth2-setup",
+                  "guides/authentication/oauth2/with-sdk",
+                  "guides/authentication/oauth2/without-sdk",
+                  "guides/authentication/oauth2/as-user"
+                ]
+              },
+              {
+                "group": "JWT (Server Authentication)",
+                "pages": [
+                  "guides/authentication/jwt/index",
+                  "guides/authentication/jwt/jwt-setup",
+                  "guides/authentication/jwt/with-sdk",
+                  "guides/authentication/jwt/without-sdk",
+                  "guides/authentication/jwt/user-access-tokens",
+                  "guides/authentication/jwt/as-user"
+                ]
+              },
+              {
+                "group": "Client Credentials Grant",
+                "pages": [
+                  "guides/authentication/client-credentials/index",
+                  "guides/authentication/client-credentials/client-credentials-setup"
+                ]
+              },
+              {
+                "group": "App Token",
+                "pages": [
+                  "guides/authentication/app-token/index",
+                  "guides/authentication/app-token/app-token-setup",
+                  "guides/authentication/app-token/with-sdk",
+                  "guides/authentication/app-token/without-sdk",
+                  "guides/authentication/app-token/endpoints",
+                  "guides/authentication/app-token/rollover"
+                ]
+              },
+              {
+                "group": "Tokens",
+                "pages": [
+                  "guides/authentication/tokens/index",
+                  "guides/authentication/tokens/access-tokens",
+                  "guides/authentication/tokens/developer-tokens",
+                  "guides/authentication/tokens/annotator-tokens",
+                  "guides/authentication/tokens/downscope",
+                  "guides/authentication/tokens/refresh",
+                  "guides/authentication/tokens/revoke",
+                  "guides/authentication/tokens/api-calls",
+                  "guides/authentication/tokens/sdks"
+                ]
+              }
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Authorization",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "guides/authorization/index",
+              "guides/authorization/common-errors",
+              "guides/authorization/platform-app-approval",
+              "guides/authorization/limited-access-approval",
+              "guides/authorization/custom-skill-approval"
+            ]
+          },
+          {
+            "group": "Box AI",
+            "pages": [
+              "guides/box-ai/index",
+              {
+                "group": "Quick Start",
+                "pages": [
+                  "guides/box-ai/quick-start/ask/0-index",
+                  "guides/box-ai/quick-start/ask/1-create-oauth-app",
+                  "guides/box-ai/quick-start/ask/2-single-file",
+                  "guides/box-ai/quick-start/ask/3-multiple-files",
+                  "guides/box-ai/quick-start/ask/4-box-hubs",
+                  "guides/box-ai/quick-start/ask/5-ai-studio-agent",
+                  "guides/box-ai/quick-start/ask/6-next-steps"
+                ]
+              },
+              {
+                "group": "AI Agents",
+                "pages": [
+                  "guides/box-ai/ai-agents/index",
+                  "guides/box-ai/ai-agents/get-agent-default-config",
+                  "guides/box-ai/ai-agents/ai-agent-overrides",
+                  "guides/box-ai/ai-agents/ai-agent-versioning"
+                ]
+              },
+              {
+                "group": "AI Models",
+                "pages": [
+                  "guides/box-ai/ai-models/index",
+                  "guides/box-ai/ai-models/aws-claude-3-5-sonnet-model-card",
+                  "guides/box-ai/ai-models/aws-claude-3-7-sonnet-model-card",
+                  "guides/box-ai/ai-models/aws-claude-3-haiku-model-card",
+                  "guides/box-ai/ai-models/aws-claude-3-sonnet-model-card",
+                  "guides/box-ai/ai-models/aws-claude-4-opus-model-card",
+                  "guides/box-ai/ai-models/aws-claude-4-sonnet-model-card",
+                  "guides/box-ai/ai-models/aws-titan-text-lite-model-card",
+                  "guides/box-ai/ai-models/azure-openai-gpt-4-1-mini-model-card",
+                  "guides/box-ai/ai-models/azure-openai-gpt-4-1-model-card",
+                  "guides/box-ai/ai-models/azure-openai-gpt-4o-mini-model-card",
+                  "guides/box-ai/ai-models/azure-openai-gpt-4o-model-card",
+                  "guides/box-ai/ai-models/azure-text-embedding-ada-002-model-card",
+                  "guides/box-ai/ai-models/google-gemini-1-5-flash-001-model-card",
+                  "guides/box-ai/ai-models/google-gemini-1-5-pro-001-model-card",
+                  "guides/box-ai/ai-models/google-gemini-2-0-flash-001-model-card",
+                  "guides/box-ai/ai-models/google-gemini-2-0-flash-lite-preview-02-05",
+                  "guides/box-ai/ai-models/google-gemini-2-5-pro-model-card",
+                  "guides/box-ai/ai-models/ibm-llama-3-2-90b-vision-instruct-model-card",
+                  "guides/box-ai/ai-models/ibm-llama-4-scout-model-card",
+                  "guides/box-ai/ai-models/openai-gpt-5-reasoning-alpha-model-card",
+                  "guides/box-ai/ai-models/openai-gpt-o3-model-card",
+                  "guides/box-ai/ai-models/xai-grok-3-beta-model-card",
+                  "guides/box-ai/ai-models/xai-grok-3-mini-beta-model-card"
+                ]
+              },
+              {
+                "group": "AI Tutorials",
+                "pages": [
+                  "guides/box-ai/ai-tutorials/index",
+                  "guides/box-ai/ai-tutorials/prerequisites",
+                  "guides/box-ai/ai-tutorials/ask-questions",
+                  "guides/box-ai/ai-tutorials/generate-text",
+                  "guides/box-ai/ai-tutorials/extract-metadata",
+                  "guides/box-ai/ai-tutorials/extract-metadata-structured",
+                  "guides/box-ai/ai-tutorials/default-agent-overrides"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Box AI Studio",
+            "pages": [
+              "guides/ai-studio/index",
+              "guides/ai-studio/getting-started-ai-studio",
+              {
+                "group": "AI Studio Agents",
+                "pages": [
+                  "guides/ai-studio/ai-studio-agents/index",
+                  "guides/ai-studio/ai-studio-agents/create-agents",
+                  "guides/ai-studio/ai-studio-agents/get-agents",
+                  "guides/ai-studio/ai-studio-agents/get-agent-id",
+                  "guides/ai-studio/ai-studio-agents/update-agents",
+                  "guides/ai-studio/ai-studio-agents/delete-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Box MCP",
+            "pages": [
+              "guides/box-mcp/index",
+              "guides/box-mcp/remote/index",
+              "guides/box-mcp/self-hosted/index"
+            ]
+          },
+          {
+            "group": "Box Relay",
+            "pages": [
+              "guides/box-relay/index",
+              "guides/box-relay/get-workflows",
+              "guides/box-relay/start-workflow"
+            ]
+          },
+          {
+            "group": "Box Sign",
+            "pages": [
+              "guides/box-sign/index",
+              "guides/box-sign/create-sign-request",
+              "guides/box-sign/list-sign-requests",
+              "guides/box-sign/cancel-sign-request",
+              "guides/box-sign/resend-sign-request",
+              "guides/box-sign/embedded-sign-client",
+              "guides/box-sign/sign-templates",
+              "guides/box-sign/suppress-sign-notifications"
+            ]
+          },
+          {
+            "group": "API Calls",
+            "pages": [
+              "guides/api-calls/index",
+              "guides/api-calls/api-versioning-strategy",
+              "guides/api-calls/language-codes",
+              "guides/api-calls/request-extra-fields",
+              "guides/api-calls/sorting",
+              "guides/api-calls/status-codes",
+              "guides/api-calls/types-and-formats",
+              "guides/api-calls/suppress-notifications",
+              "guides/api-calls/allowing-domain-access",
+              "guides/api-calls/ensure-consistency",
+              {
+                "group": "Pagination",
+                "pages": [
+                  "guides/api-calls/pagination/index",
+                  "guides/api-calls/pagination/marker-based",
+                  "guides/api-calls/pagination/offset-based"
+                ]
+              },
+              {
+                "group": "Permissions and Errors",
+                "pages": [
+                  "guides/api-calls/permissions-and-errors/index",
+                  "guides/api-calls/permissions-and-errors/common-errors",
+                  "guides/api-calls/permissions-and-errors/scopes",
+                  "guides/api-calls/permissions-and-errors/rate-limits",
+                  "guides/api-calls/permissions-and-errors/expiration",
+                  "guides/api-calls/permissions-and-errors/versioning-errors",
+                  "guides/api-calls/permissions-and-errors/app-diagnostics-report"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Files and Folders",
+            "pages": [
+              "guides/files/index",
+              "guides/files/get",
+              "guides/files/limitations",
+              {
+                "group": "Folders",
+                "pages": [
+                  "guides/folders/index",
+                  {
+                    "group": "Single Folder Operations",
+                    "pages": [
+                      "guides/folders/single/index",
+                      "guides/folders/single/create",
+                      "guides/folders/single/update",
+                      "guides/folders/single/rename",
+                      "guides/folders/single/move",
+                      "guides/folders/single/copy",
+                      "guides/folders/single/delete",
+                      "guides/folders/single/change-owner",
+                      "guides/folders/single/create-lock",
+                      "guides/folders/single/get-locks",
+                      "guides/folders/single/delete-lock"
+                    ]
+                  },
+                  {
+                    "group": "Bulk Operations",
+                    "pages": [
+                      "guides/folders/bulk/index",
+                      "guides/folders/bulk/build-folder-tree"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Uploads",
+            "pages": [
+              "guides/uploads/index",
+              "guides/uploads/check",
+              {
+                "group": "Direct Uploads",
+                "pages": [
+                  "guides/uploads/direct/index",
+                  "guides/uploads/direct/file",
+                  "guides/uploads/direct/file-version"
+                ]
+              },
+              {
+                "group": "Chunked Uploads",
+                "pages": [
+                  "guides/uploads/chunked/index",
+                  "guides/uploads/chunked/create-session",
+                  "guides/uploads/chunked/upload-part",
+                  "guides/uploads/chunked/commit-session",
+                  "guides/uploads/chunked/with-sdks",
+                  "guides/uploads/chunked/folder"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Downloads",
+            "pages": [
+              "guides/downloads/index",
+              "guides/downloads/file",
+              "guides/downloads/file-version",
+              "guides/downloads/folder",
+              "guides/downloads/shared-link",
+              "guides/downloads/zip-archive",
+              "guides/downloads/get-url",
+              "guides/downloads/in-browser"
+            ]
+          },
+          {
+            "group": "Search",
+            "pages": [
+              "guides/search/index",
+              "guides/search/1-indexing",
+              "guides/search/2-query-operators",
+              "guides/search/3-filtering",
+              "guides/search/4-pagination",
+              "guides/search/5-metadata-filters",
+              "guides/search/6-enterprise",
+              "guides/search/7-trash",
+              "guides/search/8-shared-links",
+              "guides/search/9-fields",
+              {
+                "group": "Quick Start",
+                "pages": [
+                  "guides/search/quick-start/0-index",
+                  "guides/search/quick-start/1-create-metadata-template",
+                  "guides/search/quick-start/2-locate-template-info",
+                  "guides/search/quick-start/3-apply-template-to-file",
+                  "guides/search/quick-start/4-metadata-query-api",
+                  "guides/search/quick-start/5-next-steps"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Metadata",
+            "pages": [
+              "guides/metadata/0-index",
+              "guides/metadata/1-scopes",
+              "guides/metadata/classifications",
+              {
+                "group": "Quick Start",
+                "pages": [
+                  "guides/metadata/1-quick-start/0-index",
+                  "guides/metadata/1-quick-start/1-list-all",
+                  "guides/metadata/1-quick-start/2-create-template",
+                  "guides/metadata/1-quick-start/3-create-instance",
+                  "guides/metadata/1-quick-start/4-update-instance",
+                  "guides/metadata/1-quick-start/5-update-template",
+                  "guides/metadata/1-quick-start/6-create-query",
+                  "guides/metadata/1-quick-start/7-next-steps"
+                ]
+              },
+              {
+                "group": "Templates",
+                "pages": [
+                  "guides/metadata/2-templates/0-index",
+                  "guides/metadata/2-templates/2-list",
+                  "guides/metadata/2-templates/3-get",
+                  "guides/metadata/2-templates/4-create",
+                  "guides/metadata/2-templates/5-update",
+                  "guides/metadata/2-templates/6-delete"
+                ]
+              },
+              {
+                "group": "Fields",
+                "pages": [
+                  "guides/metadata/3-fields/0-index",
+                  "guides/metadata/3-fields/1-string",
+                  "guides/metadata/3-fields/2-float",
+                  "guides/metadata/3-fields/3-date",
+                  "guides/metadata/3-fields/4-enum",
+                  "guides/metadata/3-fields/5-multi-select"
+                ]
+              },
+              {
+                "group": "Instances",
+                "pages": [
+                  "guides/metadata/4-instances/0-index",
+                  "guides/metadata/4-instances/1-list",
+                  "guides/metadata/4-instances/2-get",
+                  "guides/metadata/4-instances/3-create",
+                  "guides/metadata/4-instances/4-update",
+                  "guides/metadata/4-instances/5-delete"
+                ]
+              },
+              {
+                "group": "Queries",
+                "pages": [
+                  "guides/metadata/5-queries/0-index",
+                  "guides/metadata/5-queries/1-create",
+                  "guides/metadata/5-queries/2-syntax",
+                  "guides/metadata/5-queries/3-pagination",
+                  "guides/metadata/5-queries/4-errors",
+                  "guides/metadata/5-queries/5-limitations",
+                  "guides/metadata/5-queries/7-comparison"
+                ]
+              },
+              {
+                "group": "Cascades",
+                "pages": [
+                  "guides/metadata/6-cascades/0-index",
+                  "guides/metadata/6-cascades/1-list",
+                  "guides/metadata/6-cascades/2-get",
+                  "guides/metadata/6-cascades/3-create",
+                  "guides/metadata/6-cascades/4-force-apply",
+                  "guides/metadata/6-cascades/5-delete"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Collaborations",
+            "pages": [
+              "guides/collaborations/index",
+              "guides/collaborations/share-content",
+              "guides/collaborations/groups",
+              "guides/collaborations/pending",
+              {
+                "group": "Allowed Domains",
+                "pages": [
+                  "guides/collaborations/allowed-domains/index",
+                  "guides/collaborations/allowed-domains/create",
+                  "guides/collaborations/allowed-domains/list",
+                  "guides/collaborations/allowed-domains/delete"
+                ]
+              },
+              {
+                "group": "Connect Slack to Group Collaborations",
+                "pages": [
+                  "guides/collaborations/connect-slack-to-group-collabs/0-index",
+                  "guides/collaborations/connect-slack-to-group-collabs/1-configure-slack",
+                  "guides/collaborations/connect-slack-to-group-collabs/2-configure-box",
+                  "guides/collaborations/connect-slack-to-group-collabs/3-scaffold-application-code",
+                  "guides/collaborations/connect-slack-to-group-collabs/4-handle-slack-events",
+                  "guides/collaborations/connect-slack-to-group-collabs/5-connect-box-functions",
+                  "guides/collaborations/connect-slack-to-group-collabs/6-test-bot"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Shared Links",
+            "pages": [
+              "guides/shared-links/index",
+              "guides/shared-links/create-or-update",
+              "guides/shared-links/find-for-item",
+              "guides/shared-links/permissions",
+              "guides/shared-links/remove"
+            ]
+          },
+          {
+            "group": "Comments",
+            "pages": [
+              "guides/comments/index",
+              "guides/comments/create-comment",
+              "guides/comments/create-reply"
+            ]
+          },
+          {
+            "group": "Tasks",
+            "pages": [
+              "guides/tasks/index",
+              "guides/tasks/1-create",
+              "guides/tasks/2-get",
+              "guides/tasks/3-for-file",
+              "guides/tasks/4-update",
+              "guides/tasks/5-delete",
+              {
+                "group": "Task Assignments",
+                "pages": [
+                  "guides/tasks/assignments/0-index",
+                  "guides/tasks/assignments/1-assign",
+                  "guides/tasks/assignments/2-unassign",
+                  "guides/tasks/assignments/3-update-message",
+                  "guides/tasks/assignments/4-get",
+                  "guides/tasks/assignments/5-list",
+                  "guides/tasks/assignments/6-change-state"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Events",
+            "pages": [
+              "guides/events/index",
+              {
+                "group": "User Events",
+                "pages": [
+                  "guides/events/user-events/index",
+                  "guides/events/user-events/for-user",
+                  "guides/events/user-events/polling"
+                ]
+              },
+              {
+                "group": "Enterprise Events",
+                "pages": [
+                  "guides/events/enterprise-events/index",
+                  "guides/events/enterprise-events/for-enterprise",
+                  "guides/events/enterprise-events/migrate-to-stream"
+                ]
+              },
+              {
+                "group": "Event Triggers",
+                "pages": [
+                  "guides/events/event-triggers/index",
+                  "guides/events/event-triggers/event-source",
+                  "guides/events/event-triggers/sign-events",
+                  "guides/events/event-triggers/shield-alert-events",
+                  "guides/events/event-triggers/shield-information-barrier-events",
+                  "guides/events/event-triggers/shield-smart-access-events"
+                ]
+              },
+              {
+                "group": "Parameters",
+                "pages": [
+                  "guides/events/parameters/index",
+                  "guides/events/parameters/pagination",
+                  "guides/events/parameters/stream-types"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "guides/webhooks/index",
+              "guides/webhooks/triggers",
+              {
+                "group": "Webhooks V1",
+                "pages": [
+                  "guides/webhooks/v1/index",
+                  "guides/webhooks/v1/create-v1",
+                  "guides/webhooks/v1/delete-v1"
+                ]
+              },
+              {
+                "group": "Webhooks V2",
+                "pages": [
+                  "guides/webhooks/v2/index",
+                  "guides/webhooks/v2/create-v2",
+                  "guides/webhooks/v2/list-v2",
+                  "guides/webhooks/v2/update-v2",
+                  "guides/webhooks/v2/delete-v2",
+                  "guides/webhooks/v2/signatures-v2",
+                  "guides/webhooks/v2/limitations-v2"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Document Generation",
+            "pages": [
+              "guides/docgen/index",
+              "guides/docgen/docgen-getting-started",
+              "guides/docgen/mark-template",
+              "guides/docgen/docgen-templates",
+              "guides/docgen/generate-document",
+              "guides/docgen/docgen-jobs"
+            ]
+          },
+          {
+            "group": "Representations",
+            "pages": [
+              "guides/representations/index",
+              "guides/representations/supported-file-types",
+              "guides/representations/request-a-representation",
+              "guides/representations/list-all-representations",
+              "guides/representations/download-a-representation",
+              "guides/representations/thumbnail-representation",
+              "guides/representations/thumbnail",
+              "guides/representations/text",
+              "guides/representations/pdf"
+            ]
+          },
+          {
+            "group": "Embed",
+            "pages": [
+              "guides/embed/index",
+              "guides/embed/box-embed",
+              {
+                "group": "Box View",
+                "pages": [
+                  "guides/embed/box-view/index",
+                  "guides/embed/box-view/setup",
+                  "guides/embed/box-view/upload-file",
+                  "guides/embed/box-view/create-preview",
+                  "guides/embed/box-view/best-practices",
+                  "guides/embed/box-view/faq"
+                ]
+              },
+              {
+                "group": "UI Elements",
+                "pages": [
+                  "guides/embed/ui-elements/index",
+                  "guides/embed/ui-elements/installation",
+                  "guides/embed/ui-elements/access",
+                  "guides/embed/ui-elements/scopes",
+                  "guides/embed/ui-elements/explorer",
+                  "guides/embed/ui-elements/explorer-metadata",
+                  "guides/embed/ui-elements/picker",
+                  "guides/embed/ui-elements/uploader",
+                  "guides/embed/ui-elements/preview",
+                  "guides/embed/ui-elements/sidebar",
+                  "guides/embed/ui-elements/browser",
+                  "guides/embed/ui-elements/annotations",
+                  "guides/embed/ui-elements/open-with",
+                  "guides/embed/ui-elements/logo",
+                  "guides/embed/ui-elements/custom-domains",
+                  "guides/embed/ui-elements/theming-styling",
+                  "guides/embed/ui-elements/ui-elements-design-tokens",
+                  "guides/embed/ui-elements/viewers-and-events"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Users",
+            "pages": [
+              "guides/users/index",
+              "guides/users/create-app-user",
+              "guides/users/create-managed-user",
+              "guides/users/delete-user",
+              "guides/users/bulk-delete-external-users",
+              {
+                "group": "User Provisioning",
+                "pages": [
+                  "guides/users/provision/index",
+                  "guides/users/provision/architecture",
+                  "guides/users/provision/shared-folders",
+                  "guides/users/provision/populate-content"
+                ]
+              },
+              {
+                "group": "User Deprovisioning",
+                "pages": [
+                  "guides/users/deprovision/index",
+                  "guides/users/deprovision/transfer-folders"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "SSO Identities and App Users",
+            "pages": [
+              "guides/sso-identities-and-app-users/index",
+              "guides/sso-identities-and-app-users/1-connect-identities",
+              "guides/sso-identities-and-app-users/2-create-app-user",
+              "guides/sso-identities-and-app-users/3-find-app-user",
+              {
+                "group": "Connect Okta to App Users",
+                "pages": [
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/0-index",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/1-scaffold-application-code",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/2-configure-okta",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/3-configure-box",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/4-logging-into-app",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/5-find-or-create-box-users",
+                  "guides/sso-identities-and-app-users/connect-okta-to-app-users/6-run-the-app"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Collections",
+            "pages": [
+              "guides/collections/index",
+              "guides/collections/list",
+              "guides/collections/list-items",
+              "guides/collections/add",
+              "guides/collections/remove"
+            ]
+          },
+          {
+            "group": "File Requests",
+            "pages": [
+              "guides/file-requests/index",
+              "guides/file-requests/1-template",
+              "guides/file-requests/2-copy",
+              "guides/file-requests/3-get",
+              "guides/file-requests/4-update",
+              "guides/file-requests/5-delete"
+            ]
+          },
+          {
+            "group": "Web Links",
+            "pages": [
+              "guides/web-links/index",
+              "guides/web-links/create",
+              "guides/web-links/delete"
+            ]
+          },
+          {
+            "group": "Trash",
+            "pages": [
+              "guides/trash/index",
+              "guides/trash/restore-file",
+              "guides/trash/restore-folder",
+              "guides/trash/restore-web-link",
+              "guides/trash/permanently-delete-file",
+              "guides/trash/permanently-delete-folder",
+              "guides/trash/permanently-delete-web-link"
+            ]
+          },
+          {
+            "group": "Archives",
+            "pages": [
+              "guides/archives/index",
+              "guides/archives/supported-apis",
+              "guides/archives/add-content",
+              "guides/archives/restore-content"
+            ]
+          },
+          {
+            "group": "Legal Holds",
+            "pages": [
+              "guides/legal-holds/index",
+              "guides/legal-holds/list",
+              "guides/legal-holds/get"
+            ]
+          },
+          {
+            "group": "Retention Policies",
+            "pages": [
+              "guides/retention-policies/index",
+              "guides/retention-policies/list",
+              "guides/retention-policies/get"
+            ]
+          },
+          {
+            "group": "Skills",
+            "pages": [
+              "guides/skills/index",
+              "guides/skills/kit",
+              "guides/skills/invocation-url",
+              {
+                "group": "Handle Skills",
+                "pages": [
+                  "guides/skills/handle/index",
+                  "guides/skills/handle/setup",
+                  "guides/skills/handle/payload",
+                  "guides/skills/handle/metadata"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Integration Mappings",
+            "pages": [
+              "guides/integration-mappings/index",
+              {
+                "group": "Slack Mappings",
+                "pages": [
+                  "guides/integration-mappings/slack-mappings/index",
+                  "guides/integration-mappings/slack-mappings/setup",
+                  "guides/integration-mappings/slack-mappings/create-mapping",
+                  "guides/integration-mappings/slack-mappings/list-mappings",
+                  "guides/integration-mappings/slack-mappings/update-mapping",
+                  "guides/integration-mappings/slack-mappings/delete-mapping",
+                  "guides/integration-mappings/slack-mappings/troubleshooting"
+                ]
+              },
+              {
+                "group": "Teams Mappings",
+                "pages": [
+                  "guides/integration-mappings/teams-mappings/index",
+                  "guides/integration-mappings/teams-mappings/create-mappings",
+                  "guides/integration-mappings/teams-mappings/list-mappings",
+                  "guides/integration-mappings/teams-mappings/update-mappings",
+                  "guides/integration-mappings/teams-mappings/delete-mappings"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "guides/security/index",
+              "guides/security/cors",
+              "guides/security/device-pinners",
+              "guides/security/fedramp",
+              {
+                "group": "Terms of Service",
+                "pages": [
+                  "guides/security/terms-of-service/index",
+                  "guides/security/terms-of-service/flow",
+                  "guides/security/terms-of-service/permissions",
+                  "guides/security/terms-of-service/for-colaboration"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Developer Tools",
+            "pages": [
+              "guides/tooling/index",
+              {
+                "group": "CLI",
+                "pages": [
+                  "guides/cli/index",
+                  {
+                    "group": "Quick Start",
+                    "pages": [
+                      "guides/cli/quick-start/0-index",
+                      "guides/cli/quick-start/1-create-oauth-app",
+                      "guides/cli/quick-start/2-install-and-configure",
+                      "guides/cli/quick-start/3-build-commands-help",
+                      "guides/cli/quick-start/4-options-and-bulk-commands",
+                      "guides/cli/quick-start/5-powershell-script-templates",
+                      "guides/cli/quick-start/6-next-steps"
+                    ]
+                  },
+                  {
+                    "group": "CLI Documentation",
+                    "pages": [
+                      "guides/cli/cli-docs/index",
+                      "guides/cli/cli-docs/bulk-commands",
+                      "guides/cli/cli-docs/jwt-cli"
+                    ]
+                  },
+                  {
+                    "group": "Scripts",
+                    "pages": [
+                      "guides/cli/scripts/index",
+                      "guides/cli/scripts/provision-users-folders",
+                      "guides/cli/scripts/deprovision-users",
+                      "guides/cli/scripts/report-inactive-users",
+                      "guides/cli/scripts/user-zones-mass-update",
+                      "guides/cli/scripts/manage-groups-collaborations",
+                      "guides/cli/scripts/metadata-extraction",
+                      "guides/cli/scripts/slack-integration-mappings"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Postman",
+                "pages": [
+                  "guides/tooling/postman/index",
+                  "guides/tooling/postman/install",
+                  "guides/tooling/postman/access-token",
+                  "guides/tooling/postman/make-api-call",
+                  "guides/tooling/postman/refresh",
+                  {
+                    "group": "Quick Start",
+                    "pages": [
+                      "guides/tooling/postman/quick-start/0-index",
+                      "guides/tooling/postman/quick-start/1-install-postman",
+                      "guides/tooling/postman/quick-start/2-configure-box-app",
+                      "guides/tooling/postman/quick-start/3-log-in-to-box",
+                      "guides/tooling/postman/quick-start/4-load-postman-collection",
+                      "guides/tooling/postman/quick-start/5-make-api-call",
+                      "guides/tooling/postman/quick-start/6-next-steps"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SDKs",
+                "pages": [
+                  "guides/tooling/sdks/index",
+                  "guides/tooling/sdks/node",
+                  "guides/tooling/sdks/python",
+                  "guides/tooling/sdks/python-gen",
+                  "guides/tooling/sdks/java",
+                  "guides/tooling/sdks/dotnet",
+                  "guides/tooling/sdks/dotnet-gen",
+                  "guides/tooling/sdks/swift-gen",
+                  "guides/tooling/sdks/typescript-gen",
+                  "guides/tooling/sdks/salesforce"
+                ]
+              },
+              {
+                "group": "Salesforce Toolkit",
+                "pages": [
+                  "guides/tooling/salesforce-toolkit/index",
+                  "guides/tooling/salesforce-toolkit/ui-elements",
+                  "guides/tooling/salesforce-toolkit/methods",
+                  "guides/tooling/salesforce-toolkit/samples",
+                  "guides/tooling/salesforce-toolkit/flow-actions",
+                  "guides/tooling/salesforce-toolkit/box-agentforce-package"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Mobile",
+            "pages": [
+              "guides/mobile/0-index",
+              "guides/mobile/mobile-deep-linking",
+              {
+                "group": "iOS",
+                "pages": [
+                  "guides/mobile/ios/index",
+                  {
+                    "group": "Quick Start",
+                    "pages": [
+                      "guides/mobile/ios/quick-start/0-index",
+                      "guides/mobile/ios/quick-start/1-create-ios-app",
+                      "guides/mobile/ios/quick-start/2-install-ios-sdk",
+                      "guides/mobile/ios/quick-start/3-configure-box-app",
+                      "guides/mobile/ios/quick-start/4-make-api-call",
+                      "guides/mobile/ios/quick-start/5-next-steps"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Android",
+                "pages": [
+                  "guides/mobile/android/index",
+                  "guides/mobile/android/install"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Internal Documentation",
+            "pages": [
+              "guides/internal-documentation/index",
+              {
+                "group": "Architecture",
+                "pages": [
+                  "guides/internal-documentation/architecture/0-index",
+                  "guides/internal-documentation/architecture/1-sources",
+                  "guides/internal-documentation/architecture/2-build",
+                  "guides/internal-documentation/architecture/3-publication"
+                ]
+              },
+              {
+                "group": "Flow",
+                "pages": [
+                  "guides/internal-documentation/flow/index",
+                  "guides/internal-documentation/flow/app-button",
+                  "guides/internal-documentation/flow/choices",
+                  "guides/internal-documentation/flow/login",
+                  "guides/internal-documentation/flow/next",
+                  "guides/internal-documentation/flow/observer",
+                  "guides/internal-documentation/flow/store"
+                ]
+              },
+              {
+                "group": "Markdown",
+                "pages": [
+                  "guides/internal-documentation/markdown/index",
+                  "guides/internal-documentation/markdown/frontmatter",
+                  "guides/internal-documentation/markdown/code-blocks",
+                  "guides/internal-documentation/markdown/internal-links",
+                  "guides/internal-documentation/markdown/links",
+                  "guides/internal-documentation/markdown/tables"
+                ]
+              },
+              {
+                "group": "UI Elements",
+                "pages": [
+                  "guides/internal-documentation/ui-elements/index",
+                  "guides/internal-documentation/ui-elements/cta",
+                  "guides/internal-documentation/ui-elements/grid",
+                  "guides/internal-documentation/ui-elements/header",
+                  "guides/internal-documentation/ui-elements/imageframe",
+                  "guides/internal-documentation/ui-elements/message",
+                  "guides/internal-documentation/ui-elements/postman",
+                  "guides/internal-documentation/ui-elements/samples",
+                  "guides/internal-documentation/ui-elements/tabs"
+                ]
+              },
+              "guides/internal/ui-elements/notification"
             ]
           }
         ]
@@ -55,21 +1019,21 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Community",
+          "href": "https://community.box.com/box-platform-5",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://blog.box.com",
           "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/boxdev-light.png",
+    "dark": "/logo/boxdev-dark.svg"
   },
   "navbar": {
     "links": [
@@ -98,9 +1062,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/box",
+      "github": "https://github.com/box-community",
+      "linkedin": "https://linkedin.com/company/box"
     }
   }
 }
