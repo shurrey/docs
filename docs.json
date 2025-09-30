@@ -1016,7 +1016,10 @@
       },
       {
         "tab": "API reference",
-        "openapi": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json"
+        "openapi": {
+          "source": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json",
+          "directory": "reference"
+        }
       }
     ],
     "global": {
