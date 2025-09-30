@@ -3,9 +3,12 @@
   "theme": "mint",
   "name": "Box Developer Documentation",
   "colors": {
-    "primary": "#003C84",
-    "light": "#FBFBFB",
-    "dark": "#222222"
+    "primary": "#0061d5",
+    "light": "#f6fafd",
+    "dark": "#002947"
+  },
+  "font": {
+    "family": "Inter"
   },
   "favicon": "/favicon.ico",
   "navigation": {
@@ -1038,14 +1041,18 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Community",
+        "href": "https://community.box.com/box-platform-5"
+      },
+      {
+        "label": "Blog",
+        "href": "https://blog.box.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "My Platform Apps",
+      "href": "https://account.box.com/developers/console"
     }
   },
   "contextual": {
