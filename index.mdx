@@ -1,97 +1,299 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+mode: "custom"
+title: "Box Docs"
 ---
 
-## Setting up
-
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
+<div className="w-full">
+  <div
+    style={{
+      maxWidth: '70rem',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      paddingLeft: '1.25rem',
+      paddingRight: '1.25rem',
+      paddingTop: '4rem',
+      paddingBottom: '4rem',
+    }}
   >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+    <div className="flex flex-col lg:flex-row items-center gap-10 mb-16">
+      <div className="w-full lg:w-1/2 text-left">
+        <h2 className="text-5xl text-gray-900 dark:text-white font-inter font-bold">
+         Manage users with <span style={{ background: 'linear-gradient(90deg, #E1AD4A, #C937E4, #1DBAF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Box Platform</span>
+        </h2>
+        <p className="mt-4 text-xl text-[#6d6e79] dark:text-[#a1a1a3] font-normal" style={{ maxWidth: '50rem' }}>
+          All the developer resources to help you get the most from Box products
+        </p>
+        <div className="mt-6 flex  gap-2 items-center">
+          <a href="/platform" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+            Get Started
+          </a>
+          <a href="https://account.box.com/signup/n/developer#ty9l3" className="inline-flex items-center rounded-md border  border-[#0061D5] px-5 py-3 dark:text-white  focus:outline-none">
+            Sign up
+          </a>
+        </div>
+      </div>
+      <div className="w-full lg:w-1/2">
+        <img src="https://developer.box.com/static/84746c44604f2594d1b3c04861c541e0/55de1/platform.webp" className="w-full max-h-96 object-contain" />
+      </div>
+    </div>
 
-## Create beautiful pages
+    <div className="flex flex-col lg:flex-row items-center gap-10 mt-16 mb-16">
+      <div className="w-full lg:w-1/2">
+        <img src="https://developer.box.com/static/aiDevZone-0c5adc8702e2d10e6f9bb400ae78a71a.png" className="w-full max-h-96 object-contain" />
+      </div>
+      <div className="w-full lg:w-1/2 text-left">
+        <span className="px-2 rounded-full bg-orange-500 text-white">FEATURED</span>
+        <h2 className="text-3xl text-gray-900 dark:text-white font-bold">
+          Box AI Developer Zone
+        </h2>
+        <p className="mt-4 text-md text-[#6d6e79] dark:text-[#a1a1a3] font-normal" style={{ maxWidth: '50rem' }}>
+          Use our interactive AI demos to try out prompts with AI responses, view sample code, documentation and more!
+        </p>
+        <div className="mt-6 flex  gap-2 items-center">
+          <a href="https://developer.box.com/ai-dev-zone" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+          Try it out!
+          </a>
+        </div>
+      </div>
+    </div>
 
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
+<CardGroup cols={3}>
   <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
+    title="1. Explore User Types"
+    href="https://developer.box.com/platform/user-types"
+    icon="users"
   >
-    Use MDX to style your docs pages.
+Box Platform covers many use cases that may require different user types. Learn more about the difference between the types.
   </Card>
+
   <Card
-    title="Code samples"
+    title="2. Understand Application Types"
+    href="/guides/applications/app-types/select/"
+    icon="grid"
+  >
+When creating applications, you can choose from several types. Read this guide to see which one fits your needs best.
+  </Card>
+
+  <Card
+    title="3. Learn Authentication Methods"
+    href="/guides/authentication/select/"
+    icon="key"
+  >
+Box Platform supports OAuth 2.0, JSON Web Token(JWT), Client Credentials, and App Token authentication. Learn more and select the method that applies to your app.
+  </Card>
+
+  <Card
+    title="4. Create the Application"
+    href="https://app.box.com/developers/console"
+    icon="plus"
+  >
+Now, you can start building! Launch the Developer Console and create an application of your choice.
+  </Card>
+
+  <Card
+    title="5. Authorize the Application"
+    href="/guides/authorization/"
+    icon="shield-check"
+  >
+Read about the authorization requirements you have to fulfill to start using your app.
+  </Card>
+
+  <Card
+    title="6. Start Coding"
+    href="https://developer.box.com/#sdks-and-tools"
     icon="code"
-    href="/essentials/code"
   >
-    Add sample code to demonstrate how to use your product.
+Finally, explore our developer toolkit: API Reference, SDKs, Box CLI, Postman Collection, Box UI Elements and much more!
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+</CardGroup>
 
-## Need inspiration?
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+    <div className="flex flex-col lg:flex-row items-center gap-10 mt-16 mb-20">
+      <div className="w-full lg:w-1/2">
+        <img src="https://developer.box.com/static/community-b99743349785abbd327f199ee91e0099.png" className="w-full max-h-96 object-contain" />
+      </div>
+      <div className="w-full lg:w-1/2 text-left">
+        <span className="px-2 rounded-full bg-purple-500 text-white">New</span>
+        <h2 className="text-3xl text-gray-900 dark:text-white font-inter font-bold">
+         Box Developer Community forum
+        </h2>
+        <p className="mt-4 text-md text-[#6d6e79] dark:text-[#a1a1a3] font-normal" style={{ maxWidth: '50rem' }}>
+         Connect with other learners and experts on our Box community forum. Ask and answer questions, share resources, and learn together.
+        </p>
+        <div className="mt-6 flex  gap-2 items-center">
+          <a href="https://community.box.com" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+           Join the Community
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <div className="flex flex-col w-full gap-4" style={{ marginTop: '4rem', marginBottom: '2rem' }}>
+    <h2
+      className="text-gray-900 text-center dark:text-gray-200 font-semibold text-3xl"
+    >
+    Browse by SDK and developer tools
+    </h2>
+   <p className="text-center">Development with Box Platform is easy with SDKs, Box CLI, Postman collection, front-end UI elements, and much more.</p>
+  </div>
+
+<CardGroup cols={3}>
+  <Card
+    title="API Reference"
+    href="/reference/"
+    icon="book-open" 
+    horizontal
+  />
+  <Card
+    title="Python SDK"
+    href="https://github.com/box/box-python-sdk#readme"
+    icon="python"
+    horizontal
+  />
+
+  <Card
+    title="Box Java SDK"
+    href="https://github.com/box/box-java-sdk#readme"
+    icon="java"
+    horizontal
+  />
+  <Card
+    title="Node SDK"
+    href="https://github.com/box/box-node-sdk#readme"
+    icon="node"
+    horizontal
+  />
+
+  <Card
+    title="Box .NET SDK"
+    href="https://github.com/box/box-windows-sdk-v2#readme"
+    icon="windows"
+    horizontal
+  />
+
+
+  <Card
+    title="Box iOS SDK"
+    href="https://github.com/box/box-ios-sdk#readme"
+    icon="mobile"
+    horizontal
+  />
+
+</CardGroup>
+
+<div className="mt-6 flex justify-center mt-8 gap-2 items-center">
+  <a href="/guides" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+    Browse all guides
+  </a>
+</div>
+
+     <div className="flex flex-col lg:flex-row items-center gap-10 mt-16 mb-16">
+      <div className="w-full lg:w-1/2">
+        <img src="https://developer.box.com/static/sampleCode-8b199ae30bbb8e391ad1ac821e212577.png" className="w-full max-h-96 object-contain" />
+      </div>
+      <div className="w-full lg:w-1/2 text-left">
+        <span className="px-2 rounded-full mb-2 bg-purple-500 text-white">FEATURED</span>
+        <h2 className="text-3xl text-gray-900 dark:text-white font-inter font-bold">
+        Kickstart your project
+        </h2>
+        <p className="mt-4 text-md text-[#6d6e79] dark:text-[#a1a1a3] font-normal" style={{ maxWidth: '50rem' }}>
+        Use Box Sample Code Catalog to find useful scripts, app examples, and inspiring use cases! Browse 80+ open-source repositories in various programming languages.
+        </p>
+        <div className="mt-6 flex  gap-2 items-center">
+          <a href="https://developer.box.com/sample-code" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+           Browse sample code
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  <div className="flex flex-col w-full gap-4" style={{ paddingTop: '4rem', marginBottom: '2rem' }}>
+    <h2
+      className="text-gray-900 text-center dark:text-gray-200 font-semibold text-3xl"
+    >
+    Additional Box Platform concepts
+    </h2>
+   <p className="text-center">Want to learn more? Use these guides to discover supplementary information on the inner workings of Box Platform, broaden your understanding, and improve your platform applications.</p>
+  </div>
+<CardGroup cols={3}>
+  <Card
+    title="Downloads"
+    href="/guides/downloads/"
+    icon="download"
+  >
+Use Box API to download files to the application's server, or directly by the end user in a browser.
+  </Card>
+
+  <Card
+    title="Uploads"
+    href="/guides/uploads/"
+    icon="upload"
+  >
+Upload your files directly with the file upload API or use the chunked upload APIs for larger files.
+  </Card>
+
+  <Card
+    title="Errors"
+    href="/guides/api-calls/permissions-and-errors/common-errors/"
+    icon="ban"
+  >
+Browse the common errors reference to learn more about HTTP status codes used to communicate issues with request processing.
+  </Card>
+
+  <Card
+    title="Metadata"
+    href="/guides/metadata/"
+    icon="tag"
+  >
+Explore how metadata allows users and applications to define and store custom data associated with files and folders.
+  </Card>
+
+  <Card
+    title="Webhooks"
+    href="/guides/webhooks/"
+    icon="bell"
+  >
+Use Webhooks to monitor Box content for events, and receive notifications to a URL of your choice when they occur.
+  </Card>
+
+  <Card
+    title="Search"
+    href="/guides/search/"
+    icon="terminal"
+  >
+Find relevant content in Box using full-text search queries. Box search API is supported in all our SDKs and the CLI.
+  </Card>
+</CardGroup>
+
+
+<div className="mt-6 flex justify-center mt-8 gap-2 items-center">
+  <a href="/guides" className="inline-flex items-center rounded-md bg-[#0061D5] px-5 py-3 text-white hover:bg-[#0066b7] focus:outline-none">
+    Browse all guides
+  </a>
+</div>
+
+  <div className="flex flex-col w-full gap-4" style={{ paddingTop: '4rem', marginBottom: '2rem' }}>
+    <h2
+      className="text-gray-900 text-center dark:text-gray-200 font-semibold text-3xl"
+    >
+    Additional resources
+    </h2>
+  </div>
+
+
+  <CardGroup cols={3}>
+  <Card title="Box Youtube" img="https://developer.box.com/static/youtube-4b00ece2f31d41a64513d3219df4d2d6.png" href="https://www.youtube.com/@box/videos" cta="View Channel">
+  Check out our channel for tutorials, training, product news, and more.
+  </Card>
+
+    <Card title="Developer Newsletter" img="https://developer.box.com/static/newsletter-5b2bbd0f6b05b700e9c4e294939b254a.png" href="https://developer.box.com/newsletter" cta="Browse Newsletter">
+    Stay up to date with the top developer events, product releases, and community highlights.
+  </Card>
+
+    <Card title="Box Developer Blog" img="https://developer.box.com/static/blog-ada038914ffeaaf41706870fc0f8d074.png" href="https://developer.box.com/newsletter" cta="Visit Box Developer Blog">
+    Read news, updates and tutorials on Box APIs, SDKs and gain useful developers' and admins' insights.
+  </Card>
+  </CardGroup>
+  </div>
+</div>

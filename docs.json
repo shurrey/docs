@@ -380,8 +380,8 @@
           {
             "group": "Metadata",
             "pages": [
-              "guides/metadata/0-index",
-              "guides/metadata/1-scopes",
+              "guides/metadata/index",
+              "guides/metadata/scopes",
               "guides/metadata/classifications",
               {
                 "group": "Quick Start",
