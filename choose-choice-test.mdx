@@ -2,7 +2,7 @@
 title: "Choose & Choice Components Test"
 ---
 
-import { Choose, Choice, Grid, Trigger, Observe, ChoiceDebug } from "/snippets/choose-choice-components.jsx"
+import { Choose, Choice, Grid, Trigger, Observe, ChoiceDebug } from '/snippets/choose-choice-components.jsx';
 
 # Choose & Choice Components Test
 
@@ -18,22 +18,22 @@ This page tests the interactive Choose and Choice components to ensure they work
 
 **Select one of the options below to see conditional content appear:**
 
-<Grid columns='3'>
-  <Choose option='test.app_type' value='use_ours' color='green'>
+<Grid columns={3}>
+  <Choose option="test.app_type" value="use_ours" color="green">
     # Use our Box App
 
     If you don't have access to Box AI in your Box instance, you can still
     experiment with the Box AI API by using our preconfigured Box App.
   </Choose>
 
-  <Choose option='test.app_type' value='create_new' color='blue'>
+  <Choose option="test.app_type" value="create_new" color="blue">
     # Create new Box App
 
     We can set up a Box App for you right here from the documentation. With a
     few clicks you will be ready to go!
   </Choose>
 
-  <Choose option='test.app_type' value='use_existing' color='red'>
+  <Choose option="test.app_type" value="use_existing" color="red">
     # Use existing Box App
 
     If you've already created a Box App before that you want to use, then we
@@ -45,22 +45,24 @@ This page tests the interactive Choose and Choice components to ensure they work
 
 **Note:** The content below will appear when you make a choice above. This is the expected behavior of the Choice components.
 
-<Choice option='test.app_type' value='create_new' color='blue'>
+<Choice option="test.app_type" value="create_new" color="blue">
   # Create a Box App
 
   To use your own **Box App** you will need to create a
   new Box App in the **Box Developer Console**.
 
   <Trigger option="test.app_type" value="clicked">
-    **Click here to simulate app creation**
+    <button style={{background: '#0061d5', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', margin: '10px 0'}}>
+      Click here to simulate app creation
+    </button>
   </Trigger>
 
-  <Observe option="test.app_type" value="clicked">
+  <Choice option="test.app_type" value="clicked" color="none">
     ✅ **App created!** We will use these credentials to authenticate in the next step.
-  </Observe>
+  </Choice>
 </Choice>
 
-<Choice option='test.app_type' value='use_existing' color='red'>
+<Choice option="test.app_type" value="use_existing" color="red">
   # Use existing Box App
 
   If you have already created a Box App before you can use that as well. We
@@ -75,7 +77,7 @@ This page tests the interactive Choose and Choice components to ensure they work
   **Your Client ID and Client Secret will be needed for the next step.**
 </Choice>
 
-<Choice option='test.app_type' value='use_ours' color='green'>
+<Choice option="test.app_type" value="use_ours" color="green">
   # Using Our Preconfigured App
 
   Great! You've selected to use our preconfigured Box App. This means:
@@ -88,20 +90,20 @@ This page tests the interactive Choose and Choice components to ensure they work
 
 ## Multi-Value Choice Display
 
-<Choice option='test.app_type' value='create_new,use_existing,clicked' color='none'>
+<Choice option="test.app_type" value="create_new,use_existing,clicked" color="none">
 
-<Note>
+<div style={{background: '#fff3cd', border: '1px solid #ffeaa7', padding: '15px', borderRadius: '4px', margin: '20px 0'}}>
 **Security Notice**
 
 Your API credentials are now configured. We recommend clearing your browser cache
 when you're done with this tutorial for security purposes.
-</Note>
+</div>
 
 </Choice>
 
 ## Summary Section
 
-<Choice option='test.app_type' value='use_ours,create_new,use_existing,clicked' color='none'>
+<Choice option="test.app_type" value="use_ours,create_new,use_existing,clicked" color="none">
 
 ## Summary
 
@@ -115,41 +117,35 @@ You have successfully configured your Box App setup:
 
 ## Unset State Example
 
-<Grid columns='2'>
-  <Choose option='test.demo' value='option1' color='blue'>
+<Grid columns={2}>
+  <Choose option="test.demo" value="option1" color="blue">
     # Option 1
     Click me to see the change below
   </Choose>
 
-  <Choose option='test.demo' value='option2' color='red'>
+  <Choose option="test.demo" value="option2" color="red">
     # Option 2
     Click me to see the change below
   </Choose>
 </Grid>
 
-<Choice option='test.demo' unset>
+<Choice option="test.demo" unset={true}>
 **Default state:** No option has been selected yet. Choose an option above to see conditional content.
 </Choice>
 
-<Choice option='test.demo' value='option1' color='blue'>
+<Choice option="test.demo" value="option1" color="blue">
 You selected **Option 1**! This content only appears when Option 1 is chosen.
 </Choice>
 
-<Choice option='test.demo' value='option2' color='red'>
+<Choice option="test.demo" value="option2" color="red">
 You selected **Option 2**! This content only appears when Option 2 is chosen.
 </Choice>
 
-## Observe Component Test
-
-<Observe option='test.app_type' value='use_ours,create_new,use_existing,clicked'>
-🎉 **Great!** You've made a choice above. This Observe component only shows when any app type is selected.
-</Observe>
-
 ## Debug Information
 
-<ChoiceDebug option='test.app_type' />
+<ChoiceDebug option="test.app_type" />
 
-<ChoiceDebug option='test.demo' />
+<ChoiceDebug option="test.demo" />
 
 ---
 

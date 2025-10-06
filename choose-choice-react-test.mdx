@@ -1,0 +1,61 @@
+---
+title: "Choose & Choice React Components Test"
+---
+
+<script src="/snippets/choose-choice-simple.js"></script>
+
+# Choose & Choice React Components Test
+
+This page uses React-based Choose and Choice components loaded via a script tag.
+
+**How it works:**
+- The components are loaded via a script tag and registered on `window`
+- React components are available globally: `window.Choose`, `window.Choice`, etc.
+- Selections persist across page refreshes using localStorage
+
+## Basic Choice Selection
+
+**Select one of the options below to see conditional content appear:**
+
+<div id="app-type-grid"></div>
+
+<script>
+{`
+if (typeof window !== 'undefined' && window.React && window.Grid && window.Choose) {
+  const container = document.getElementById('app-type-grid');
+  if (container) {
+    const root = window.ReactDOM?.createRoot ? window.ReactDOM.createRoot(container) : null;
+    if (root) {
+      root.render(
+        window.React.createElement(window.Grid, { columns: 3 }, [
+          window.React.createElement(window.Choose, {
+            key: 'use_ours',
+            option: 'test.app_type',
+            value: 'use_ours',
+            color: 'green'
+          }, '# Use our Box App\\n\\nIf you don\\'t have access to Box AI in your Box instance, you can still experiment with the Box AI API by using our preconfigured Box App.'),
+          window.React.createElement(window.Choose, {
+            key: 'create_new',
+            option: 'test.app_type',
+            value: 'create_new',
+            color: 'blue'
+          }, '# Create new Box App\\n\\nWe can set up a Box App for you right here from the documentation. With a few clicks you will be ready to go!'),
+          window.React.createElement(window.Choose, {
+            key: 'use_existing',
+            option: 'test.app_type',
+            value: 'use_existing',
+            color: 'red'
+          }, '# Use existing Box App\\n\\nIf you\\'ve already created a Box App before that you want to use, then we can use the credentials for that application.')
+        ])
+      );
+    }
+  }
+}
+`}
+</script>
+
+## Test Results
+
+This is a simplified test page. The full interactive test requires React to be available in the Mintlify environment.
+
+For the working implementation, see the [Simple Choose & Choice Test](/choose-choice-simple-test) which uses plain HTML and JavaScript.

@@ -1,5 +1,11 @@
-// Use React from global scope (provided by Mintlify)
-const { useState, useEffect } = React;
+(function() {
+  'use strict';
+
+  // Ensure React is available globally
+  if (typeof React === 'undefined' && typeof window !== 'undefined') {
+    console.error('React is not available. Make sure React is loaded before this script.');
+    return;
+  }
 
 // Choice State Manager
 // Handles persistent choice storage and event management for Choose/Choice components
@@ -42,11 +48,9 @@ class ChoiceStateManager {
       }
     });
 
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('choiceStateUpdate', {
-        detail: { option, value, oldValue }
-      }));
-    }
+    window.dispatchEvent(new CustomEvent('choiceStateUpdate', {
+      detail: { option, value, oldValue }
+    }));
   }
 
   listen(option, callback) {
@@ -90,63 +94,82 @@ class ChoiceStateManager {
 if (typeof window !== 'undefined' && !window.choiceStateManager) {
   window.choiceStateManager = new ChoiceStateManager();
 
+  // Global utility functions
   window.triggerChoice = function(option, value) {
-    window.choiceStateManager?.trigger(option, value);
+    if (window.choiceStateManager) {
+      window.choiceStateManager.trigger(option, value);
+    }
   };
 
   window.getChoiceValue = function(option) {
-    return window.choiceStateManager?.getValue(option);
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.getValue(option);
+    }
+    return undefined;
   };
 
   window.listenToChoice = function(option, callback) {
-    return window.choiceStateManager?.listen(option, callback) || (() => {});
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.listen(option, callback);
+    }
+    return () => {};
   };
 
   window.hasChoiceValue = function(option) {
-    return window.choiceStateManager?.hasValue(option) || false;
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.hasValue(option);
+    }
+    return false;
   };
 
   window.matchesChoiceValues = function(option, values) {
-    return window.choiceStateManager?.matchesValues(option, values) || false;
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.matchesValues(option, values);
+    }
+    return false;
   };
 }
 
 // Choose Component - Creates selectable option cards
-export const Choose = ({
+const Choose = ({
   option,
   value,
   color = '',
   children,
   ...props
 }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Choose component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
   const [isSelected, setIsSelected] = useState(false);
   const [hasOptionTriggered, setHasOptionTriggered] = useState(false);
 
   useEffect(() => {
     // Check initial state
-    const currentValue = window.getChoiceValue?.(option);
-    const optionTriggered = window.hasChoiceValue?.(option) || false;
+    const currentValue = window.getChoiceValue ? window.getChoiceValue(option) : undefined;
+    const optionTriggered = window.hasChoiceValue ? window.hasChoiceValue(option) : false;
+
 
     setIsSelected(currentValue === value);
     setHasOptionTriggered(optionTriggered);
 
     // Listen for state changes
-    const unsubscribe = window.listenToChoice?.(option, (newValue) => {
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, (newValue) => {
       setIsSelected(newValue === value);
-      setHasOptionTriggered(true);
-    }) || (() => {});
+      setHasOptionTriggered(newValue !== undefined);
+    }) : () => {};
+
 
     return unsubscribe;
   }, [option, value]);
 
   const handleClick = () => {
-    window.triggerChoice?.(option, value);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleClick();
+    if (window.triggerChoice) {
+      window.triggerChoice(option, value);
     }
   };
 
@@ -169,9 +192,10 @@ export const Choose = ({
       green: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
       red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
       blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+      default: {}
     };
 
-    const colorStyles = colorMap[color] || {};
+    const colorStyles = colorMap[color] || colorMap.default;
 
     if (isSelected) {
       return {
@@ -210,32 +234,41 @@ export const Choose = ({
     color: isSelected ? '#0061d5' : '#666'
   };
 
-  return (
-    <div
-      onClick={handleClick}
-      style={getColorStyles()}
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
-      {...props}
-    >
-      <div style={iconStyles}>
-        {isSelected ? (
-          <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '100%', height: '100%' }}>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: '100%', height: '100%' }}>
-            <circle cx="12" cy="12" r="10" />
-          </svg>
-        )}
-      </div>
-      <div style={{ flex: 1 }}>{children}</div>
-    </div>
-  );
+  return React.createElement('div', {
+    onClick: handleClick,
+    style: getColorStyles(),
+    tabIndex: 0,
+    onKeyDown: (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClick();
+      }
+    },
+    ...props
+  }, [
+    React.createElement('div', { style: iconStyles, key: 'icon' },
+      isSelected ?
+        React.createElement('svg', {
+          viewBox: '0 0 24 24',
+          fill: 'currentColor',
+          style: { width: '100%', height: '100%' }
+        }, React.createElement('path', {
+          d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+        })) :
+        React.createElement('svg', {
+          viewBox: '0 0 24 24',
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeWidth: '2',
+          style: { width: '100%', height: '100%' }
+        }, React.createElement('circle', { cx: '12', cy: '12', r: '10' }))
+    ),
+    React.createElement('div', { style: { flex: 1 }, key: 'content' }, children)
+  ]);
 };
 
 // Choice Component - Shows/hides content based on selections
-export const Choice = ({
+const Choice = ({
   option,
   value,
   color = '',
@@ -244,13 +277,20 @@ export const Choice = ({
   children,
   ...props
 }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Choice component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
   const [shouldShow, setShouldShow] = useState(false);
   const [hasEverShown, setHasEverShown] = useState(false);
 
   useEffect(() => {
     const updateVisibility = () => {
-      const hasOptionValue = window.hasChoiceValue?.(option) || false;
-      const matchesValue = window.matchesChoiceValues?.(option, value) || false;
+      const hasOptionValue = window.hasChoiceValue ? window.hasChoiceValue(option) : false;
+      const matchesValue = window.matchesChoiceValues ? window.matchesChoiceValues(option, value) : false;
 
       let show = false;
 
@@ -259,7 +299,6 @@ export const Choice = ({
       } else if (!unset && matchesValue) {
         show = true;
       }
-
       setShouldShow(show);
       if (show && !hasEverShown) {
         setHasEverShown(true);
@@ -268,10 +307,10 @@ export const Choice = ({
 
     updateVisibility();
 
-    const unsubscribe = window.listenToChoice?.(option, updateVisibility) || (() => {});
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateVisibility) : () => {};
 
     return unsubscribe;
-  }, [option, value, unset, hasEverShown]);
+  }, [option, value, unset]);
 
   const getColorStyles = () => {
     const baseStyles = {
@@ -287,11 +326,12 @@ export const Choice = ({
       red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
       blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
       none: { backgroundColor: 'transparent', padding: '0', margin: '0', border: 'none' },
+      default: {}
     };
 
     return {
       ...baseStyles,
-      ...(colorMap[color] || {})
+      ...(colorMap[color] || colorMap.default)
     };
   };
 
@@ -299,21 +339,23 @@ export const Choice = ({
     return null;
   }
 
-  return (
-    <div
-      style={{
-        ...getColorStyles(),
-        display: shouldShow ? 'block' : 'none'
-      }}
-      {...props}
-    >
-      {children}
-    </div>
-  );
+  return React.createElement('div', {
+    style: {
+      ...getColorStyles(),
+      display: shouldShow ? 'block' : 'none'
+    },
+    ...props
+  }, children);
 };
 
 // Grid Component - Helper for laying out Choose options and other content
-export const Grid = ({ columns = 2, compact = false, children, ...props }) => {
+const Grid = ({ columns = 2, compact = false, children, ...props }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Grid component');
+    return null;
+  }
+
   const gridStyles = {
     display: 'grid',
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
@@ -321,39 +363,53 @@ export const Grid = ({ columns = 2, compact = false, children, ...props }) => {
     marginBottom: compact ? '10px' : '20px'
   };
 
-  return (
-    <div style={gridStyles} {...props}>
-      {children}
-    </div>
-  );
+  return React.createElement('div', {
+    style: gridStyles,
+    ...props
+  }, children);
 };
 
 // Trigger Component - Triggers choice events when clicked
-export const Trigger = ({ option, value, children, ...props }) => {
+const Trigger = ({ option, value, children, ...props }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Trigger component');
+    return null;
+  }
+
   const handleClick = () => {
-    window.triggerChoice?.(option, value);
+    if (window.triggerChoice) {
+      window.triggerChoice(option, value);
+    }
   };
 
-  return (
-    <div onClick={handleClick} style={{ cursor: 'pointer' }} {...props}>
-      {children}
-    </div>
-  );
+  return React.createElement('div', {
+    onClick: handleClick,
+    style: { cursor: 'pointer' },
+    ...props
+  }, children);
 };
 
 // Observe Component - Shows/hides content based on choice state
-export const Observe = ({ option, value, children, ...props }) => {
+const Observe = ({ option, value, children, ...props }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Observe component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
   const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
     const updateVisibility = () => {
-      const matches = window.matchesChoiceValues?.(option, value) || false;
+      const matches = window.matchesChoiceValues ? window.matchesChoiceValues(option, value) : false;
       setShouldShow(matches);
     };
 
     updateVisibility();
 
-    const unsubscribe = window.listenToChoice?.(option, updateVisibility) || (() => {});
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateVisibility) : () => {};
 
     return unsubscribe;
   }, [option, value]);
@@ -362,11 +418,18 @@ export const Observe = ({ option, value, children, ...props }) => {
     return null;
   }
 
-  return <div {...props}>{children}</div>;
+  return React.createElement('div', props, children);
 };
 
 // Debug Component - Shows current choice state
-export const ChoiceDebug = ({ option }) => {
+const ChoiceDebug = ({ option }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in ChoiceDebug component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
   const [currentValue, setCurrentValue] = useState(null);
   const [allState, setAllState] = useState({});
 
@@ -380,7 +443,7 @@ export const ChoiceDebug = ({ option }) => {
 
     updateState();
 
-    const unsubscribe = window.listenToChoice?.(option, updateState) || (() => {});
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateState) : () => {};
 
     const handleGlobalUpdate = () => updateState();
     window.addEventListener('choiceStateUpdate', handleGlobalUpdate);
@@ -391,25 +454,35 @@ export const ChoiceDebug = ({ option }) => {
     };
   }, [option]);
 
-  return (
-    <div
-      style={{
-        padding: '10px',
-        backgroundColor: '#f5f5f5',
-        border: '1px solid #ddd',
-        borderRadius: '4px',
-        fontSize: '12px',
-        fontFamily: 'monospace',
-        marginTop: '20px'
-      }}
-    >
-      <strong>Choice Debug:</strong>
-      <br />
-      Option: {option}
-      <br />
-      Current Value: {currentValue || 'undefined'}
-      <br />
-      All State: {JSON.stringify(allState, null, 2)}
-    </div>
-  );
+  return React.createElement('div', {
+    style: {
+      padding: '10px',
+      backgroundColor: '#f5f5f5',
+      border: '1px solid #ddd',
+      borderRadius: '4px',
+      fontSize: '12px',
+      fontFamily: 'monospace',
+      marginTop: '20px'
+    }
+  }, [
+    React.createElement('strong', { key: 'title' }, 'Choice Debug:'),
+    React.createElement('br', { key: 'br1' }),
+    `Option: ${option}`,
+    React.createElement('br', { key: 'br2' }),
+    `Current Value: ${currentValue || 'undefined'}`,
+    React.createElement('br', { key: 'br3' }),
+    `All State: ${JSON.stringify(allState, null, 2)}`
+  ]);
 };
+
+  // Make components available globally
+  if (typeof window !== 'undefined') {
+    window.Choose = Choose;
+    window.Choice = Choice;
+    window.Grid = Grid;
+    window.Trigger = Trigger;
+    window.Observe = Observe;
+    window.ChoiceDebug = ChoiceDebug;
+  }
+
+})();
