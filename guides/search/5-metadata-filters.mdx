@@ -97,13 +97,11 @@ client.search.query(
  </Tab>
 </Tabs>
 
-<Message info>
-
+<Info>
 This example filters a search for any content that matches the query `sales`
 by any item that has `enterprise.contract` metadata attached to it and where
 the `category` field is set to `online`.
-
-</Message>
+</Info>
 
 ## Introduction to Metadata
 
@@ -122,7 +120,7 @@ For example, an important contract may have the key/value pairs of
 The `mdfilters` query parameter allows developers to find files and folders that
 have a specific piece of metadata attached to them.
 
-<CTA to='g://metadata'>Learn more about metadata templates and instances</CTA>
+<Card title="Learn more about metadata templates and instances" href="/guides/metadata"></Card>
 
 ## Metadata Filter Syntax
 
@@ -142,13 +140,11 @@ filter on.
 ]
 ```
 
-<Message>
-
-  To get the `scope` and `templateKey` for a template, either
+<Note>
+To get the `scope` and `templateKey` for a template, either
   [list all metadata templates][g_list_templates] for an enterprise, or
   [list all metadata instances on an item][g_list_instances_item].
-
-</Message>
+</Note>
 
 With the template defined, the `filters` field accepts a few different filter
 formats. The format of the filter very much depends on the type of field being
@@ -171,13 +167,11 @@ the field and the desired value to find items for.
 ]
 ```
 
-<Message info>
-
+<Info>
 This example will find all files and folders that have an instance of the
 `enterprise.contract` template applied to it, and for which the field with the
 key `category` is set to the value `online`.
-
-</Message>
+</Info>
 
 ### Filter by `float` field
 
@@ -206,16 +200,14 @@ key `amount` is set to a value equal or higher than `10000` and equal or lower
 than `2000`. Note that `gt` and `lt` are inclusive and do not need to
 both be set.
 
-<Message info>
-
+<Info>
 If you create a query based on numbers, do not
 exceed the range of -16777215 and +16777215.
 For metadata search using number attributes
 the index value is stored as FLOAT32. As a result,
 integers between -16777215 and +16777215 can be precisely represented.
 Any operation with numbers beyond the range can lose its precision.
-
-</Message>
+</Info>
 
 ### Filter by `date` field
 
@@ -239,14 +231,12 @@ inclusive.
 ]
 ```
 
-<Message info>
-
+<Info>
 This example will find all files and folders that have an instance of the
 `enterprise.contract` template applied and have an `expirationDate` set to
 a date after or exactly `2016-08-01T00:00:00Z`
 and before or exactly `2017-08-01T00:00:00Z`.
-
-</Message>
+</Info>
 
 ### Filter by `enum` field
 
@@ -265,13 +255,11 @@ the field and the desired value to find items for.
 ]
 ```
 
-<Message info>
-
+<Info>
 This example will find all files and folders that have an instance of the
 `enterprise.contract` template applied to it, and for which the field with the
 key `category` is set to the value `online`.
-
-</Message>
+</Info>
 
 ### Filter by `multiSelect` field
 
@@ -295,14 +283,12 @@ to match any template where any of the provided values match this field.
 ]
 ```
 
-<Message info>
-
+<Info>
 This example will find all files and folders that have an instance of the
 `enterprise.contract` template applied to it, and for which the field with the
 key `category` is set to the value `online` or `enterprise`.
+</Info>
 
-</Message>
-
-[search_api]: e://get_search
-[g_list_templates]: g://metadata/templates/list
-[g_list_instances_item]: g://metadata/instances/list
+[search_api]: /reference/get_search
+[g_list_templates]: /guides/metadata/templates/list
+[g_list_instances_item]: /guides/metadata/instances/list

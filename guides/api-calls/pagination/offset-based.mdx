@@ -46,12 +46,12 @@ curl https://api.box.com/2.0/folders/0/items?offset=100&limit=100 \
     -H "authorization: Bearer ACCESS_TOKEN"
 ```
 
-<Message type='notice'>
-  Note that the `offset` should be increased by the previous `limit` and not by
+<Note>
+Note that the `offset` should be increased by the previous `limit` and not by
   the size of the entries in the response array, as this may be less than the
   limit. Generally we advise using the value of the `limit` in the response
   object to increase the `offset` value.
-</Message>
+</Note>
 
 The final page of items has been requested when the next `offset` value exceeds
 the `total_count` value in the response object. At this point there are no more
@@ -66,10 +66,10 @@ The following query parameters are used to paginate a collection.
 | `offset`        | Integer | `0`            | The (zero-based) offset of the first item returned in the collection. In a zero-based offset `0` is a correct value. |
 | `limit`         | Integer | Depends on API | The maximum number of entries to return. If the value exceeds the maximum, then the maximum value will be used. |
 
-<Message type='notice'>
-  The maximum `offset` for offset-based pagination is `9999`. Marker-based
+<Note>
+The maximum `offset` for offset-based pagination is `9999`. Marker-based
   pagination is recommended when a higher offset is needed.
-</Message>
+</Note>
 
 ## Collections
 
@@ -87,6 +87,6 @@ results as an array, as well as some information about the current page of resul
 
 Some endpoints that support offset-based pagination are:
 
-- [List items for a folder](endpoint://get_folders_id_items)
-- [List a file's comments](endpoint://get-files-id-comments)
-- [List all items in the trash](endpoint://get-folders-trash-items)
+- [List items for a folder](/reference/get_folders_id_items)
+- [List a file's comments](/reference/get-files-id-comments)
+- [List all items in the trash](/reference/get-folders-trash-items)

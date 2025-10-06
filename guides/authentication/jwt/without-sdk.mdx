@@ -18,19 +18,18 @@ JWT does not require end-user interaction and is designed to authenticate
 directly with the Box API.
 
 To learn how to use this token visit our guide on [making API
-calls](g://api-calls).
+calls](/guides/api-calls).
 
-<Message notice>
-  By default, the Access Token acquired with JWT is tied to the Service
+<Note>
+By default, the Access Token acquired with JWT is tied to the Service
   Account for the application. Any API call made with this token will come
   from the application. This account does not have access to any existing files
   or folders until the application's Service Account is added as a collaborator.
 
-It is possible to [act as another user](g://authentication/oauth2/as-user)
+It is possible to [act as another user](/guides/authentication/oauth2/as-user)
 using the `as-user` header or by requesting a
-[User Access Token](g://authentication/jwt/user-access-tokens).
-
-</Message>
+[User Access Token](/guides/authentication/jwt/user-access-tokens).
+</Note>
 
 ## Using a key pair
 
@@ -177,14 +176,13 @@ $config = json_decode($json);
   </Tab>
 </Tabs>
 
-<Message>
-  # Parsing JSON
+<Note>
+# Parsing JSON
 
 In some programming languages there is more than one way to read and parse
 JSON from a file. Refer to guides on your preferred programming language for
 more complete guides, including error handling.
-
-</Message>
+</Note>
 
 ### 2. Decrypt private key
 
@@ -344,15 +342,14 @@ $key = openssl_pkey_get_private($private_key, $passphrase);
   </Tab>
 </Tabs>
 
-<Message>
-  # An alternative to loading private key from file
+<Note>
+# An alternative to loading private key from file
 
 the application might not want to keep both the private key and password
 stored on disk. An alternative option would be to pass in the password as an
 environment variable, separating the private key from the token used to unlock
 the key.
-
-</Message>
+</Note>
 
 ### 3. Create JWT assertion
 
@@ -600,13 +597,13 @@ For the header the following parameters are supported.
 | `algorithm`, required | String | The encryption algorithm used to sign the JWT claim. This can be one of RS256, RS384, or RS512.                                       |
 | `keyid`, required     | String | The ID of the public key used to sign the JWT. Not required, though essential when multiple key pairs are defined for an application. |
 
-<Message>
-  Using JWT libraries
+<Note>
+Using JWT libraries
 
 Signing your own JWT can be a complicated and painful process. Luckily, the
 hard work has already been done for you and libraries exist in pretty much
 every language. Head over to [JWT.io](https://jwt.io/) for an overview.
-</Message>
+</Note>
 
 ### 4. Request Access Token
 
@@ -785,6 +782,6 @@ The code in this guide is available on [GitHub][samples].
 
 [samples]: https://github.com/box-community/samples-docs-authenticate-with-jwt-api
 [devconsole]: https://app.box.com/developers/console
-[configfile]: g://authentication/jwt/jwt-setup/#jwt-keypair
-[ccg]: g://authentication/jwt/without-sdk/#client-credentials-grant
-[auth]: g://authorization
+[configfile]: /guides/authentication/jwt/jwt-setup/#jwt-keypair
+[ccg]: /guides/authentication/jwt/without-sdk/#client-credentials-grant
+[auth]: /guides/authorization

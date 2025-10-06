@@ -70,10 +70,10 @@ Parameters:
 
 Treat this method as a destructor for the `box.Toolkit()` method.
 
-<Message type='warning'>
-  This method is critical. It must be called after all folder / collaboration
+<Warning>
+This method is critical. It must be called after all folder / collaboration
   operations are complete. Every time. No Exceptions.
-</Message>
+</Warning>
 
 Since Salesforce doesn't allow callouts after database updates / inserts /
 deletes have occurred, the Toolkit class maintains some collections of objects
@@ -130,9 +130,9 @@ Returns:
 
 ### `createFileFromAttachment`
 
-<Message type='notice'>
-  Available in version 3.46 and above.
-</Message>
+<Note>
+Available in version 3.46 and above.
+</Note>
 
 Salesforce has a String length limit of 6 million characters. Due to string
 bloat in the base64 encoding/decoding process, this results in an effective
@@ -212,7 +212,7 @@ Returns:
 
 | Parameter        | Type     | Description                                                                                                                                 |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `folderName`     | `string` | Name of the folder to be created. Folder names are subject to some restrictions. [See here for more details.](endpoint://post_folders)      |
+| `folderName`     | `string` | Name of the folder to be created. Folder names are subject to some restrictions. [See here for more details.](/reference/post_folders)      |
 | `parentFolderId` | `string` | Parent Box folder this folder will be created in.                                                                                           |
 | `accessToken`    | `string` | Optional - If `accessToken` is sent, that value is used for the Box API call,; otherwise, the default service account credentials are used. |
 
@@ -319,11 +319,11 @@ Returns:
 
 ## Collaboration Methods
 
-<Message type='warning'>
-  Collaborations created by the Box for Salesforce Developer Toolkit will not
+<Warning>
+Collaborations created by the Box for Salesforce Developer Toolkit will not
   send collaboration emails to collaborators. Only the service account used for
   the Box for Salesforce integration will receive a collaboration email.
-</Message>
+</Warning>
 
 ### `createCollaboration`
 
@@ -389,10 +389,10 @@ Returns:
 
 ## Metadata
 
-<Message type='info'>
-  Check the `toolkit.mostRecentError` value for detailed error responses
+<Info>
+Check the `toolkit.mostRecentError` value for detailed error responses
   for all the methods.
-</Message>
+</Info>
 
 ### `getBoxMetadataByFolderId`
 
@@ -572,7 +572,7 @@ Returns:
 This toolkit method calls the [get integration mappings][9] endpoint to create
 the mappings.
 
-<Message type='notice'>
+<Note>
 When you map to a Slack channel,
 `access_management_disabled` is set to `FALSE` by default.
 This causes an automatic removal of collaborators that are not part
@@ -583,7 +583,7 @@ sets up sharing in Box, we recommend to either enable
 This ensures no users are removed, regardless of Slack settings.
 Collaborations are added or removed from Slack when a file is uploaded
 to a Slack channel.
-</Message>
+</Note>
 
 | Parameter     | Type                 | Description                                    |
 | ------------- | -------------------- | ---------------------------------------------- |
@@ -621,7 +621,8 @@ provides a wrapper with four different use cases:
 This method/invocable is used in a flow template provided in the Box
 for Salesforce package `Create Box Folder/Slack Channel Mapping`.
 
-<Message type='notice'> When you map to a Slack channel,
+<Note>
+When you map to a Slack channel,
 `access_management_disabled` is set to `FALSE` by default.
 This causes an automatic removal of collaborators that are not part
 of the Slack channel member list. Depending on how your organization
@@ -630,7 +631,8 @@ sets up sharing in Box, we recommend to either enable
 `setSlackChannelAccessManagementDisabled` method, or use [groups][12].
 This ensures no users are removed, regardless of Slack settings.
 Collaborations are added or removed from Slack when a file is uploaded
-to a Slack channel.</Message>
+to a Slack channel.
+</Note>
 
 | Parameter               | Type   | Description                                                                                                             |
 | ----------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -659,15 +661,15 @@ Returns:
 
 - Boolean based on the transaction success.
 
-[1]: e://get-folders-id-metadata-id-id
-[2]: e://post-folders-id-metadata-id-id
-[3]: e://put-folders-id-metadata-id-id
-[4]: e://delete-folders-id-metadata-id-id
-[5]: e://get-metadata-cascade-policies-id
-[6]: e://get-metadata-cascade-policies
-[7]: e://post-metadata-cascade-policies
-[8]: e://delete-metadata-cascade-policies-id
-[9]: e://get-integration-mappings-slack
-[10]: e://delete-integration-mappings-slack-id
-[11]: e://put-integration-mappings-slack-id
+[1]: /reference/get-folders-id-metadata-id-id
+[2]: /reference/post-folders-id-metadata-id-id
+[3]: /reference/put-folders-id-metadata-id-id
+[4]: /reference/delete-folders-id-metadata-id-id
+[5]: /reference/get-metadata-cascade-policies-id
+[6]: /reference/get-metadata-cascade-policies
+[7]: /reference/post-metadata-cascade-policies
+[8]: /reference/delete-metadata-cascade-policies-id
+[9]: /reference/get-integration-mappings-slack
+[10]: /reference/delete-integration-mappings-slack-id
+[11]: /reference/put-integration-mappings-slack-id
 [12]: https://support.box.com/hc/articles/360043694554-Creating-and-Managing-Groups

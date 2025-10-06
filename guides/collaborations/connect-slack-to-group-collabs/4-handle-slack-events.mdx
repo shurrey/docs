@@ -168,12 +168,12 @@ strings, while member join / leave events will be sent as JSON. If a slash
 command is encountered we respond with a processing message, otherwise we send
 the `HttpServletResponse` response.
 
-<Message type='notice'>
-  In this example we send a `HTTP 200` response before the event is fully
+<Note>
+In this example we send a `HTTP 200` response before the event is fully
   processed. This is done because Slack requires a response to an event within
   3 seconds from dispatch. When the code execution takes longer than 3 seconds
   then duplicate event will be dispatched by Slack.
-</Message>
+</Note>
 
 To make event processing easier, we want to standardize all event objects as
 JSON. If a content type isn't JSON it'll be the URL encoded string. If that's
@@ -205,10 +205,10 @@ the event is routed to `process`.
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 ## Process Slack events
@@ -274,15 +274,15 @@ Once validated, the profile of the Slack user is obtained to get the email,
 then the user profile is sent to `processContent` to collaborate the Box
 content in with the Box group so that everyone has access.
 
-<Message type='notice'>
-  The reason for fetching the Slack user's email in this step is because the
+<Note>
+The reason for fetching the Slack user's email in this step is because the
   file or folder is owned by the user, not by the application's service
   account. When we share content (by creating a collaboration) the action will
   need to be performed by a user who has sharing permissions on that file or
   folder. For this reason, we need to match the Slack user's email address
   against a Box user's email address so that we can create the collaboration on
   their behalf.
-</Message>
+</Note>
 
 </Choice>
 <Choice option='programming.platform' value='java' color='none'>
@@ -344,10 +344,10 @@ type (file or folder), and the content ID for the file or folder stored in Box.
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 ## Process Slack user
@@ -413,10 +413,10 @@ public void processUser(JSONObject userResponse, String event, String channel) t
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 The code starts by fetching the Box group ID for the channel, which will be
@@ -490,10 +490,10 @@ public void processSlackChannel(String channel, String groupId) throws Exception
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 This code runs a number of actions in sequence.
@@ -512,10 +512,10 @@ a list of channel users. Since we're matching Slack users to Box users via
 their email address, that is the field that we care about from the user profile
 lookup.
 
-<Message type='notice'>
-  Email addresses in Box are unique and cannot be used for multiple accounts,
+<Note>
+Email addresses in Box are unique and cannot be used for multiple accounts,
   meaning that they can be used effectively for user account lookup.
-</Message>
+</Note>
 
 <Choice option='programming.platform' value='node' color='none'>
 
@@ -555,10 +555,10 @@ the response from that request, which should be a user profile JSON object.
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 ## Summary

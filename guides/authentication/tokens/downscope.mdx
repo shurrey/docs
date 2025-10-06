@@ -51,7 +51,7 @@ Token, a list of scopes, as well as an optional file URL to restrict the token t
 | `subject_token`      | The original token to downscope. This can be a token that was acquired through OAuth 2.0, JWT token exchange, or as an App Token.                                                                                                          |
 | `scope`              | A space-delimited list of [scopes][scopes] to limit the new token to. Any valid scope for the application can be used, though a special set of [scopes for Box UI elements][scopes_down] is available                                      |
 | `resource`           | An optional full URL path to the file the token should be restricted to.                                                                                                                                                                   |
-| `box_shared_link`    | An optional [shared link](g://shared-links) URL for a file or folder on Box. Password protected links are not supported. This option cannot be used in addition to the `resource` option nor can it be a shared link created on a weblink. |
+| `box_shared_link`    | An optional [shared link](/guides/shared-links) URL for a file or folder on Box. Password protected links are not supported. This option cannot be used in addition to the `resource` option nor can it be a shared link created on a weblink. |
 | `subject_token_type` | Always set to `urn:ietf:params:oauth:token-type:access_token`                                                                                                                                                                              |
 | `grant_type`         | Always set to `urn:ietf:params:oauth:grant-type:token-exchange`                                                                                                                                                                            |
 
@@ -84,11 +84,11 @@ extra information on the specific restrictions.
 Most importantly here is the list of `restricted_to` entries that will contain
 each combination of `object` and `scope` that the new token has the permissions for.
 
-<Message warning>
-  A downscoped token does not include a refresh token. To get a new downscoped
+<Warning>
+A downscoped token does not include a refresh token. To get a new downscoped
   token, refresh the original refresh token and use that new token to get a
   downscoped token.
-</Message>
+</Warning>
 
-[scopes]: guide://api-calls/permissions-and-errors/scopes
-[scopes_down]: guide://api-calls/permissions-and-errors/scopes/#scopes-for-downscoping
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
+[scopes_down]: /guides/api-calls/permissions-and-errors/scopes/#scopes-for-downscoping

@@ -50,16 +50,16 @@ curl -X POST https://api.box.com/2.0/metadata_queries/execute_read \
     }'
 ```
 
-<Message notice>
-  When a response does not include a next marker it indicates that no more
+<Note>
+When a response does not include a next marker it indicates that no more
   matching results exist.
-</Message>
+</Note>
 
-<Message warning>
-  To use the `next_marker` it is important to use the exact same query for the
+<Warning>
+To use the `next_marker` it is important to use the exact same query for the
   next page of results. The API will return an error if any of the parameters
   like the `query`, `query_params`, or others are changed.
-</Message>
+</Warning>
 
 ## Sort
 
@@ -84,9 +84,9 @@ direction.
 ]
 ```
 
-<Message warning>
-  The ordering direction must be the same for all ​​specified keys. In other
+<Warning>
+The ordering direction must be the same for all ​​specified keys. In other
   words, for each `field_key` the `direction` must be the same.
-</Message>
+</Warning>
 
-[metadata-fields]: g://metadata/fields
+[metadata-fields]: /guides/metadata/fields

@@ -34,7 +34,7 @@ returns a standard client error JSON object.
 }
 ```
 
-See the [Client Error resource](resource://client_error) for more details.
+See the [Client Error resource](resourc/reference/client_error) for more details.
 
 ## Common error codes
 
@@ -206,7 +206,7 @@ for solution to common errors encountered when working with the Box APIs.
 |  |        |
 | **Error**    | `cors_origin_not_whitelisted`         |
 | **Message**  | Access denied - Did you forget to safelist your origin in the CORS configuration of your app?     |
-| **Solution** | Your application tried to access the Box API from a website. The application needs to [explicitly allow Cross Origin Resource Sharing](g://security/cors/#enabling-cors-for-your-domain) for the domain your site is hosted on.    |
+| **Solution** | Your application tried to access the Box API from a website. The application needs to [explicitly allow Cross Origin Resource Sharing](/guides/security/cors/#enabling-cors-for-your-domain) for the domain your site is hosted on.    |
 
 {/* i18n-disable localize-links */}
 
@@ -321,7 +321,7 @@ for solution to common errors encountered when working with the Box APIs.
 | ---- | ---- |
 | **Error**    | `rate_limit_exceeded`    |
 | **Message**  | Request rate limit exceeded, try again later.           |
-| **Solution** | The client is performing operations too quickly and has been rate limited. Client is advised to retry their request after the amount of time specified by the `retry-after` header. There are [four rate limits](g://api-calls/permissions-and-errors/rate-limits) to be aware of. |
+| **Solution** | The client is performing operations too quickly and has been rate limited. Client is advised to retry their request after the amount of time specified by the `retry-after` header. There are [four rate limits](/guides/api-calls/permissions-and-errors/rate-limits) to be aware of. |
 
 ### 500 Internal Service Error
 

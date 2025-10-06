@@ -13,14 +13,14 @@ alias_paths:
 title: "Long-Poll Events"
 ---
 To get real-time notification of activity in a Box account you can use the long
-poll feature of the [`OPTIONS /events`](e://options_events) API.
+poll feature of the [`OPTIONS /events`](/reference/options_events) API.
 
 <Samples id='options_events' />
 
-<Message warning>
-  Long polling is only available for user events. Enterprise events do not
+<Warning>
+Long polling is only available for user events. Enterprise events do not
   support long polling.
-</Message>
+</Warning>
 
 ## Long Polling
 
@@ -28,15 +28,15 @@ Long polling involves opening an HTTP request and keeping it open until the
 server sends a response, then repeating the process over and over to receive
 updated responses.
 
-<Message>
-  The SDKs have built-in support for turning the event feeds into an event
+<Note>
+The SDKs have built-in support for turning the event feeds into an event
   stream by long polling for new events.
-</Message>
+</Note>
 
 ### Long Poll URL
 
 To use long polling, first send an request to the
-[`OPTIONS /events`](e://options_events) API to retrieve the long poll URL.
+[`OPTIONS /events`](/reference/options_events) API to retrieve the long poll URL.
 
 ```curl
 curl -X OPTIONS https://api.box.com/2.0/events \

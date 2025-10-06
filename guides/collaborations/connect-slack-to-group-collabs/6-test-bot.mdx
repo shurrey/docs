@@ -10,10 +10,10 @@ bot.
 * **User event functions**: When a user enters or leaves a channel, they should be added or removed from the channel group.
 * **Content add functions**: When a user enters a valid `/boxadd` slash command, that content should be shared with the group through a new collaboration.
 
-<Message type='notice'>
-  If you haven't done so already, ensure that all the code we've written so far
+<Note>
+If you haven't done so already, ensure that all the code we've written so far
   is deployed as an application that is publicly accessible.
-</Message>
+</Note>
 
 ## Testing group creation
 
@@ -44,12 +44,12 @@ enterprise and added to the group during group creation.
 
 If you see your group and members, this step is a success.
 
-<Message type='notice'>
-  If you see no members added to the group, and no errors being returned from
+<Note>
+If you see no members added to the group, and no errors being returned from
   the bot application, the most likely cause is email mismatch. Ensure that the
   email addresses used by the accounts in Slack match the emails used by users
   in your Box enterprise.
-</Message>
+</Note>
 
 ## Testing user event functions
 
@@ -78,10 +78,10 @@ files or folders with the group, in the format of
 `/boxadd [file/folder] [ID of file/folder]`, such as
 `/boxadd folder 324554221`.
 
-<Message type='notice'>
-  The file or folder ID specified needs to be content within the Box account of
+<Note>
+The file or folder ID specified needs to be content within the Box account of
   the person sharing it.
-</Message>
+</Note>
 
 To find the ID of a file or folder in a Box account, load up the file or folder
 within [the Box site][box], then look at the URL. The ID will be the
@@ -109,12 +109,12 @@ journey may include any number of different expansion areas.
 * [Creating retention policies][next-steps-retention-policy] and [assigning them][next-steps-policy-assign] to any content shared with the group, allowing you to control the lifespan and governance of shared content.
 * Adding new slash commands for allowing people in the channel to [comment on the files][next-steps-comment] that are shared with the group.
 
-[step1]: g://collaborations/connect-slack-to-group-collabs/configure-slack
+[step1]: /guides/collaborations/connect-slack-to-group-collabs/configure-slack
 [box-users-groups]: https://app.box.com/master/groups
-[next-steps-shared-link]: g://shared-links/create-or-update
-[next-steps-retention-policy]: e://post-retention-policies
-[next-steps-policy-assign]: e://post-retention-policy-assignments
-[next-steps-comment]: e://post-comments
+[next-steps-shared-link]: /guides/shared-links/create-or-update
+[next-steps-retention-policy]: /reference/post-retention-policies
+[next-steps-policy-assign]: /reference/post-retention-policy-assignments
+[next-steps-comment]: /reference/post-comments
 {/* i18n-enable localize-links */}
 [box]: https://box.com
 {/* i18n-disable localize-links */}

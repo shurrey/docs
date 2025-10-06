@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "box-ui-elements": "^25.0.0",
+    "box-node-sdk": "^2.7.0",
+    "dotenv": "^16.0.0"
+  },
+  "scripts": {
+    "dev": "mintlify dev",
+    "start-api": "node -r dotenv/config api/box/demo-token.js",
+    "setup-env": "cp .env.example .env"
+  }
+}

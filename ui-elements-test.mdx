@@ -1,0 +1,214 @@
+---
+title: "Box UI Elements Demo"
+---
+
+import { ContentPreview, ContentExplorer } from "/snippets/box-ui-proxy.jsx"
+
+# Box UI Elements with Proxy Integration
+
+This page demonstrates how Box UI Elements can be embedded securely using the interceptor/proxy pattern to handle authentication server-side.
+
+## Why Use a Proxy?
+
+The proxy approach provides several security and architectural benefits:
+
+- **No token exposure**: Authentication tokens never reach the client browser
+- **Server-side control**: Full control over API requests and responses
+- **Custom logic**: Add filtering, logging, or custom business logic
+- **Token management**: Automatic token refresh and management
+
+## Content Preview Component
+
+The Box Content Preview UI element allows you to embed a file preview directly in your application.
+
+### Proxy Implementation
+
+Here's how you import and use the ContentPreview component with proxy support:
+
+```jsx
+import { ContentPreview } from "/snippets/box-ui-proxy.jsx"
+
+<ContentPreview
+  fileId="123456789"
+  useProxy={true}
+  proxyUrl="/api/box/proxy"
+  hasHeader={true}
+  hasDownload={true}
+  language="en-US"
+  onLoad={(data) => {
+    console.log('Preview loaded:', data);
+  }}
+  onError={(error) => {
+    console.error('Preview error:', error);
+  }}
+/>
+```
+
+### Live Examples
+
+**Content Preview with Custom File ID:**
+
+<ContentPreview
+  fileId="1234567890"
+  useProxy={true}
+  proxyUrl="/api/box/proxy"
+  hasHeader={true}
+  hasDownload={true}
+  language="en-US"
+/>
+
+**Content Preview with Default Demo File:**
+
+<ContentPreview
+  useProxy={true}
+  proxyUrl="/api/box/proxy"
+  hasHeader={true}
+  hasDownload={true}
+  language="en-US"
+/>
+
+**Content Explorer with Custom Folder:**
+
+<ContentExplorer
+  folderId="12345"
+  useProxy={true}
+  proxyUrl="/api/box/proxy"
+  hasHeader={true}
+  language="en-US"
+/>
+
+### Usage in Documentation
+
+You can easily embed file previews in your documentation by specifying the file ID:
+
+```jsx
+<!-- Preview a specific PDF -->
+<ContentPreview fileId="987654321" />
+
+<!-- Preview with custom settings -->
+<ContentPreview
+  fileId="555666777"
+  hasHeader={false}
+  hasDownload={false}
+/>
+
+<!-- Explore a specific folder -->
+<ContentExplorer folderId="111222333" />
+```
+
+## Backend Proxy Implementation
+
+To use the proxy approach, you need a backend service that handles Box API authentication. Here's a complete Express.js implementation:
+
+```javascript
+// Example Express.js backend proxy for Box UI Elements
+const express = require('express');
+const axios = require('axios');
+const app = express();
+
+app.use(express.json());
+
+// Box API proxy endpoint
+app.post('/api/box/proxy', async (req, res) => {
+  try {
+    const { originalUrl, originalMethod, originalData, originalParams } = req.body;
+
+    // Get secure access token (implement your auth logic here)
+    const accessToken = await getSecureAccessToken(req);
+
+    // Prepare request to Box API
+    const boxRequest = {
+      method: originalMethod.toLowerCase(),
+      url: originalUrl,
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      }
+    };
+
+    if (originalData) boxRequest.data = originalData;
+    if (originalParams) boxRequest.params = originalParams;
+
+    // Make request to Box API
+    const boxResponse = await axios(boxRequest);
+    res.json(boxResponse.data);
+
+  } catch (error) {
+    const status = error.response?.status || 500;
+    const errorData = error.response?.data || { type: 'error', message: 'Proxy error' };
+    res.status(status).json(errorData);
+  }
+});
+
+async function getSecureAccessToken(req) {
+  // TODO: Implement your token management logic
+  // Examples:
+  // - JWT token generation
+  // - OAuth2 token retrieval
+  // - App token usage
+  // - User session validation
+}
+```
+
+## Interceptor Examples
+
+The proxy implementation supports custom logic through interceptors:
+
+### Example: Block ZIP file uploads
+
+```javascript
+const requestInterceptor = (config) => {
+  if (config.method === "post" && config.url.startsWith("https://upload")) {
+    const formData = JSON.parse(config.data.attributes);
+    if (formData.name.endsWith(".zip")) {
+      // Redirect to error endpoint
+      config.url = "https://api.box.com/2.0/files/blocked";
+      alert("ZIP files are not allowed");
+    }
+  }
+  return config;
+};
+```
+
+### Example: Filter office documents from explorer
+
+```javascript
+const responseInterceptor = (config) => {
+  if (config.request.responseURL.includes('item_collection')) {
+    config.data.item_collection.entries = config.data.item_collection.entries.filter((entry) => {
+      return !entry.name || !/\.(docx|xlsx|pptx)$/i.test(entry.name);
+    });
+  }
+  return config;
+};
+```
+
+### Example: Add malware warnings
+
+```javascript
+const responseInterceptor = (config) => {
+  if (config.data.type === 'file' && config.data.metadata?.global?.MalwareDeepScan) {
+    // Show malware warning banner
+    document.getElementById('warning-banner').style.display = 'block';
+  }
+  return config;
+};
+```
+
+## Features
+
+- **Secure Authentication**: Tokens never exposed to client
+- **Custom Business Logic**: Filter, transform, or enhance API responses
+- **Monitoring & Logging**: Track all API interactions server-side
+- **Access Control**: Implement fine-grained permissions
+- **Token Management**: Automatic refresh and downscoping
+
+## Implementation Benefits
+
+1. **Security**: No sensitive tokens in browser
+2. **Control**: Server-side filtering and validation
+3. **Monitoring**: Centralized logging and analytics
+4. **Flexibility**: Custom business rules and transformations
+5. **Performance**: Caching and optimization opportunities
+
+This proxy pattern is the recommended approach for production Box UI Elements implementations.

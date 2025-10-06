@@ -123,10 +123,10 @@ the `ID` and `SHA` of the part uploaded.
 }
 ```
 
-<Message warning>
-  Keep all the JSON responses from all part
+<Warning>
+Keep all the JSON responses from all part
   uploads as they are needed to [commit the session][commit].
-</Message>
+</Warning>
 
 ## Range Overlap
 
@@ -147,5 +147,5 @@ The recommended approach is to upload 3 to 5 parts in parallel from a queue
 of parts, ordered by byte offset. If a part upload fails, retry it
 before you upload further parts.
 
-[commit]: g://uploads/chunked/commit-session
-[createsession]: g://uploads/chunked/create-session
+[commit]: /guides/uploads/chunked/commit-session
+[createsession]: /guides/uploads/chunked/create-session

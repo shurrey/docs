@@ -15,24 +15,24 @@ To create a lock on a folder in Box you will need to provide our API with the
 `id` of the folder for which the lock should be applied. Optionally you may
 supply the specific `locked_operations` to be applied with the folder lock.
 
-<Message type='notice'>
-  # Folder Locks
+<Note>
+# Folder Locks
 
   When using any folder lock API endpoints, you must be authenticated as the
   owner/co-owner of the folder you are trying to access.
-</Message>
+</Note>
 
 <Samples id='post_folder_locks' />
 
-<Message type='warning'>
-  # Setting Locked Operations
+<Warning>
+# Setting Locked Operations
 
   If the `locked_operations` object is included with a folder lock request,
   both `move` and `delete` need to be set to `true`. Supplying only one lock
   operation in the object, or setting the values of both to something other
   than `true` will produce an error. These options are in place to allow
   for additional operations in the future.
-</Message>
+</Warning>
 
 ## Lock Operations
 

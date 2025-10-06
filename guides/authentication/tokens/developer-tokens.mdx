@@ -23,10 +23,10 @@ To create a Developer Token for an application:
 - Select the **Configuration** tab.
 - Under Developer Token, select **Generate Developer Token**.
 
-<Message>
+<Note>
 You can also generate a Developer Token directly from [My Platform Apps][apps]
 view, using the menu available for each app.
-</Message>
+</Note>
 
 <ImageFrame border center shadow>
   ![Generating a Developer Token](../images/developer-token.png)
@@ -42,25 +42,25 @@ curl https://api.box.com/2.0/users/me \
     -H "authorization: Bearer [DEVELOPER_TOKEN]"
 ```
 
-<Message warning>
-  A Developer Token is associated with the the user that is logged in to the
+<Warning>
+A Developer Token is associated with the the user that is logged in to the
   Developer Console when the token is generated.
-</Message>
+</Warning>
 
 Our SDKs can be initialized with a Developer Token to create a basic API client.
 
 <Samples id='x_auth' variant='init_with_dev_token' />
 
-<Message type='danger'>
-  # Developer tokens should not be used in production environments
+<Danger>
+# Developer tokens should not be used in production environments
 
 Developer Tokens should only be used for development or testing purposes.
-</Message>
+</Danger>
 
-<Message warning>
-  When you explicitly revoke a developer token for a given app via the
+<Warning>
+When you explicitly revoke a developer token for a given app via the
   Developer console, all webhooks created by that application get deleted.
-</Message>
+</Warning>
 
 [devconsole]: https://app.box.com/developers/console
 
@@ -83,4 +83,4 @@ To learn more about Developer Tokens for each SDK head over to:
 [Python]: https://github.com/box/box-python-sdk/blob/main/docs/usage/authentication.md#developer-token
 [Node]: https://github.com/box/box-node-sdk/blob/main/docs/authentication.md#developer-token
 [IOS]: https://github.com/box/box-ios-sdk/blob/main/docs/usage/authentication.md#developer-token
-[apps]: g://applications
+[apps]: /guides/applications

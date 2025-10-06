@@ -18,9 +18,7 @@ from within the embedded Box preview in their application. Box Annotations fit a
 wide range of use cases and can be used to draw the previewer's attention and/or
 provide feedback on specific parts of a document or images.
 
-<CTA to="g://embed/ui-elements/preview">
-  Learn more about Content Preview
-</CTA>
+<Card title="Learn more about Content Preview" href="/guides/embed/ui-elements/preview"></Card>
 
 Box Content Preview currently supports four annotation types - highlight
 comment, highlight only, draw, and point annotation. Box Annotations are today
@@ -29,7 +27,7 @@ supported file types for Box Content Preview [here][filetypes].
 
 ## Browser support
 
-[Learn more about browser support](g://embed/ui-elements/browser) for Box UI
+[Learn more about browser support](/guides/embed/ui-elements/browser) for Box UI
 element.
 
 ## Usage
@@ -68,13 +66,11 @@ reason for this is that UI Elements only expect a "token" to be passed in for
 authentication, and Box provides two different ways to generate tokens - OAuth
 and JWT.
 
-<CTA to="g://authentication/select">
-  Learn about selecting an authentication method
-</CTA>
+<Card title="Learn about selecting an authentication method" href="/guides/authentication/select"></Card>
 
 If your application requires the end user to only be able to access a subset of
 the Annotations functionality, you can use
-[Downscoping](g://authentication/tokens/downscope) to appropriately
+[Downscoping](/guides/authentication/tokens/downscope) to appropriately
 downscope your Access Token to a resulting token that has the desired set of
 permissions, and can thus, be securely passed to the end user client
 initializing Annotations.
@@ -83,7 +79,7 @@ Below are a set of new Annotation-specific scopes to go alongside Downscoping.
 These allow developers to enable/disable functionality on Box
 Annotations by configuring the appropriate scopes on the downscoped token. To
 learn more, see [Dedicated scopes for the Box UI
-Elements](g://embed/ui-elements/scopes).
+Elements](/guides/embed/ui-elements/scopes).
 
 ## Parameters & Options
 
@@ -162,7 +158,7 @@ const annotator = new annotatorConf.CONSTRUCTOR({
 
 Annotation types can be selectively turned off through preview options. Viewer
 options override global `showAnnotations` value, for that viewer. See [Box
-Content Preview](g://embed/ui-elements/preview) for more details on how to
+Content Preview](/guides/embed/ui-elements/preview) for more details on how to
 set up the Preview instances that are used with Box Annotations here.
 
 ```js

@@ -34,11 +34,11 @@ curl https://api.box.com/2.0/files/12345?fields=is_package,lock \
 }
 ```
 
-<Message type='notice'>
-  It is important to note that when a specific field is requested no other
+<Note>
+It is important to note that when a specific field is requested no other
   fields are returned except for those requested and the **base** set of fields.
   For a file, this base set is comprised of the `etag`, `id`, and `type` values.
-</Message>
+</Note>
 
 ## Resource variants
 
@@ -49,7 +49,7 @@ The following resource variants are available in the Box API.
 The default set of fields returned in an API response. 
 The standard variant is returned when requesting a resource
 through the main APIs available for that resource. For example, when requesting
-the [`GET /files/:id`](endpoint://get_files_id) endpoint the API will return
+the [`GET /files/:id`](/reference/get_files_id) endpoint the API will return
 the standard variation of a file.
 
 ```curl
@@ -90,7 +90,7 @@ reduced in size, only returning some of the more essential fields. This variant
 is commonly known as the mini resource variant.
 
 For example, when requesting the
-[`GET /folders/:id/items`](endpoint://get_folders_id_items) endpoint the API
+[`GET /folders/:id/items`](/reference/get_folders_id_items) endpoint the API
 will return a mini variation of files and folders nested within the `item_collection`.
 
 ```curl
@@ -125,14 +125,14 @@ curl https://api.box.com/2.0/files/12345 \
 }
 ```
 
-<Message type='notice'>
-  To request more information for a nested resource we recommend calling the
+<Note>
+To request more information for a nested resource we recommend calling the
   API for that resource to request it by ID, and optionally pass along the
   `field` query parameter.
 
   For example, to get the owner of a file returned when listing the items in a
   folder, request that file by ID with the query parameter `field=owned_by`.
-</Message>
+</Note>
 
 ### Full
 
@@ -140,7 +140,7 @@ The total set of fields that can be returned in an API response. The full varian
 through the main APIs available for that resource and by appending the `fields`
 query parameter.
 
-For example, when requesting the [`GET /files/:id`](endpoint://get_files_id)
+For example, when requesting the [`GET /files/:id`](/reference/get_files_id)
 endpoint with the `fields=is_package,lock` parameter the API will return the fields specified plus the basic fields for the file.
 
 ```curl

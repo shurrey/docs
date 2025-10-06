@@ -36,9 +36,9 @@ following scopes are set in the **Configuration** tab of your application:
 
 2. Click **Create Platform App** > **Platform App** > **Server Authentication (with JWT)** > name the application > **Create App**
 
-<Message warning>
-  Server Authentication (with JWT) always requires Admin authorization before use.
-</Message>
+<Warning>
+Server Authentication (with JWT) always requires Admin authorization before use.
+</Warning>
 
 ## Configure the application
 
@@ -67,10 +67,10 @@ If you would like more information on how scopes, application access, tokens,
 and permissions work together, please see our article on understanding
 [Box's security mechanisms][blogpost].
 
-<Message warning>
-  If configuration changes are made to this application, it will need to be
+<Warning>
+If configuration changes are made to this application, it will need to be
   reauthorized in order for the changes to take effect.
-</Message>
+</Warning>
 
 You will know when an application is ready for use by visiting its Authorization
 tab in the [Developer Console][dc]. The state and status must be enabled and
@@ -90,20 +90,20 @@ send you through 2FA verification before automatically downloading the
 configuration file for your application. For more information see
 our [guide][keypair].
 
-<Message warning>
-  For security reasons 2FA must be enabled on your Box account to successfully
+<Warning>
+For security reasons 2FA must be enabled on your Box account to successfully
   generate a public/private keypair.
-</Message>
+</Warning>
 
 Locate the downloaded file on your machine which has a default name in the
 format: `EnterpriseID_publicKeyID_config.json`. You may leave this name or
 choose to rename it. This guide assumes the file is renamed to `config.json`.
 
-<Message warning>
-  It is critical you place the file in a location where it will not be
+<Warning>
+It is critical you place the file in a location where it will not be
   inadvertently deleted or moved. If this occurs you will need to repeat the
   step 2 to reconfigure the CLI.
-</Message>
+</Warning>
 
 ## CLI Installation and Configuration
 
@@ -115,9 +115,7 @@ available if you would like to build the CLI in other environments.
 To install the latest CLI on your machine, download the latest
 `.exe` for Windows or `.pkg` for macOS for the latest release.
 
-<CTA to="https://github.com/box/boxcli/releases">
-  Download the latest CLI installer
-</CTA>
+<Card title="Download the latest CLI installer" href="https://github.com/box/boxcli/releases"></Card>
 
 ## Linux & Node install
 
@@ -151,10 +149,10 @@ command: `box configure:environments:add PathToConfigFileHere`, replacing
 For example:
 `box configure:environments:add /Users/ExampleUser/Documents/CLI/config.json`
 
-<Message type='tip'>
-  You can drag the csv file from the Finder/File Explorer to the
+<Tip>
+You can drag the csv file from the Finder/File Explorer to the
   terminal/command line window to auto-populate the path.
-</Message>
+</Tip>
 
 ## Confirm configuration
 
@@ -183,11 +181,11 @@ Avatar URL: ''
 Notification Email: []
 ```
 
-<Message type='tip'>
-  By default, JWT applications automatically obtain an Access Token for the
+<Tip>
+By default, JWT applications automatically obtain an Access Token for the
   Service Account. It is possible to change the default user, but this guide
   assumes you do not do this.
-</Message>
+</Tip>
 
 ## Next Steps
 
@@ -195,23 +193,23 @@ Notification Email: []
 - You can also go to the second part of the [OAuth 2.0 Quick Start][three] for a tutorial on how to use the commands.
 
 [cli]: https://github.com/box/boxcli
-[auth]: g://authentication/jwt/without-sdk
-[at]: g://authentication/tokens
+[auth]: /guides/authentication/jwt/without-sdk
+[at]: /guides/authentication/tokens
 {/* i18n-enable localize-links */}
 [dc]: https://account.box.com/developers/console
 {/* i18n-disable localize-links */}
-[keypair]: g://authentication/jwt/jwt-setup/#public-and-private-key-pair
-[sa]: page://platform/user-types/#service-account
-[scopes]: g://api-calls/permissions-and-errors/scopes
-[ag]: g://authorization/platform-app-approval
+[keypair]: /guides/authentication/jwt/jwt-setup/#public-and-private-key-pair
+[sa]: pag/reference/platform/user-types/#service-account
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
+[ag]: /guides/authorization/platform-app-approval
 {/* i18n-enable localize-links */}
 [blogpost]: https://medium.com/box-developer-blog/box-api-understanding-security-9fcad7b1d72e
 {/* i18n-disable localize-links */}
-[scopes]: g://api-calls/permissions-and-errors/scopes
-[aa]: g://authentication/jwt/jwt-setup/#application-access
-[three]: g://cli/quick-start/build-commands-help
-[four]: g://cli/quick-start/options-and-bulk-commands
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
+[aa]: /guides/authentication/jwt/jwt-setup/#application-access
+[three]: /guides/cli/quick-start/build-commands-help
+[four]: /guides/cli/quick-start/options-and-bulk-commands
 [cache]: https://github.com/box/boxcli/blob/master/docs/configure.md#box-configureenvironmentsupdate-name
 [ac]: https://github.com/box/boxcli/blob/master/docs/autocomplete.md
 [commands]: https://github.com/box/boxcli#command-topics
-[qs]: g://cli/quick-start
+[qs]: /guides/cli/quick-start

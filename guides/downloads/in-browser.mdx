@@ -29,22 +29,22 @@ Instead an application can use the following format.
 https://api.box.com/2.0/files/[FILE_ID]/content?access_token=[ACCESS_TOKEN]
 ```
 
-<Message warning>
-  # CORS
+<Warning>
+# CORS
 
   For this to work the application needs to have the domain of the web site
   hosting this file added to the list of allowed domains in the [CORS
   settings][cors].
-</Message>
+</Warning>
 
-<Message warning>
-  # Downscope Token
+<Warning>
+# Downscope Token
 
   Using this method would expose the Access Token to the end user, allowing them
   to potentially use this token to do more than intended. For this reason we
   recommend [downscoping][downscoping] this token accordingly.
-</Message>
+</Warning>
 
-[durl]: g://downloads/get-url
-[cors]: g://security/cors
-[downscoping]: g://authentication/tokens/downscope
+[durl]: /guides/downloads/get-url
+[cors]: /guides/security/cors
+[downscoping]: /guides/authentication/tokens/downscope

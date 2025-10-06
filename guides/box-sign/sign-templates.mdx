@@ -169,12 +169,12 @@ Follow these steps to [create sign request][signrequest] using a template:
 
 3. Add the `prefill_tags` to populate the fields.
 
-    <Message>
-      Make sure the signer order is the same as the one
+  <Note>
+Make sure the signer order is the same as the one
       displayed on the template. If the template had `signer1`
       first and then `signer2`, the `POST` request must reflect
       the same order to assign the proper signers.
-    </Message>
+</Note>
 
     ```json
     {
@@ -263,8 +263,8 @@ Follow these steps to [create sign request][signrequest] using a template:
     }
     ```
 
-[signrequest]: e://post-sign-requests
+[signrequest]: /reference/post-sign-requests
 [docuprep]: https://support.box.com/hc/en-us/articles/4404094944915-Creating-templates
-[parentfolder]: g://box-sign/create-sign-request#parent-folder
-[signers]: g://box-sign/create-sign-request#signers
-[template]: e://get-sign-templates#response-example
+[parentfolder]: /guides/box-sign/create-sign-request#parent-folder
+[signers]: /guides/box-sign/create-sign-request#signers
+[template]: /reference/get-sign-templates#response-example

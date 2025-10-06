@@ -22,16 +22,14 @@ verify your application's identity using a client ID and client secret.
 - [2FA][2fa] enabled on your Box account for viewing and copying the application's client secret from the configuration tab
 - The application is [authorized][auth] in the Box Admin Console
 
-<Message danger>
-
+<Danger>
 Your client secret is confidential and needs to be protected. Because this is
 how we securely identify an application's identity when obtaining an
 Access Token, you do not want to freely distribute a client secret. This
 includes via email, public forums and code repositories, distributed native
 applications, or client-side code. If you would like to add more security
 mechanisms, we recommend using our standard JWT application type.
-
-</Message>
+</Danger>
 
 ## How to use
 
@@ -80,19 +78,17 @@ This error indicates either:
 
 - the `box_subject_id` cannot be used based on the selected [application access][aa].
 
-<Message warning>
-
+<Warning>
 A CCG app with App Access Only can send in the `box_subject_type` of `enterprise` to authenticate as its service account, but it can't authenticate as a managed user or an admin.
-
-</Message>
+</Warning>
 
 - to use a `box_subject_type` of `user`, your application should be configured to generate user access tokens in the **Advanced Features** section of the **Configuration tab**.
 
   ![Generate access tokens check](../images/generate-access-tokens.png)
 
-<Message warning>
+<Warning>
 Once you make changes to the app settings, don't forget to [reauthorize][reauth] the application in the Admin Console.
-</Message>
+</Warning>
 
 - your application has not been authorized in the Box Admin Console
 
@@ -103,8 +99,8 @@ Once you make changes to the app settings, don't forget to [reauthorize][reauth]
 {/* i18n-disable localize-links */}
 
 [devconsole]: https://app.box.com/developers/console
-[accesstoken]: e://post-oauth2-token
-[sa]: page://platform/user-types/#service-account
-[auth]: g://authorization
-[aa]: g://authentication/client-credentials/client-credentials-setup/#application-access
-[reauth]: g://authorization/platform-app-approval#re-authorization-on-changes
+[accesstoken]: /reference/post-oauth2-token
+[sa]: pag/reference/platform/user-types/#service-account
+[auth]: /guides/authorization
+[aa]: /guides/authentication/client-credentials/client-credentials-setup/#application-access
+[reauth]: /guides/authorization/platform-app-approval#re-authorization-on-changes

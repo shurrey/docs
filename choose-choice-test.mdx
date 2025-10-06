@@ -1,0 +1,165 @@
+---
+title: "Choose & Choice Components Test"
+---
+
+import { Choose, Choice, Grid, Trigger, Observe, ChoiceDebug } from "/snippets/choose-choice-components.jsx"
+
+# Choose & Choice Components Test
+
+This page tests the interactive Choose and Choice components to ensure they work correctly with existing guide patterns.
+
+**How it works:**
+- The **Choose** components below are always visible and let you select options
+- The **Choice** components show/hide content based on your selections
+- Content is hidden by default until you make a choice (this is the expected behavior)
+- Selections persist across page refreshes using localStorage
+
+## Basic Choice Selection
+
+**Select one of the options below to see conditional content appear:**
+
+<Grid columns='3'>
+  <Choose option='test.app_type' value='use_ours' color='green'>
+    # Use our Box App
+
+    If you don't have access to Box AI in your Box instance, you can still
+    experiment with the Box AI API by using our preconfigured Box App.
+  </Choose>
+
+  <Choose option='test.app_type' value='create_new' color='blue'>
+    # Create new Box App
+
+    We can set up a Box App for you right here from the documentation. With a
+    few clicks you will be ready to go!
+  </Choose>
+
+  <Choose option='test.app_type' value='use_existing' color='red'>
+    # Use existing Box App
+
+    If you've already created a Box App before that you want to use, then we
+    can use the credentials for that application.
+  </Choose>
+</Grid>
+
+## Conditional Content Based on Choice
+
+**Note:** The content below will appear when you make a choice above. This is the expected behavior of the Choice components.
+
+<Choice option='test.app_type' value='create_new' color='blue'>
+  # Create a Box App
+
+  To use your own **Box App** you will need to create a
+  new Box App in the **Box Developer Console**.
+
+  <Trigger option="test.app_type" value="clicked">
+    **Click here to simulate app creation**
+  </Trigger>
+
+  <Observe option="test.app_type" value="clicked">
+    ✅ **App created!** We will use these credentials to authenticate in the next step.
+  </Observe>
+</Choice>
+
+<Choice option='test.app_type' value='use_existing' color='red'>
+  # Use existing Box App
+
+  If you have already created a Box App before you can use that as well. We
+  require a few settings to be set for this to work.
+
+  1. Go to the Developer Console
+  2. Select your application
+  3. Configure OAuth 2.0 settings
+  4. Set the redirect URI to `http://localhost:3000/callback`
+  5. Save your changes
+
+  **Your Client ID and Client Secret will be needed for the next step.**
+</Choice>
+
+<Choice option='test.app_type' value='use_ours' color='green'>
+  # Using Our Preconfigured App
+
+  Great! You've selected to use our preconfigured Box App. This means:
+
+  - No additional setup required
+  - You can start testing immediately
+  - Authentication will be handled for you
+  - Perfect for experimentation and learning
+</Choice>
+
+## Multi-Value Choice Display
+
+<Choice option='test.app_type' value='create_new,use_existing,clicked' color='none'>
+
+<Note>
+**Security Notice**
+
+Your API credentials are now configured. We recommend clearing your browser cache
+when you're done with this tutorial for security purposes.
+</Note>
+
+</Choice>
+
+## Summary Section
+
+<Choice option='test.app_type' value='use_ours,create_new,use_existing,clicked' color='none'>
+
+## Summary
+
+You have successfully configured your Box App setup:
+
+- ✅ Selected your preferred Box App configuration
+- ✅ Completed the necessary setup steps
+- ✅ Ready to proceed with Box API integration
+
+</Choice>
+
+## Unset State Example
+
+<Grid columns='2'>
+  <Choose option='test.demo' value='option1' color='blue'>
+    # Option 1
+    Click me to see the change below
+  </Choose>
+
+  <Choose option='test.demo' value='option2' color='red'>
+    # Option 2
+    Click me to see the change below
+  </Choose>
+</Grid>
+
+<Choice option='test.demo' unset>
+**Default state:** No option has been selected yet. Choose an option above to see conditional content.
+</Choice>
+
+<Choice option='test.demo' value='option1' color='blue'>
+You selected **Option 1**! This content only appears when Option 1 is chosen.
+</Choice>
+
+<Choice option='test.demo' value='option2' color='red'>
+You selected **Option 2**! This content only appears when Option 2 is chosen.
+</Choice>
+
+## Observe Component Test
+
+<Observe option='test.app_type' value='use_ours,create_new,use_existing,clicked'>
+🎉 **Great!** You've made a choice above. This Observe component only shows when any app type is selected.
+</Observe>
+
+## Debug Information
+
+<ChoiceDebug option='test.app_type' />
+
+<ChoiceDebug option='test.demo' />
+
+---
+
+## Testing Instructions
+
+1. **Test Basic Choices**: Click the different app type options and verify that the conditional content shows/hides correctly
+2. **Test Trigger/Observe**: Select "Create new Box App" and click the trigger button to test the Observe component
+3. **Test Multi-Value**: Verify that the security notice appears when you select either "create_new", "use_existing", or trigger "clicked"
+4. **Test Unset State**: The demo section should show default text until you make a choice
+5. **Test Persistence**: Navigate to another page and come back - your choices should be remembered
+6. **Test Grid Layout**: Verify that the Grid component displays items in the correct number of columns
+
+The debug components at the bottom show the current state for testing purposes.

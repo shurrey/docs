@@ -16,9 +16,9 @@ Sometimes an application might want to download all files for a folder. To do so
 with the SDKs and the CLI requires traversing the folder tree, finding every
 file and downloading it accordingly.
 
-<Message type="notice">
-To download a ZIP archive, follow [this](g://downloads/zip-archive) guide.
-</Message>
+<Note>
+To download a ZIP archive, follow [this](/guides/downloads/zip-archive) guide.
+</Note>
 
 <Tabs>
   <Tab title='.NET'>
@@ -242,12 +242,12 @@ function autoPage(iterator) {
   </Tab>
 </Tabs>
 
-<Message warning>
-  It is important to remember that an application needs to have the
+<Warning>
+It is important to remember that an application needs to have the
   permissions to access and download the files and folders in question. When the
   authenticated user does not have access to any of the files or folders, a
   `HTTP 404 Not Found` error will occur.
 
-  Lear more about [User Types](page://platform/user-types) in our guides on
+  Lear more about [User Types](pag/reference/platform/user-types) in our guides on
   authentication.
-</Message>
+</Warning>

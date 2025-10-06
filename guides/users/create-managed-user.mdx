@@ -15,20 +15,20 @@ title: "Create Managed User"
 To generate a new managed user, the minimal information that will be required
 will be a name and an email address for the managed user.
 
-<Message type='notice'>
-  The email address supplied when creating a managed user must be unique. It
+<Note>
+The email address supplied when creating a managed user must be unique. It
   cannot already be associated with an existing Box user.
-</Message>
+</Note>
 
 <Samples id='post_users' />
 
 To see all available optional parameters that may be set when creating an app
-user, see the [create user endpoint](endpoint://post-users).
+user, see the [create user endpoint](/reference/post-users).
 
-<Message type='notice'>
+<Note>
 Before you can make any changes to the newly created account, you need to
 click the link you receive in the confirmation email.
-</Message>
+</Note>
 
 A user object will be returned from the create user request. Within the user
 object is an ID for the managed user, which may be used to make API requests to
@@ -38,7 +38,7 @@ Once a new managed user is created the email address used will receive an email
 from Box asking them to create a password for the account. The account will be
 in a `pending` state until that action has taken place.
 
-<Message type='notice'>
-  For security reasons passwords cannot be supplied when creating a new managed
+<Note>
+For security reasons passwords cannot be supplied when creating a new managed
   user
-</Message>
+</Note>

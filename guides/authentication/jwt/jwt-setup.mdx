@@ -19,9 +19,7 @@ title: "Setup with JWT"
 A Platform App can be set up to use server-side authentication with
 [JWT][jwt].
 
-<CTA to='g://authentication/jwt'>
-  Learn how JWT authentication works
-</CTA>
+<Card title="Learn how JWT authentication works" href="/guides/authentication/jwt"></Card>
 
 ## Prerequisites
 
@@ -64,10 +62,10 @@ Use the drop-down list to select the app's purpose. Depending on the option chos
 Select **Server Authentication (with JWT)** if you would like to verify
 application identity [with a key pair][kp] and confirm with **Create Platform App**.
 
-<Message warning>
+<Warning>
 Once you make a selection, you will not be able to change to a different
 authentication method without creating a new application.
-</Message>
+</Warning>
 
 <ImageFrame border width="300" center>
   ![App name form](../images/custom-app-authentication-jwt.png)
@@ -75,10 +73,10 @@ authentication method without creating a new application.
 
 ## Public and private key pair
 
-<Message>
-  This section can be skipped if you selected Server Authentication
+<Note>
+This section can be skipped if you selected Server Authentication
   (Client Credentials Grant) as your authentication method.
-</Message>
+</Note>
 
 Once a Platform App is created leveraging Server Authentication with JWT, a key
 pair can be generated via the configuration tab within the
@@ -105,10 +103,10 @@ Click the **Generate a Public/Private Keypair** button to have Box generate a
 keypair you. This will trigger the download of a JSON configuration file that
 you can move to your application code.
 
-<Message danger>
-  For security reasons, Box will not store your private key. If you lose your
+<Danger>
+For security reasons, Box will not store your private key. If you lose your
   private key, you will need to reset the entire keypair.
-</Message>
+</Danger>
 
 ### Manually add keypair
 
@@ -123,11 +121,11 @@ openssl genrsa -des3 -out private.pem 2048
 openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 ```
 
-<Message>
-  # For Windows Systems
+<Note>
+# For Windows Systems
 
   Windows users can install and use the [Cygwin][cygwin] package to run OpenSSL.
-</Message>
+</Note>
 
 Then, navigate to the configuration tab for your application within the
 [Developer console][devconsole] and scroll down to the
@@ -156,9 +154,7 @@ Click **Review and Submit** to send an email to your Box enterprise Admin for
 approval. More information on this process is available in our
 [support article for app authorization][app-auth].
 
-<CTA to='g://authorization/platform-app-approval'>
-  Learn how to authorize a Platform Application
-</CTA>
+<Card title="Learn how to authorize a Platform Application" href="/guides/authorization/platform-app-approval"></Card>
 
 ## Basic configuration
 
@@ -203,20 +199,20 @@ section at the bottom of the **Configuration** tab in the
 [devconsole]: https://app.box.com/developers/console
 [devaccount]: https://account.box.com/signup/n/developer
 {/* i18n-disable localize-links */}
-[devtoken]: g://authentication/tokens/developer-tokens
-[scopes]: g://api-calls/permissions-and-errors/scopes
+[devtoken]: /guides/authentication/tokens/developer-tokens
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 {/* i18n-enable localize-links */}
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 {/* i18n-disable localize-links */}
-[user-types]: page://platform/user-types
-[sa]: page://platform/user-types/#service-account
+[user-types]: pag/reference/platform/user-types
+[sa]: pag/reference/platform/user-types/#service-account
 {/* i18n-enable localize-links */}
 [cygwin]: http://www.cygwin.com/
 [app-auth]: https://community.box.com/t5/Managing-Developer-Sandboxes/Authorizing-Apps-in-the-Box-App-Approval-Process/ta-p/77293
 {/* i18n-disable localize-links */}
-[jwt]: g://authentication/jwt
+[jwt]: /guides/authentication/jwt
 {/* i18n-enable localize-links */}
 [2fa]: https://support.box.com/hc/en-us/articles/360043697154-Two-Factor-Authentication-Set-Up-for-Your-Account
 {/* i18n-disable localize-links */}
-[kp]: g://authentication/jwt/without-sdk/#public-and-private-key-pair
-[ccg]: g://authentication/jwt/without-sdk/#client-credentials-grant
+[kp]: /guides/authentication/jwt/without-sdk/#public-and-private-key-pair
+[ccg]: /guides/authentication/jwt/without-sdk/#client-credentials-grant

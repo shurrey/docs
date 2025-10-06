@@ -21,15 +21,13 @@ content with a user.
 The first step is to create the application and authorize it through your admin
 to begin making API requests to Box.
 
-<CTA to='guide://authentication/app-token/app-token-setup'>
-  Setup and authorize App Token app
-</CTA>
+<Card title="Setup and authorize App Token app" href="/guides/authentication/app-token/app-token-setup"></Card>
 
-<Message type='warning'>
-  App Token apps need to be authorized by the Box admin, otherwise you will
+<Warning>
+App Token apps need to be authorized by the Box admin, otherwise you will
   receive permission errors when making API requests. To go through app
-  authorization, follow [this guide](guide://authorization/platform-app-approval).
-</Message>
+  authorization, follow [this guide](/guides/authorization/platform-app-approval).
+</Warning>
 
 ## Generate Access Token
 
@@ -48,11 +46,11 @@ section.
   ![Image](./images/app_token_generate_key.png)
 </ImageFrame>
 
-<Message type='notice'>
-  If you don't have 2FA setup for your developer account, you will be prompted
+<Note>
+If you don't have 2FA setup for your developer account, you will be prompted
   to set up 2FA before you can successfully generate App Tokens. Follow the
   prompt to set up 2FA.
-</Message>
+</Note>
 
 Choose the expiration time for your token, either 30 days, 60 days, or set the
 token to never expire.

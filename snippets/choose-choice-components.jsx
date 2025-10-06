@@ -1,0 +1,484 @@
+// Ensure React is available globally
+if (typeof React === 'undefined' && typeof window !== 'undefined') {
+  console.error('React is not available. Make sure React is loaded before this script.');
+}
+
+// Choice State Manager
+// Handles persistent choice storage and event management for Choose/Choice components
+class ChoiceStateManager {
+  constructor() {
+    this.storageKey = 'com.box.developer.choice_events';
+    this.listeners = new Map();
+    this.state = this.loadState();
+  }
+
+  loadState() {
+    try {
+      const stored = localStorage.getItem(this.storageKey);
+      return stored ? JSON.parse(stored) : {};
+    } catch (error) {
+      console.warn('Failed to load choice state:', error);
+      return {};
+    }
+  }
+
+  saveState() {
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.state));
+    } catch (error) {
+      console.warn('Failed to save choice state:', error);
+    }
+  }
+
+  trigger(option, value) {
+    const oldValue = this.state[option];
+    this.state[option] = value;
+    this.saveState();
+
+    const optionListeners = this.listeners.get(option) || [];
+    optionListeners.forEach(listener => {
+      try {
+        listener(value, oldValue);
+      } catch (error) {
+        console.warn('Choice listener error:', error);
+      }
+    });
+
+    window.dispatchEvent(new CustomEvent('choiceStateUpdate', {
+      detail: { option, value, oldValue }
+    }));
+  }
+
+  listen(option, callback) {
+    if (!this.listeners.has(option)) {
+      this.listeners.set(option, []);
+    }
+    this.listeners.get(option).push(callback);
+
+    return () => {
+      const callbacks = this.listeners.get(option) || [];
+      const index = callbacks.indexOf(callback);
+      if (index > -1) {
+        callbacks.splice(index, 1);
+      }
+    };
+  }
+
+  getValue(option) {
+    return this.state[option];
+  }
+
+  hasValue(option) {
+    return option in this.state && this.state[option] !== undefined && this.state[option] !== null;
+  }
+
+  matchesValues(option, values) {
+    const currentValue = this.getValue(option);
+    if (!currentValue) return false;
+
+    const allowedValues = values.split(',').map(v => v.trim());
+    return allowedValues.includes(currentValue);
+  }
+
+  getState() {
+    return { ...this.state };
+  }
+}
+
+// Initialize global state manager and utility functions
+if (typeof window !== 'undefined' && !window.choiceStateManager) {
+  window.choiceStateManager = new ChoiceStateManager();
+
+  // Global utility functions
+  window.triggerChoice = function(option, value) {
+    if (window.choiceStateManager) {
+      window.choiceStateManager.trigger(option, value);
+    }
+  };
+
+  window.getChoiceValue = function(option) {
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.getValue(option);
+    }
+    return undefined;
+  };
+
+  window.listenToChoice = function(option, callback) {
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.listen(option, callback);
+    }
+    return () => {};
+  };
+
+  window.hasChoiceValue = function(option) {
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.hasValue(option);
+    }
+    return false;
+  };
+
+  window.matchesChoiceValues = function(option, values) {
+    if (window.choiceStateManager) {
+      return window.choiceStateManager.matchesValues(option, values);
+    }
+    return false;
+  };
+}
+
+// Choose Component - Creates selectable option cards
+const Choose = ({
+  option,
+  value,
+  color = '',
+  children,
+  ...props
+}) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Choose component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
+  const [isSelected, setIsSelected] = useState(false);
+  const [hasOptionTriggered, setHasOptionTriggered] = useState(false);
+
+  useEffect(() => {
+    // Check initial state
+    const currentValue = window.getChoiceValue ? window.getChoiceValue(option) : undefined;
+    const optionTriggered = window.hasChoiceValue ? window.hasChoiceValue(option) : false;
+
+
+    setIsSelected(currentValue === value);
+    setHasOptionTriggered(optionTriggered);
+
+    // Listen for state changes
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, (newValue) => {
+      setIsSelected(newValue === value);
+      setHasOptionTriggered(newValue !== undefined);
+    }) : () => {};
+
+
+    return unsubscribe;
+  }, [option, value]);
+
+  const handleClick = () => {
+    if (window.triggerChoice) {
+      window.triggerChoice(option, value);
+    }
+  };
+
+  const getColorStyles = () => {
+    const baseStyles = {
+      border: '1px dashed #e1e5e9',
+      cursor: 'pointer',
+      padding: '20px',
+      position: 'relative',
+      backgroundColor: '#f8f9fa',
+      outline: 'none',
+      height: '100%',
+      borderRadius: '8px',
+      transition: 'all 0.2s ease',
+      display: 'flex',
+      flexDirection: 'column'
+    };
+
+    const colorMap = {
+      green: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
+      red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
+      blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+      default: {}
+    };
+
+    const colorStyles = colorMap[color] || colorMap.default;
+
+    if (isSelected) {
+      return {
+        ...baseStyles,
+        ...colorStyles,
+        borderStyle: 'solid',
+        borderWidth: '3px',
+        borderColor: colorStyles.borderColor || '#0061d5',
+        backgroundColor: colorStyles.backgroundColor || '#e3f2fd',
+        boxShadow: '0 2px 8px rgba(0, 97, 213, 0.3)',
+        transform: 'scale(1.02)'
+      };
+    }
+
+    if (hasOptionTriggered && !isSelected) {
+      return {
+        ...baseStyles,
+        ...colorStyles,
+        opacity: 0.5
+      };
+    }
+
+    return {
+      ...baseStyles,
+      ...colorStyles
+    };
+  };
+
+  const iconStyles = {
+    float: 'left',
+    position: 'relative',
+    top: '2px',
+    marginRight: '12px',
+    width: '20px',
+    height: '20px',
+    color: isSelected ? '#0061d5' : '#666'
+  };
+
+  return React.createElement('div', {
+    onClick: handleClick,
+    style: getColorStyles(),
+    tabIndex: 0,
+    onKeyDown: (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClick();
+      }
+    },
+    ...props
+  }, [
+    React.createElement('div', { style: iconStyles, key: 'icon' },
+      isSelected ?
+        React.createElement('svg', {
+          viewBox: '0 0 24 24',
+          fill: 'currentColor',
+          style: { width: '100%', height: '100%' }
+        }, React.createElement('path', {
+          d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+        })) :
+        React.createElement('svg', {
+          viewBox: '0 0 24 24',
+          fill: 'none',
+          stroke: 'currentColor',
+          strokeWidth: '2',
+          style: { width: '100%', height: '100%' }
+        }, React.createElement('circle', { cx: '12', cy: '12', r: '10' }))
+    ),
+    React.createElement('div', { style: { flex: 1 }, key: 'content' }, children)
+  ]);
+};
+
+// Choice Component - Shows/hides content based on selections
+const Choice = ({
+  option,
+  value,
+  color = '',
+  unset = false,
+  lazy = false,
+  children,
+  ...props
+}) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Choice component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
+  const [shouldShow, setShouldShow] = useState(false);
+  const [hasEverShown, setHasEverShown] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const hasOptionValue = window.hasChoiceValue ? window.hasChoiceValue(option) : false;
+      const matchesValue = window.matchesChoiceValues ? window.matchesChoiceValues(option, value) : false;
+
+      let show = false;
+
+      if (unset && !hasOptionValue) {
+        show = true;
+      } else if (!unset && matchesValue) {
+        show = true;
+      }
+      setShouldShow(show);
+      if (show && !hasEverShown) {
+        setHasEverShown(true);
+      }
+    };
+
+    updateVisibility();
+
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateVisibility) : () => {};
+
+    return unsubscribe;
+  }, [option, value, unset]);
+
+  const getColorStyles = () => {
+    const baseStyles = {
+      border: '1px dashed #e1e5e9',
+      padding: '20px',
+      marginBottom: '20px',
+      borderRadius: '8px',
+      backgroundColor: '#ffffff'
+    };
+
+    const colorMap = {
+      green: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
+      red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
+      blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+      none: { backgroundColor: 'transparent', padding: '0', margin: '0', border: 'none' },
+      default: {}
+    };
+
+    return {
+      ...baseStyles,
+      ...(colorMap[color] || colorMap.default)
+    };
+  };
+
+  if (lazy && !hasEverShown && !shouldShow) {
+    return null;
+  }
+
+  return React.createElement('div', {
+    style: {
+      ...getColorStyles(),
+      display: shouldShow ? 'block' : 'none'
+    },
+    ...props
+  }, children);
+};
+
+// Grid Component - Helper for laying out Choose options and other content
+const Grid = ({ columns = 2, compact = false, children, ...props }) => {
+  const gridStyles = {
+    display: 'grid',
+    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    gap: compact ? '8px' : '16px',
+    marginBottom: compact ? '10px' : '20px'
+  };
+
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Grid component');
+    return null;
+  }
+
+  return React.createElement('div', {
+    style: gridStyles,
+    ...props
+  }, children);
+};
+
+// Trigger Component - Triggers choice events when clicked
+const Trigger = ({ option, value, children, ...props }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Trigger component');
+    return null;
+  }
+
+  const handleClick = () => {
+    if (window.triggerChoice) {
+      window.triggerChoice(option, value);
+    }
+  };
+
+  return React.createElement('div', {
+    onClick: handleClick,
+    style: { cursor: 'pointer' },
+    ...props
+  }, children);
+};
+
+// Observe Component - Shows/hides content based on choice state
+const Observe = ({ option, value, children, ...props }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in Observe component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
+  const [shouldShow, setShouldShow] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const matches = window.matchesChoiceValues ? window.matchesChoiceValues(option, value) : false;
+      setShouldShow(matches);
+    };
+
+    updateVisibility();
+
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateVisibility) : () => {};
+
+    return unsubscribe;
+  }, [option, value]);
+
+  if (!shouldShow) {
+    return null;
+  }
+
+  return React.createElement('div', props, children);
+};
+
+// Debug Component - Shows current choice state
+const ChoiceDebug = ({ option }) => {
+  // Ensure React is available
+  if (typeof React === 'undefined') {
+    console.error('React is not defined in ChoiceDebug component');
+    return null;
+  }
+
+  const { useState, useEffect } = React;
+  const [currentValue, setCurrentValue] = useState(null);
+  const [allState, setAllState] = useState({});
+
+  useEffect(() => {
+    const updateState = () => {
+      if (window.choiceStateManager) {
+        setCurrentValue(window.choiceStateManager.getValue(option));
+        setAllState(window.choiceStateManager.getState());
+      }
+    };
+
+    updateState();
+
+    const unsubscribe = window.listenToChoice ? window.listenToChoice(option, updateState) : () => {};
+
+    const handleGlobalUpdate = () => updateState();
+    window.addEventListener('choiceStateUpdate', handleGlobalUpdate);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('choiceStateUpdate', handleGlobalUpdate);
+    };
+  }, [option]);
+
+  return React.createElement('div', {
+    style: {
+      padding: '10px',
+      backgroundColor: '#f5f5f5',
+      border: '1px solid #ddd',
+      borderRadius: '4px',
+      fontSize: '12px',
+      fontFamily: 'monospace',
+      marginTop: '20px'
+    }
+  }, [
+    React.createElement('strong', { key: 'title' }, 'Choice Debug:'),
+    React.createElement('br', { key: 'br1' }),
+    `Option: ${option}`,
+    React.createElement('br', { key: 'br2' }),
+    `Current Value: ${currentValue || 'undefined'}`,
+    React.createElement('br', { key: 'br3' }),
+    `All State: ${JSON.stringify(allState, null, 2)}`
+  ]);
+};
+
+// Make components available globally and export them
+if (typeof window !== 'undefined') {
+  window.Choose = Choose;
+  window.Choice = Choice;
+  window.Grid = Grid;
+  window.Trigger = Trigger;
+  window.Observe = Observe;
+  window.ChoiceDebug = ChoiceDebug;
+}
+
+// Export for MDX import compatibility
+export { Choose, Choice, Grid, Trigger, Observe, ChoiceDebug };

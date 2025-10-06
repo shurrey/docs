@@ -3,7 +3,15 @@ type: quick-start
 hide_in_page_nav: true
 title: "Using Options and Bulk Commands"
 ---
-<YouTube id='WXkBctPosLE' />
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/WXkBctPosLE"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
 
 ## Options
 
@@ -29,12 +37,12 @@ at the root level in user ID 123456’s account.
 box folders:create 0 Example_Folder --as-user=123456
 ```
 
-<Message type='warning'>
-  Only Service Accounts and Admins are able to use the as-user header.
+<Warning>
+Only Service Accounts and Admins are able to use the as-user header.
   If your application was not authorized with the necessary scopes or you
   configured your CLI to obtain a default token for another user, this call may
   fail. Add `-v` or `--verbose` to your command for verbose error logging.
-</Message>
+</Warning>
 
 ## Bulk Commands
 {/* alex ignore execute */}
@@ -47,10 +55,10 @@ necessary information.
 
 As an example, let's create folders using the command `box folders:create --bulk-file-path=pathtoacsv`
 
-<Message type='tip'>
-  Drag the CSV file from your finder window/file explorer to the
+<Tip>
+Drag the CSV file from your finder window/file explorer to the
   terminal/command line window to auto-populate the path.
-</Message>
+</Tip>
 
 To specify the column names for your CSV file, go to the [GitHub repository][github]
 documentation and look at the argument names or use the `--help` option. In this
@@ -88,6 +96,6 @@ For more details on bulk commands read [this document][bulk].
 
 [github]: https://github.com/box/boxcli#command-topics
 [df]: https://github.com/box/boxcli/blob/master/docs/folders.md#box-foldersdelete-id
-[asuser]: g://authentication/jwt/as-user
+[asuser]: /guides/authentication/jwt/as-user
 [csv]: https://github.com/box/boxcli/blob/main/docs/Bulk%20actions/folders/folders-create.csv
-[bulk]: g://cli/cli-docs/bulk-commands
+[bulk]: /guides/cli/cli-docs/bulk-commands

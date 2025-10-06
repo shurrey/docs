@@ -18,11 +18,11 @@ to this rule:
 - The [`POST /oauth2/token`][post-oauth2-token] is used to request access tokens and as per the OAuth 2.0 specification it accepts the body to be sent with a content type of `application/x-www-form-urlencoded`.
 - Most of the APIs that are used to upload binary data, like the [`POST /files/content`][post-files-content] endpoint, expect data to be sent as form data with a content type of `multipart/form-data`.
 
-<Message type='notice'>
-  Although not required, we highly recommend passing a header with each API
+<Note>
+Although not required, we highly recommend passing a header with each API
   request to define the content type of the data sent, for example
   `content-type: application/json`.
-</Message>
+</Note>
 
 ### Headers
 
@@ -76,11 +76,11 @@ exceptions to this rule as well.
 - APIs that delete items return an empty body with a `204 No Content` HTTP status code.
 - APIs used to request binary data either return a `200 OK` status code with the binary data attached, or a `202 Accepted`, or `302 Found` status code with no body and a `location` header pointing to the actual binary file.
 
-<Message type='notice'>
-  The `content-type` response header can be used to understand the type of
+<Note>
+The `content-type` response header can be used to understand the type of
   content returned in the API. Additionally, every API endpoint has it's
   response type documented in our API reference documentation.
-</Message>
+</Note>
 
 ### Headers
 
@@ -169,11 +169,11 @@ When reaching out to support about specific error, please provide the full API
 response including the `request_id` to help our support team to quickly find your
 request.
 
-<Message type='notice'>
-  Most API calls also return a `box-request-id` response header. The value of
+<Note>
+Most API calls also return a `box-request-id` response header. The value of
   this header should not be confused with the `request_id` value in the body of
   an error response.
-</Message>
+</Note>
 
 ### Large numbers
 
@@ -185,7 +185,7 @@ number.
 In these cases these numbers are returned in [IEEE754][numbers] format for
 example `1.2318237429383e+31`.
 
-[post-oauth2-token]: endpoint://post-oauth2-token
-[post-files-content]: endpoint://post-files-content
+[post-oauth2-token]: /reference/post-oauth2-token
+[post-files-content]: /reference/post-files-content
 [numbers]: https://en.wikipedia.org/wiki/IEEE_754
 [rfc3339]: https://www.ietf.org/rfc/rfc3339.txt

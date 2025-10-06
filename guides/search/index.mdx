@@ -16,15 +16,15 @@ in all our supported SDKs and the CLI.
 
 <Samples id='get_search' />
 
-<Message notice>
-  Explore the [reference documentation](e://get_search) to learn more
+<Note>
+Explore the [reference documentation](/reference/get_search) to learn more
   about all the different features available to the search API.
-</Message>
+</Note>
 
 ## Query operators
 
 The search API supports a few different
-[search operators](g://search/query-operators), including
+[search operators](/guides/search/query-operators), including
 `AND`, `OR`, `NOT` and `""`. These operators can be used to refine the search
 results to only return items that match a more complicated combination of
 search terms.
@@ -34,9 +34,7 @@ curl -i -X GET "https://api.box.com/2.0/search?query=box%20AND%20sales" \
     -H "Authorization: Bearer <ACCESS_TOKEN>"
 ```
 
-<CTA to='g://search/query-operators'>
-  Learn more about using logical operators
-</CTA>
+<Card title="Learn more about using logical operators" href="/guides/search/query-operators"></Card>
 
 ## Search Indexing
 
@@ -46,24 +44,20 @@ the index. When a search is performed, the API looks in the search
 index for files and folders that match the query. When content is added,
 updated, or deleted in Box, the search index is updated accordingly.
 
-<CTA to='g://search/indexing'>
-  Learn more about the Box search index
-</CTA>
+<Card title="Learn more about the Box search index" href="/guides/search/indexing"></Card>
 
-<Message info>
-
+<Info>
 In some cases an index might not be updated even after 10 minutes.
 In those cases we recommend reaching out to [Box Support][support]
 to get the issue resolved.
+</Info>
 
-</Message>
-
-<Message warning>
-  If your enterprise has full text search turned off
+<Warning>
+If your enterprise has full text search turned off
   (e.g. [Keysafe][keysafe] customers), characters within a document
   cannot be searched. If you need to find out if full
   text search is turned off, reach out to your account team.
-</Message>
+</Warning>
 
 ## Comparison to Metadata Queries
 
@@ -84,12 +78,10 @@ for relevance to a human user.
 | Scale             | This API has no limit on the number of items with the specified metadata template that can be returned. It is recommended to only send queries which match no more than 2,000 results. | This API has no limit on number of items with the specified metadata template that can be returned, yet the response time increases significantly as the number of items matching the search grows. This API does have a limit of up to 10 million results for a query. It is recommended to only send queries which match no more than 50,000 results. |
 | Scope             | This API is always limited to the content to which the user has access                                                                                                                                                                                                                                              | This API may be either limited to the content to which the user has access (`​user_content​`) or to all content in the enterprise (`​enterprise_content​`).                                                                                                                                                                                             |
 
-<CTA to='g://metadata/queries/comparison'>
-  Learn more about the metadata query API
-</CTA>
+<Card title="Learn more about the metadata query API" href="/guides/metadata/queries/comparison"></Card>
 
-[mdq]: g://metadata/queries
-[mdq_api]: e://post_metadata_queries_execute_read
-[search]: e://get_search
-[support]: page://support
+[mdq]: /guides/metadata/queries
+[mdq_api]: /reference/post_metadata_queries_execute_read
+[search]: /reference/get_search
+[support]: pag/reference/support
 [keysafe]: https://www.box.com/security/keysafe

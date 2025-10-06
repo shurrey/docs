@@ -10,14 +10,14 @@ first step that should be taken is to see if that user already exists from a
 previous login attempt where a Box user record was already created.
 
 If a Box user is found you should
-[create a user access token](guide://authentication/jwt/user-access-tokens),
-or make [as user calls](guide://authentication/jwt/as-user), to access Box
+[create a user access token](/guides/authentication/jwt/user-access-tokens),
+or make [as user calls](/guides/authentication/jwt/as-user), to access Box
 APIs as that user.
 
 If a Box user is not found you should create a new user with an association to
 the SSO user record.
 
-To search for existing users the [List Enterprise Users](e://get-users)
+To search for existing users the [List Enterprise Users](/reference/get-users)
 endpoint may be used. Depending on whether you're using the
 `external_app_user_id` or `login` method your query will look slightly
 different.

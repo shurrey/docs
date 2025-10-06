@@ -19,12 +19,10 @@ a link that downloads or previews the file.
 All thumbnail representations except `1024x1024` and `2048x2048` PNGs are
 generated upon uploading the source file to Box.
 
-<Message warning>
-
+<Warning>
 An deprecated way to get a thumbnail for a file is using the
 [thumbnail API][thumbnail_api].
-
-</Message>
+</Warning>
 
 ## The process
 
@@ -34,14 +32,12 @@ To get a thumbnail representation follow the following steps
 - [Request a thumbnail][request-a-representation] by passing the `x-rep-hints`-header for the desired thumbnail format and size, for example `[jpg?dimensions=32x32]`.
 - [Download the thumbnail][download-a-representation] by calling the `url_template`, replacing the `{+asset_path}` with an empty string.
 
-<Message warning>
-
+<Warning>
 Sometimes the thumbnail can not be created directly. Instead,
 the API will return a `HTTP 202` with a `location` response header.
 The location is for a temporary image that can be used while the thumbnail
 is being generated.
-
-</Message>
+</Warning>
 
 A retry-after response header is also provided to present you with an
 estimated amount of seconds before retrying this endpoint.
@@ -107,14 +103,12 @@ At this time the following file types are supported.
 | Audio     | `aac`, `aifc`, `aiff`, `amr`, `au`, `flac`, `m4a`, `mp3`, `ogg`, `ra`, `wav`, `wma`                                                                             |
 | Video     | `3g2`, `3gp`, `avi`, `m2v`, `m2ts`, `m4v`, `mkv`, `mov`, `mp4`, `mpeg`, `mpg`, `ogg`, `mts`, `qt`, `wmv`                                                        |
 
-<Message warning>
-
+<Warning>
 For **document** file types the representation returned will be a placeholder
 icon and not an actual thumbnail.
+</Warning>
 
-</Message>
-
-[list-all-representations]: guide://representations/list-all-representations
-[request-a-representation]: guide://representations/request-a-representation
-[download-a-representation]: guide://representations/download-a-representation
-[thumbnail_api]: guide://representations/thumbnail
+[list-all-representations]: /guides/representations/list-all-representations
+[request-a-representation]: /guides/representations/request-a-representation
+[download-a-representation]: /guides/representations/download-a-representation
+[thumbnail_api]: /guides/representations/thumbnail

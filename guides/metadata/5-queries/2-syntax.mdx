@@ -92,12 +92,10 @@ A query supports the following logical operators.
 
 {/* i18n-disable localize-links */}
 
-<Message notice>
-
+<Note>
 Any match on a `string` or `enum` field is case sensitive except when using
 the `ILIKE` operator.
-
-</Message>
+</Note>
 
 ### Comparison operators
 
@@ -112,9 +110,9 @@ A query supports the following comparison operators.
 | `<=`     | Ensures a template field value is **less than or equal to** the a specified value  |
 | `<>`     | Ensures a template field value is **not equal to** the a specified value           |
 
-<Message warning>
-  Bit-wise and arithmetic operators are not supported by the Metadata Query API.
-</Message>
+<Warning>
+Bit-wise and arithmetic operators are not supported by the Metadata Query API.
+</Warning>
 
 ### Pattern matching
 
@@ -142,10 +140,8 @@ string is not in the `query` attribute but in the list of `query_params`.
 }
 ```
 
-<Message notice>
-
+<Note>
 The backslash character `\` can be used to escape the `%` or
 `_` characters if those need to be matched literally, for example
 `20\%` would match the literal value of `20%`.
-
-</Message>
+</Note>

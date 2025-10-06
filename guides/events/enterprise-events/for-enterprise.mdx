@@ -14,13 +14,13 @@ alias_paths:
 title: "Get Enterprise Events"
 ---
 To get a enterprise's events, make
-a call to the [`GET /events`](e://get_events) API with the `stream_type` set to
+a call to the [`GET /events`](/reference/get_events) API with the `stream_type` set to
 `admin_logs` or `admin_logs_streaming`.
 
-<Message>
-  This API requires the user to be an enterprise admin or co-admin with the
+<Note>
+This API requires the user to be an enterprise admin or co-admin with the
   permission to **Run new reports and access existing reports**.
-</Message>
+</Note>
 
 <Samples id="get_events" variant='enterprise_stream' />
 
@@ -246,5 +246,5 @@ exhaustive, so it is possible events appear that are not listed.
 | `WATERMARK_LABEL_CREATE`                       | A watermark is added to a file                                                                  |
 | `WATERMARK_LABEL_DELETE`                       | A watermark is removed from a file                                                              |
 
-[shield-events]: g://events/event-triggers/shield-alert-events
+[shield-events]: /guides/events/event-triggers/shield-alert-events
 [reports]:https://support.box.com/hc/en-us/articles/360043696534-Running-Reports

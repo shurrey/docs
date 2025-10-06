@@ -51,10 +51,10 @@ The supported TLS protocol versions are `TLS 1.2` and `TLS 1.3` with FIPS-compli
 V2 webhooks cannot be created on the root folder, which is the folder with ID
 `0`. Instead, you will need to use a [v1 webhook][v1].
 
-<Message type='notice'>
-  When the permissions on an item prevent an action from occurring,
+<Note>
+When the permissions on an item prevent an action from occurring,
   no notification is sent for the attempted action.
-</Message>
+</Note>
 
 ## `NO_ACTIVE_SESSION` is set in the webhook payload
 
@@ -98,6 +98,6 @@ includes the following additional information.
 }
 ```
 
-[v1]: g://webhooks/v1
-[update]: g://webhooks/v2/update-v2
+[v1]: /guides/webhooks/v1
+[update]: /guides/webhooks/v2/update-v2
 [app authorization]: https://support.box.com/hc/en-us/articles/360043697014-Authorizing-Apps-in-the-Box-App-Approval-Process

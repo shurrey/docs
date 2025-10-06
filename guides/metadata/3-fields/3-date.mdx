@@ -16,11 +16,11 @@ A metadata field of type `date` is displayed to a user as a date picker.
 
 </ImageFrame>
 
-<Message notice>
-  Although dates are presented to users in the Box Web app as date-pickers, the
+<Note>
+Although dates are presented to users in the Box Web app as date-pickers, the
   actual dates are actually stored as in `RFC3339` format, with up to
   millisecond precision. The time part of the date is always set to `T00:00:00.000Z`.
-</Message>
+</Note>
 
 ## Create a date field
 
@@ -77,11 +77,9 @@ When updating a `date` metadata field, the only relevant operation is the
 ]
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
+</Warning>
 
-</Message>
-
-[g_create_template]: g://metadata/templates/create
-[g_update_template]: g://metadata/templates/update
+[g_create_template]: /guides/metadata/templates/create
+[g_update_template]: /guides/metadata/templates/update

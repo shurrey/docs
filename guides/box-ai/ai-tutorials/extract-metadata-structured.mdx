@@ -33,9 +33,9 @@ To send a request, use the
 
 To make a call, you must pass the following parameters. Mandatory parameters are in **bold**.
 
-<Message type='notice'>
+<Note>
 The `items` array can have exactly one element.
-</Message>
+</Note>
 
 | Parameter                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Example                                                  |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -70,11 +70,9 @@ To get the response from Box AI, call `POST /2.0/ai/extract_structured` endpoint
 - `fields` to specify the data that you want to extract from the given file.
 - `metadata_template` to supply an already existing metadata template.
 
-<Message type='notice'>
-
+<Note>
 You can use either `fields` or `metadata_template` to specify your structure, but not both.
-
-</Message>
+</Note>
 
 ### Use `fields` parameter
 
@@ -236,12 +234,12 @@ box_ai_response = client.ai.create_ai_extract_structured(
 print(f"box_ai_response: {box_ai_response.answer}")
 ```
 
-[prereq]: g://box-ai/ai-tutorials/prerequisites
-[agent]: e://get_ai_agent_default
+[prereq]: /guides/box-ai/ai-tutorials/prerequisites
+[agent]: /reference/get_ai_agent_default
 [model-param]: r://ai_agent_text_gen#param_basic_gen_model
 [prompt-param]: r://ai_agent_text_gen#param_basic_gen_prompt_template
 [templates-console]: https://support.box.com/hc/en-us/articles/360044194033-Customizing-Metadata-Templates
-[templates-api]: g://metadata/templates/create
-[overrides]: g://box-ai/ai-agents/ai-agent-overrides
-[changelog]: page://changelog
+[templates-api]: /guides/metadata/templates/create
+[overrides]: /guides/box-ai/ai-agents/ai-agent-overrides
+[changelog]: pag/reference/changelog
 [blog]: https://medium.com/box-developer-blog

@@ -22,12 +22,12 @@ relevance to a human user.
 | Scale             | This API has no limit on the number of items with the specified metadata template that can be returned. It is recommended to only send queries which match no more than 2,000 results. | This API has no limit on number of items with the specified metadata template that can be returned, yet the response time increases significantly as the number of items matching the search grows. This API does have a limit of up to 10 million results for a query. It is recommended to only send queries which match no more than 50,000 results. |
 | Scope             | This API is always limited to the content to which the user has access                                                                                                                                                                                                                                              | This API may be either limited to the content to which the user has access (`​user_content​`) or to all content in the enterprise (`​enterprise_content​`).                                                                                                                                                                                             |
 
-<Message warning>
-  Search API calls that match more than 10,000 results may result in slight
+<Warning>
+Search API calls that match more than 10,000 results may result in slight
   changes in relevance. This may result in duplicate results and results that
   are not returned. Search should not be considered an ​exact matching​ solution
   on large data sets.
-</Message>
+</Warning>
 
 ## Scenarios
 
@@ -63,5 +63,5 @@ This scenarios is currently **not supported**. At the moment neither of the APIs
 supports mixing both fuzzy search (searching for "Sale") and the boolean
 expression matching metadata fields.
 
-[mdq_api]: e://post_metadata_queries_execute_read
-[search]: e://get_search
+[mdq_api]: /reference/post_metadata_queries_execute_read
+[search]: /reference/get_search

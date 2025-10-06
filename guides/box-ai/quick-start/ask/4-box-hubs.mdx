@@ -19,14 +19,22 @@ personal folder structure, create managed users in bulk,
 and provision such new users by adding them to the newly created
 folder structure as collaborators with viewer or uploader roles.
 
-<Message type='warning'>
-  This part of the quick start is for service accounts
+<Warning>
+This part of the quick start is for service accounts
   and users with administrative privileges only.
   Skip this step if you are not a Box administrator
   or you do not use a service account.
-</Message>
+</Warning>
 
-<YouTube id='i43YfP-dT_s' />
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/i43YfP-dT_s"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
 
 ## Use case
 
@@ -103,10 +111,10 @@ There are a few parameters you need to supply before running the script:
 - `PersonalFolderSlug`: Ending name of the folder that will be created as parent for personal folders. It's set to `Personal Folder` by default, but feel free to set it to your needs. The username is concatenated with this value to create each user's personal folder name. ex - `rsmith2's Personal Folder`.
 - `LocalUploadPath`: Local directory to upload folder structure directly.
 
-<Message>
+<Note>
 Specify either a local upload path or a JSON file with the folder
 structure, not both.
-</Message>
+</Note>
 
 ### Update the user list
 
@@ -125,11 +133,11 @@ Isaac,Newton,abc@abc.local,INewton23
 With the `EmployeeList` parameter, specify which `.csv` file you would like
 to load data from.
 
-<Message warning>
-  Emails must be unique across all of Box, and usernames must be unique across
+<Warning>
+Emails must be unique across all of Box, and usernames must be unique across
   your specific Box instance. Otherwise, an error will be thrown when running
   the script.
-</Message>
+</Warning>
 
 ### Create folder structure
 
@@ -161,9 +169,9 @@ You have 3 ways to pass parameters before running the script:
 
 - Use static values in the script
 
-    <Message>
-    Remember to update all required parameters in the script before running.
-    </Message>
+<Note>
+Remember to update all required parameters in the script before running.
+</Note>
 
     ```bash
     # Set Employee List CSV Path
@@ -304,9 +312,9 @@ Make sure to explore our other [sample scripts][samples] for more use cases.
 
 [scripts]: https://github.com/box/boxcli/tree/main/examples
 [script-1]: https://github.com/box/boxcli/tree/main/examples/User%20Creation%20&%20Provisioning
-[jwt-cli]: g://cli/cli-docs/jwt-cli
+[jwt-cli]: /guides/cli/cli-docs/jwt-cli
 [pwsh]: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2
-[step 1]: g://cli/quick-start/create-oauth-app
+[step 1]: /guides/cli/quick-start/create-oauth-app
 [console]: https://app.box.com/developers/console
-[auth]: g://authentication/oauth2/oauth2-setup
-[samples]: g://cli/scripts
+[auth]: /guides/authentication/oauth2/oauth2-setup
+[samples]: /guides/cli/scripts

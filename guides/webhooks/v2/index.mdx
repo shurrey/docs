@@ -48,16 +48,16 @@ BOX-SIGNATURE-ALGORITHM:  HmacSHA256
 USER-AGENT:               Box-WH-Client/0.1
 ```
 
-<Message type='notice'>
-  We recommend [setting up][setup_sigs] and [verifying signatures][verify_sigs]
+<Note>
+We recommend [setting up][setup_sigs] and [verifying signatures][verify_sigs]
   of the webhook payloads.
-</Message>
+</Note>
 
-<Message type='warning'>
-  HTTP header names are case insensitive. Your client should convert
+<Warning>
+HTTP header names are case insensitive. Your client should convert
   all header names to a standardized lowercase or uppercase format before trying
   to determine the value of a header.
-</Message>
+</Warning>
 
 ## Payload body
 
@@ -185,10 +185,10 @@ Delivery of a webhook payload fails when Box does not receive a response with a
 HTTP status code in the `200` to `299` range within 30 seconds of sending the
 payload.
 
-<Message type='notice'>
-  Box will retry webhook deliveries up to 12 times over a period of 2 hours.
+<Note>
+Box will retry webhook deliveries up to 12 times over a period of 2 hours.
   These numbers could be subject to change.
-</Message>
+</Note>
 
-[setup_sigs]: g://webhooks/v2/signatures-v2
-[verify_sigs]: g://webhooks/v2/signatures-v2
+[setup_sigs]: /guides/webhooks/v2/signatures-v2
+[verify_sigs]: /guides/webhooks/v2/signatures-v2

@@ -1,0 +1,144 @@
+---
+title: "Box UI Elements デモ"
+---
+
+import { ContentPreview } from "/snippets/box-ui-secure.jsx"
+
+# Box UI Elements 統合テスト
+
+このページでは、Box UI ElementsをMintlifyドキュメントにMDXを使用して直接埋め込む方法を実演します。
+
+## Content Preview コンポーネント
+
+Box Content Preview UI Elementを使用すると、ファイルプレビューをアプリケーションに直接埋め込むことができます。
+
+### 基本的な実装
+
+コンポーネントのインポートと使用方法：
+
+```jsx
+import { ContentPreview } from "/snippets/box-ui-secure.jsx"
+
+<ContentPreview
+  fileId="123456789"
+  useSecureTokens={true}
+  hasHeader={true}
+  hasDownload={true}
+  autoFocus={true}
+  language="ja-JP"
+  showAnnotations={true}
+  showDownload={true}
+  showPrint={true}
+  onLoad={(data) => {
+    console.log('プレビューが読み込まれました:', data);
+  }}
+  onError={(error) => {
+    console.error('プレビューエラー:', error);
+  }}
+/>
+```
+
+### ライブサンプル - セキュアトークンサービス
+
+<ContentPreview
+  fileId="sample-doc"
+  useSecureTokens={true}
+  hasHeader={true}
+  hasDownload={true}
+  language="ja-JP"
+/>
+
+### ライブサンプル - デモモード
+
+<ContentPreview
+  fileId="sample-pdf"
+  useSecureTokens={false}
+  hasHeader={true}
+  hasDownload={true}
+  language="ja-JP"
+/>
+
+### 高度な設定
+
+追加オプションでプレビューをカスタマイズできます：
+
+```jsx
+<ContentPreview
+  fileId="987654321"
+  useSecureTokens={true}
+  hasHeader={false}
+  contentSidebarProps={{
+    hasActivityFeed: true,
+    hasSkills: true,
+    hasMetadata: true,
+    hasVersions: true,
+    detailsSidebarProps: {
+      hasProperties: true,
+      hasNotices: true,
+      hasAccessStats: true,
+      hasClassification: true,
+      hasRetentionPolicy: true,
+      hasVersions: true
+    }
+  }}
+  contentOpenWithProps={{
+    show: true,
+    integrations: ['googledocs', 'office365']
+  }}
+  contentAnswersProps={{
+    show: true
+  }}
+  responseInterceptor={(response) => {
+    return response;
+  }}
+  requestInterceptor={(request) => {
+    return request;
+  }}
+/>
+```
+
+### スタイル付きコンテナ
+
+アプリケーションに合わせてContent Previewをスタイル設定できます：
+
+```jsx
+<div style={{ height: '600px', border: '1px solid #ccc', borderRadius: '8px', marginTop: '20px' }}>
+  <ContentPreview
+    fileId="456789123"
+    useSecureTokens={true}
+    hasHeader={true}
+    className="custom-preview"
+    language="ja-JP"
+  />
+</div>
+```
+
+## 機能
+
+- **インタラクティブプレビュー**: ドキュメント内でファイルを直接表示
+- **カスタマイズ可能なUI**: ヘッダー、ダウンロード、サイドバーオプションの設定
+- **イベント処理**: 読み込みとエラーイベントへの応答
+- **レスポンシブデザイン**: 異なる画面サイズに適応
+- **複数ファイル形式**: ドキュメント、画像、動画などをサポート
+
+## 使用例
+
+1. **APIドキュメント**: ファイルプレビューのライブサンプルを表示
+2. **統合ガイド**: UI Element機能のデモンストレーション
+3. **開発者チュートリアル**: インタラクティブな学習体験
+4. **製品デモ**: Boxプラットフォーム機能のショーケース
+
+これは、静的なテキストを超えた豊富でインタラクティブなドキュメントを作成するMDXの威力を実演しています。
+
+## セキュリティ機能
+
+- **トークン非露出**: ブラウザソースにトークンが表示されない
+- **制限付き権限**: 最小限の読み取り専用アクセス
+- **時間制限**: 自動期限切れトークン
+- **デモファイルのみ**: 任意のファイルアクセスなし
+
+## 次のステップ
+
+- 他のBox UI Elements（ContentExplorer、ContentUploaderなど）の追加
+- 異なるBox機能のインタラクティブデモ作成
+- 包括的なUI Elementドキュメントの構築

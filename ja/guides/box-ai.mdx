@@ -1,0 +1,204 @@
+---
+title: "Box AI"
+description: "AI機能でコンテンツを強化"
+---
+
+# Box AI
+
+Box AIは、人工知能を使用してコンテンツの価値を最大化する革新的な機能です。
+
+## 🤖 主な機能
+
+### 質問応答
+ドキュメントの内容について自然言語で質問し、即座に回答を得ることができます。
+
+```javascript
+// Box AI APIを使用して質問
+const response = await client.ai.ask({
+  items: [{ type: 'file', id: 'ファイルID' }],
+  prompt: 'この契約書の主要な条項は何ですか？',
+  mode: 'single_item_qa'
+});
+
+console.log(response.answer);
+```
+
+### テキスト生成
+既存のコンテンツを基に新しいテキストを生成します。
+
+```javascript
+// 要約の生成
+const summary = await client.ai.textGen({
+  items: [{ type: 'file', id: 'ファイルID' }],
+  prompt: '以下の文書を3行で要約してください',
+  dialogue_history: []
+});
+```
+
+### データ抽出
+構造化されたデータをドキュメントから抽出します。
+
+```javascript
+// 請求書からデータを抽出
+const extraction = await client.ai.extract({
+  items: [{ type: 'file', id: '請求書ID' }],
+  fields: [
+    {
+      key: 'invoice_number',
+      displayName: '請求書番号',
+      type: 'string',
+      description: '請求書の番号'
+    },
+    {
+      key: 'total_amount',
+      displayName: '合計金額',
+      type: 'float',
+      description: '請求の合計金額'
+    },
+    {
+      key: 'due_date',
+      displayName: '支払期限',
+      type: 'date',
+      description: '支払いの期限日'
+    }
+  ]
+});
+```
+
+## 🎯 利用可能なAIモデル
+
+Box AIは複数の最先端AIモデルをサポートしています：
+
+### OpenAI
+- **GPT-4o**: 最新の多モーダルモデル
+- **GPT-4**: 高性能なテキスト生成
+- **GPT-3.5 Turbo**: 高速で効率的
+
+### Google
+- **Gemini Pro**: Googleの最新AIモデル
+- **Gemini Flash**: 高速処理用
+
+### Anthropic
+- **Claude 3**: 安全で信頼性の高いAI
+- **Claude Haiku**: 軽量で高速
+
+### AWS
+- **Titan**: Amazon独自のAIモデル
+
+## 🛠️ 実装例
+
+### React アプリケーション
+
+```jsx
+import React, { useState } from 'react';
+
+function BoxAIDemo() {
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+
+  const askQuestion = async () => {
+    const response = await fetch('/api/box-ai/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fileId: 'ドキュメントID',
+        question: question
+      })
+    });
+
+    const data = await response.json();
+    setAnswer(data.answer);
+  };
+
+  return (
+    <div>
+      <h2>Box AI アシスタント</h2>
+      <input
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="ドキュメントについて質問してください"
+      />
+      <button onClick={askQuestion}>質問する</button>
+      {answer && <div><strong>回答:</strong> {answer}</div>}
+    </div>
+  );
+}
+```
+
+### Python アプリケーション
+
+```python
+from boxsdk import Client
+
+def ask_box_ai(client, file_id, question):
+    response = client.ai.ask(
+        items=[{"type": "file", "id": file_id}],
+        prompt=question,
+        mode="single_item_qa"
+    )
+    return response.answer
+
+# 使用例
+client = Client(oauth)
+answer = ask_box_ai(client, "123456789", "この文書の要点は何ですか？")
+print(f"AI回答: {answer}")
+```
+
+## 🔒 セキュリティと プライバシー
+
+### データ保護
+- すべてのデータは暗号化されて処理
+- AIモデルはお客様のデータで学習しない
+- 処理後のデータは保持されない
+
+### アクセス制御
+- 既存のBoxアクセス権限を尊重
+- ユーザーがアクセスできるコンテンツのみ処理
+- エンタープライズ管理者による制御
+
+### コンプライアンス
+- GDPR、HIPAA、SOX等に準拠
+- データ主権の確保
+- 監査ログの完全な記録
+
+## 📊 使用例とベストプラクティス
+
+### 契約書分析
+```javascript
+// 契約条項の確認
+const contractAnalysis = await client.ai.ask({
+  items: [{ type: 'file', id: '契約書ID' }],
+  prompt: 'この契約の更新条件と終了条件を教えてください'
+});
+```
+
+### 財務文書処理
+```javascript
+// 請求書の自動処理
+const invoiceData = await client.ai.extract({
+  items: [{ type: 'file', id: '請求書ID' }],
+  fields: [
+    { key: 'vendor', displayName: '仕入先', type: 'string' },
+    { key: 'amount', displayName: '金額', type: 'float' },
+    { key: 'date', displayName: '日付', type: 'date' }
+  ]
+});
+```
+
+### レポート要約
+```javascript
+// 長いレポートの要約
+const reportSummary = await client.ai.textGen({
+  items: [{ type: 'file', id: 'レポートID' }],
+  prompt: 'このレポートの主要な発見と推奨事項を箇条書きで要約してください'
+});
+```
+
+## 🚀 今すぐ始める
+
+1. [Box AI クイックスタート](./box-ai/quick-start/0-index)
+2. [AIモデル一覧](./box-ai/ai-models/index)
+3. [チュートリアル](./box-ai/ai-tutorials/index)
+4. [API リファレンス](/reference)
+
+Box AIで、あなたのコンテンツを次のレベルに引き上げましょう！

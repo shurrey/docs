@@ -17,12 +17,12 @@ call to create a mapping. To make it work,
 you need `box_item` and `partner_item` parameters,
 which refer to a Box folder and a Slack channel, respectively.
 
-<Message info>
+<Info>
 Remember that before the mapping can be created,
 this service account must be set as a co-owner
 role on the folder that is being mapped.
 If you encounter any errors, see the [troubleshooting guide][1].
-</Message>
+</Info>
 
 <Samples id='post_integration_mappings_slack' />
 
@@ -107,9 +107,9 @@ async function createSlackIntegrationMapping() {
 module.exports = { createSlackIntegrationMapping }
 ```
 
-<Message notice>
-  Make sure to replace `PLACEHOLDER` with the logged value of
+<Note>
+Make sure to replace `PLACEHOLDER` with the logged value of
   `serviceAccountId`.
-</Message>
+</Note>
 
-[1]: g://integration-mappings/slack-mappings/troubleshooting
+[1]: /guides/integration-mappings/slack-mappings/troubleshooting

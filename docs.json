@@ -12,9 +12,12 @@
   },
   "favicon": "/favicon.ico",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "Guides",
         "groups": [
           {
             "group": "Getting Started",
@@ -1015,11 +1018,56 @@
         ]
       },
       {
-        "tab": "API reference",
-        "openapi": {
-          "source": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json",
-          "directory": "reference"
-        }
+        "tab": "UI Elements",
+        "pages": [
+          "ui-elements-test",
+          "choose-choice-test"
+        ]
+      },
+          {
+            "tab": "API reference",
+            "openapi": {
+              "source": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json",
+              "directory": "reference"
+            }
+          }
+        ]
+      },
+      {
+        "language": "ja",
+        "tabs": [
+          {
+            "tab": "ガイド",
+            "groups": [
+              {
+                "group": "はじめに",
+                "pages": [
+                  "ja/guides/index",
+                  "ja/guides/get-started"
+                ]
+              },
+              {
+                "group": "Box AI",
+                "pages": [
+                  "ja/guides/box-ai"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "UI Elements",
+            "pages": [
+              "ja/ui-elements-test"
+            ]
+          },
+          {
+            "tab": "API リファレンス",
+            "openapi": {
+              "source": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json",
+              "directory": "reference"
+            }
+          }
+        ]
       }
     ],
     "global": {

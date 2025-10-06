@@ -10,10 +10,10 @@ alias_paths:
   - /docs/box-content-open-with
 title: "Content Open With"
 ---
-<Message type='warning'>
-  We no longer support the `OpenWith` UI element for any new customers
+<Warning>
+We no longer support the `OpenWith` UI element for any new customers
   as of December 21, 2021.
-</Message>
+</Warning>
 
 The Box Content Open With UI Element allows developers to embed a dropdown to
 open content stored in box with a partner application, or locally on the
@@ -27,12 +27,12 @@ The integrations included in the Open With Element are Google Suite,
 and Box Edit. Additional information on the Google Suite integration can be
 found on the [Box Community site][community].
 
-Currently, the element only supports [App Users](page://platform/user-types)
+Currently, the element only supports [App Users](pag/reference/platform/user-types)
 for authentication.
 
 ## Installation
 
-[Learn how to install](g://embed/ui-elements/installation) Box UI elements
+[Learn how to install](/guides/embed/ui-elements/installation) Box UI elements
 either through NPM or the Box CDN.
 
 ## Box Edit
@@ -53,7 +53,7 @@ integration. To connect a user's G Suite and Box account, the
 associated with the user's G Suite account.
 
 The `external_app_user_id` of an app user can be updated via the
-[`PUT /users/:id`](e://put-users-id) endpoint.
+[`PUT /users/:id`](/reference/put-users-id) endpoint.
 
 ## Setup
 
@@ -73,7 +73,7 @@ to your application in the developer console.
 
 Once your application has been activated for API calls it will need to be
 reauthorized in your enterprise. The steps for performing these actions are
-available [here](g://authorization/platform-app-approval).
+available [here](/guides/authorization/platform-app-approval).
 
 ## List available integrations
 
@@ -143,16 +143,16 @@ curl -X GET \
 To add an app integration to a valid app user, three pieces of information are
 required:
 
-- A valid [Service Account](page://platform/user-types/#service-account) Access Token.
+- A valid [Service Account](pag/reference/platform/user-types/#service-account) Access Token.
 - The ID of the app user to be assigned the integration
 - The ID of the app integration to assign to the user
 
-<Message warning>
-  While the two previous requests to get app integration information can be done
+<Warning>
+While the two previous requests to get app integration information can be done
   with any valid token including a valid developer token, adding and removing
   app integrations requires a valid service account's access token. Using a
   developer token will produce a `404 Not Found` error.
-</Message>
+</Warning>
 
 The following `POST` request can be made to assign an app integration to an app
 user:
@@ -264,14 +264,13 @@ curl -X DELETE https://api.box.com/2.0/app_integration_assignments/[APP_INTEGRAT
   style="width: 100%;"
 ></iframe>
 
-<Message>
-  # Access Token
+<Note>
+# Access Token
 
 These demos may not fully function until you provide a valid access token under
 the JS tab of the demo. For the Open With element, you must provide a valid
 [Service Account][service-account] Access Token.
-
-</Message>
+</Note>
 
 ## Authentication
 
@@ -282,9 +281,7 @@ reason for this is that UI Elements only expect a "token" to be passed in for
 authentication, and Box provides two different ways to generate tokens - OAuth
 and JWT.
 
-<CTA to="g://authentication/select">
-  Learn about selecting an authentication method
-</CTA>
+<Card title="Learn about selecting an authentication method" href="/guides/authentication/select"></Card>
 
 ## Scopes
 
@@ -374,13 +371,11 @@ contentOpenWith.removeAllListeners();
 | `responseInterceptor` | `Function`     | Function to intercept responses. For an example see [this CodePen](https://codepen.io/box-platform/pen/jLdxEv). Our underlying XHR library is `axios.js` and we follow a [similar approach for interceptors](https://github.com/axios/axios#interceptors). |
 {/* i18n-disable localize-links */}
 
-<Message warning>
-
+<Warning>
 Currently the `onError` and `onExecute` events are subject to a known bug. We recommend
 using `openWith.addListener('execute', callback)` and
 `openWith.addListener('error', callback)` as a temporary workaround.
-
-</Message>
+</Warning>
 
 ### Events
 
@@ -389,13 +384,13 @@ using `openWith.addListener('execute', callback)` and
 | `execute`  | Integration ID | Will be fired when an integration invocation is executed. |
 | `error`    | Error          | Will be fired when an error occurs.                       |
 
-[scopes]: guide://api-calls/permissions-and-errors/scopes
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 {/* i18n-enable localize-links */}
 [community]: https://support.box.com/hc/en-us/articles/360043696994-Introducing-Box-for-G-Suite
 [tools]: https://support.box.com/hc/en-us/categories/360003188014-Box-Tools
 {/* i18n-disable localize-links */}
-[custom-domains]: g://embed/ui-elements/custom-domains
+[custom-domains]: /guides/embed/ui-elements/custom-domains
 {/* i18n-enable localize-links */}
 [safari]: https://support.box.com/hc/en-us/articles/360043697334-Installing-Box-Tools
 {/* i18n-disable localize-links */}
-[service-account]: page://platform/user-types/#service-account
+[service-account]: pag/reference/platform/user-types/#service-account

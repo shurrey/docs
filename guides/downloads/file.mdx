@@ -27,12 +27,12 @@ https://dl.boxcloud.com/d/1/[long-random-string]/download
 By using the `-L` flag in cURL we are able to automatically follow this
 redirect.
 
-<Message>
-  In our SDKs this will result in the binary data to be downloaded. In the API
+<Note>
+In our SDKs this will result in the binary data to be downloaded. In the API
   this will result in a download URL being returned via the `location` header.
 
   It is possible to [get the download URL][downloadurl] via the SDKs as well.
-</Message>
+</Note>
 
 ## Download URL expiry
 
@@ -49,5 +49,5 @@ for the client to download.
 This response can occur when the file was uploaded immediately before the
 download request.
 
-[api]: e://get_files_id_content
-[downloadurl]: g://downloads/get-url
+[api]: /reference/get_files_id_content
+[downloadurl]: /guides/downloads/get-url

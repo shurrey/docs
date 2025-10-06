@@ -16,7 +16,7 @@ Box UI Elements are initialized on the client and make API calls directly to
 Box. Thus, a valid access token must live on the client because all Box API
 requests need to be authenticated.
 
-[Token Exchange](g://authentication/tokens/downscope) is a mechanism to
+[Token Exchange](/guides/authentication/tokens/downscope) is a mechanism to
 exchange a "parent token" (a token for your managed or app user, service
 account, or application) to a "child token" which is scoped down to the minimum
 set of required permissions so it can be securely sent down to the client
@@ -52,15 +52,15 @@ file/folder ID as the input arguments, and returns a token that is scoped down
 to those exact set of scopes and the respective file/folder ID, if present in
 the input arguments.
 
-<Message>
-  # Dedicated scopes designed for UI Elements
+<Note>
+# Dedicated scopes designed for UI Elements
 
   We have designed a set of scopes that work seamlessly with the UI Elements.
   While token exchange works with all Box scopes, we recommend using these
   scopes along with UI Elements since they include the exact set of permissions
   required for base functionality as well as incremental permissions for added
   functionality.
-</Message>
+</Note>
 
 <ImageFrame border>
   ![Downscope overview](./images/downscope-2.png)
@@ -89,14 +89,14 @@ curl https://api.box.com/2.0/collaborations \
     -X POST
 ```
 
-<Message>
-  # Access Levels in Box
+<Note>
+# Access Levels in Box
 
   There are [7 different access levels][accesslevels] that a Box user can be
   collaborated as on a file/folder in Box. If the file/folder was created under
   this user's account, then the user has "Owner" access to the folder by
   default so you can skip the collaboration step.
-</Message>
+</Note>
 
 * Use the Token Exchange API to exchange the parent token for a child token that contains the base scope for Content Explorer (`base_explorer`), `item_download` and `item_preview` scopes enabled for the specific `folder_id` `123456`.  We strongly recommend performing this step on the application server.
 
@@ -188,14 +188,14 @@ button as it would have with the parent (user) token.
 * **Does not replace Collaborations in Box:** Collaborations is a more standard and easier to scale way to provide Box users with access to content. Also, managing content access through collaborations in Box requires your application to manage lesser code/data on which user should have access to what content. If you are using Token Exchange as a replacement to Collaborations, you will need to keep a mapping of every user -> every file and folder that they should have access to and that could get out of control pretty quickly.
 * **Caching the downscoped tokens:** If performance is critical to your application, you should pre-cache downscoped tokens on the server side. If you are pre-caching tokens, we recommend implementing retries as the tokens expire within 1 hour.
 
-<Message>
-  # Token Lifespan
+<Note>
+# Token Lifespan
 
   The lifespan of parent and child tokens are not mutually dependent, for
   example when generating a child token doesn't render the parent token
   inactive. Similarly, generating more child tokens doesn't impact the previous
   child tokens in any way.
-</Message>
+</Note>
 
 ## Example Scenarios
 

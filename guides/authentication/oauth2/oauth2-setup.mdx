@@ -15,9 +15,7 @@ title: "Setup with OAuth 2.0"
 ---
 A Platform App can be set up to use client-side [OAuth 2.0][oauth2] authentication.
 
-<CTA to='g://authentication/oauth2'>
-  Learn how OAuth 2.0 authentication works
-</CTA>
+<Card title="Learn how OAuth 2.0 authentication works" href="/guides/authentication/oauth2"></Card>
 
 ## Prerequisites
 
@@ -60,10 +58,10 @@ Use the drop-down list to select the app's purpose. Depending on the option chos
 
 Select **User Authentication (OAuth 2.0)** and confirm with **Create App**.
 
-<Message warning>
+<Warning>
 Once you make a selection, you will not be able to change to a different
 authentication method without creating a new application.
-</Message>
+</Warning>
 
 <ImageFrame border center width="300">
   ![Auth selection screen](../images/custom-app-authentication-oauth.png)
@@ -91,8 +89,8 @@ Configuration page in the developer console. These must be valid URIs that are
 HTTPS, or a less secure HTTP for localhost or loopback address. We do not
 permit duplicate URIs to be saved.
 
-<Message warning>
-  Starting November 29, 2021, new applications using OAuth 2.0 will
+<Warning>
+Starting November 29, 2021, new applications using OAuth 2.0 will
   require the URIs set in the configuration tab of the Developer Console to
   strictly match the one used during redirect. In addition, both new and
   existing applications, will gain the ability to add multiple redirect URIs.
@@ -106,7 +104,7 @@ permit duplicate URIs to be saved.
 
   For existing applications, the deadline to make changes to this URL to avoid
   service disruption is May 13, 2022.
-</Message>
+</Warning>
 
 <ImageFrame border width="600" center>
   ![App name form](../images/app-redirect-uri-3.png)
@@ -135,8 +133,8 @@ section at the bottom of the **Configuration** tab in the
 
 [devconsole]: https://app.box.com/developers/console
 [devaccount]: https://account.box.com/signup/n/developer
-[devtoken]: g://authentication/tokens/developer-tokens
-[scopes]: g://api-calls/permissions-and-errors/scopes
+[devtoken]: /guides/authentication/tokens/developer-tokens
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-[oauth2]: g://authentication/oauth2
-[url-redirect]: e://get-authorize/#param-redirect_uri
+[oauth2]: /guides/authentication/oauth2
+[url-redirect]: /reference/get-authorize/#param-redirect_uri

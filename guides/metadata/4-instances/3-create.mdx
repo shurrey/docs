@@ -17,20 +17,16 @@ A metadata template can be applied to a file or folder using the item's `id`,
 the template's `templateKey` and `scope`, and a set of values for each field in
 the template.
 
-<Message>
-
-  Metadata [scopes][scopes] can be either `global` for templates available to
+<Note>
+Metadata [scopes][scopes] can be either `global` for templates available to
   all enterprises, `enterprise` for templates available to the current
   enterprise, or the `enterprise_:id` for templates belonging to an enterprise
   whose ID is the `:id` value in the scope name.
+</Note>
 
-</Message>
-
-<Message warning>
-
+<Warning>
 You can assign up to 100 templates to specific file or folder.
-
-</Message>
+</Warning>
 
 ## Apply metadata to a file
 
@@ -41,24 +37,20 @@ optional set of values for each [field][fields] in the template.
 
 <Samples id='post_files_id_metadata_id_id' />
 
-<Message>
-
-  To get the `scope` and `templateKey` for a template, either
+<Note>
+To get the `scope` and `templateKey` for a template, either
   [list all metadata templates][g_list_templates], or
   [list all instances on an file][g_list_instances_item].
+</Note>
 
-</Message>
-
-<Message warning>
-
-  ## Tuple already exists error
+<Warning>
+## Tuple already exists error
 
   When there is already metadata applied to this file for the given metadata
   template, a error is returned with the error code `tuple_already_exists`. In
   this case, it this case the instance needs to be [updated
-  instead](g://metadata/instances/update).
-
-</Message>
+  instead](/guides/metadata/instances/update).
+</Warning>
 
 ## Apply metadata to a folder
 
@@ -69,24 +61,20 @@ optional set of values for each [field][fields] in the template.
 
 <Samples id='post_folders_id_metadata_id_id' />
 
-<Message>
-
-  To get the `scope` and `templateKey` for a template, either
+<Note>
+To get the `scope` and `templateKey` for a template, either
   [list all metadata templates][g_list_templates], or
   [list all instances on an folder][g_list_instances_item].
+</Note>
 
-</Message>
-
-<Message warning>
-
-  ## Tuple already exists error
+<Warning>
+## Tuple already exists error
 
   When there is already metadata applied to this folder for the given metadata
   template, a error is returned with the error code `tuple_already_exists`. In
   this case, it this case the instance needs to be [updated
-  instead](g://metadata/instances/update).
-
-</Message>
+  instead](/guides/metadata/instances/update).
+</Warning>
 
 ## Request body
 
@@ -154,21 +142,21 @@ In this case, a valid example would be the following request body.
 }
 ```
 
-<Message notice>
-  One exception is a `global` scoped template with the key `properties` that can
+<Note>
+One exception is a `global` scoped template with the key `properties` that can
   be used to assign any data to a template. Using this template, any set of
   key/value pairs can be assigned to a template.
-</Message>
+</Note>
 
-<Message warning>
-  The `category` field in this example is an `enum` field and needs to be one of
+<Warning>
+The `category` field in this example is an `enum` field and needs to be one of
   the available options on the field.
-</Message>
+</Warning>
 
-[fields]: g://metadata/fields
-[scopes]: g://metadata/scopes
-[e_on_file]: e://post_files_id_metadata_id_id
-[e_on_folder]: e://post_folders_id_metadata_id_id
-[g_list_templates]: g://metadata/templates/list
-[g_list_instances_item]: g://metadata/instances/list
-[g_get_metadata_template]: g://metadata/templates/get
+[fields]: /guides/metadata/fields
+[scopes]: /guides/metadata/scopes
+[e_on_file]: /reference/post_files_id_metadata_id_id
+[e_on_folder]: /reference/post_folders_id_metadata_id_id
+[g_list_templates]: /guides/metadata/templates/list
+[g_list_instances_item]: /guides/metadata/instances/list
+[g_get_metadata_template]: /guides/metadata/templates/get

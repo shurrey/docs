@@ -21,11 +21,11 @@ parts to commit.
 
 <Samples id='post_files_upload_sessions_id_commit' />
 
-<Message>
-  Additionally, any file `attributes` can be passed along with the `parts` to
+<Note>
+Additionally, any file `attributes` can be passed along with the `parts` to
   further add information to the file. See the [`POST /files/content`][e_file]
   API for more details.
-</Message>
+</Note>
 
 ## Response
 
@@ -37,6 +37,6 @@ a `202 Accepted` status code instead. In this case the application should check
 the `retry-after` header and retry committing after the number of seconds
 specified.
 
-[e_commit]: e://post_files_upload_sessions_id_commit
-[e_file]: e://post_files_content
+[e_commit]: /reference/post_files_upload_sessions_id_commit
+[e_file]: /reference/post_files_content
 [r_file]: r://file

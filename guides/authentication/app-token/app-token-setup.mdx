@@ -18,9 +18,7 @@ title: "Setup with App Token Auth"
 A Limited Access App can be set up to use server-side [App Tokens][app-token]
 for authentication.
 
-<CTA to='g://authentication/app-token'>
-  Learn how App Token authentication works
-</CTA>
+<Card title="Learn how App Token authentication works" href="/guides/authentication/app-token"></Card>
 
 ## Prerequisites
 
@@ -90,12 +88,12 @@ Scroll down to the **Primary Access Token** section and click the
 App tokens can be configured to automatically expire or be valid indefinitely.
 After creation, the key can be used to make [API calls][api-calls].
 
-<Message warning>
-  # App authorization
+<Warning>
+# App authorization
 
   App Tokens can not be generated until the application is successfully
   authorized within the Box Admin Console.
-</Message>
+</Warning>
 
 ### CORS Domains
 
@@ -115,9 +113,9 @@ section at the bottom of the **Configuration** tab in the
 
 [devconsole]: https://app.box.com/developers/console
 [devaccount]: https://account.box.com/signup/n/developer
-[devtoken]: g://authentication/tokens/developer-tokens
-[scopes]: g://api-calls/permissions-and-errors/scopes
+[devtoken]: /guides/authentication/tokens/developer-tokens
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-[app-token]: g://authentication/app-token
-[api-calls]: g://api-calls
-[auth]: g://authorization
+[app-token]: /guides/authentication/app-token
+[api-calls]: /guides/api-calls
+[auth]: /guides/authorization

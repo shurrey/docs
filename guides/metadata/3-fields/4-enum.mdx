@@ -17,12 +17,10 @@ user can select one item from the list.
 
 </ImageFrame>
 
-<Message notice>
-
+<Note>
 An `enum` allows a user to select zero or a single value. To allow a user to select
 multiple values, use the [`multiSelect`][g_multi_select] template field.
-
-</Message>
+</Note>
 
 ## Create an `enum` field
 
@@ -84,16 +82,14 @@ When updating an `enum` metadata field, one of the possible operations is the
 ]
 ```
 
-<Message>
-  The `fieldKey` here represents the original key of the field to change. The
+<Note>
+The `fieldKey` here represents the original key of the field to change. The
   `data.key` field is the new key of the field.
-</Message>
+</Note>
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Add an option
 
@@ -127,11 +123,9 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Reorder options
 
@@ -168,12 +162,10 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 New options can not be added with this operation. This will affect existing
 instances of this template.
-
-</Message>
+</Warning>
 
 ### Edit an option
 
@@ -209,11 +201,9 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Remove an option
 
@@ -244,13 +234,11 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template. Any fields that were set
 to this value will have the value reset to `null`.
+</Warning>
 
-</Message>
-
-[g_create_template]: g://metadata/templates/create
-[g_update_template]: g://metadata/templates/update
-[g_multi_select]: g://metadata/fields/multi-select
+[g_create_template]: /guides/metadata/templates/create
+[g_update_template]: /guides/metadata/templates/update
+[g_multi_select]: /guides/metadata/fields/multi-select

@@ -43,11 +43,11 @@ title: "Log in to Box"
   <LoggedIn id='postman_credentials'>
     ## You are now logged in
 
-    We just sent your browser to the [Box Authorization](e://get-authorize)
+    We just sent your browser to the [Box Authorization](/reference/get-authorize)
     screen where you granted your application access to your user account. After
     you granted it access the browser redirected back to this site with a `code`.
 
-    We then [exchanged](e://post-oauth2-token) this short-lived `code` for a
+    We then [exchanged](/reference/post-oauth2-token) this short-lived `code` for a
     longer lived **Access Token** and **Refresh Token**. These tokens represent
     you, the **User**.
 
@@ -63,23 +63,23 @@ title: "Log in to Box"
       Refresh Token
     </Store>
 
-    <Message danger>
-      # Security notice
+    <Danger>
+# Security notice
 
       Your API credentials are now stored in the browser cache. We highly
       recommend clearing out this storage by clicking the **Reset** button
       later in this guide.
-    </Message>
+</Danger>
   </LoggedIn>
 </Choice>
 
 <Choice option='postman.app_type' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
 
     Please complete the previous step to set up the **Box App** you want
     to use.
-  </Message>
+</Danger>
 </Choice>
 
 <Choice option='postman.login' value='clicked' color='none'>

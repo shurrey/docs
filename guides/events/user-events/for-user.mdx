@@ -14,15 +14,15 @@ alias_paths:
 title: "Get User Events"
 ---
 To get a user's events, authenticate as any user and make a call to the
-[`GET /events`](e://get_events) API.
+[`GET /events`](/reference/get_events) API.
 
 <Samples id="get_events" />
 
-<Message>
-  The events returned will only be for the user who's access token the API was
+<Note>
+The events returned will only be for the user who's access token the API was
   made with. To get the event feed for a different user either use the `as-user`
   header or an actual access token for that user.
-</Message>
+</Note>
 
 ## Stream Types
 
@@ -118,4 +118,4 @@ To reduce the noise of the event stream and optimize event consumption, the even
 | `ITEM_DOWNLOAD` | When an item is downloaded, only the content owner gets the notification. Collaborators are not notified.|
 | `ITEM_PREVIEW` | When an item is previewed, only the content owner gets the notification. Collaborators are not notified. |
 
-[longpoll]: g://events/user-events/polling
+[longpoll]: /guides/events/user-events/polling

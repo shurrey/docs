@@ -19,11 +19,11 @@ created in the [Developer Console][console] and with API.
 
 ## Developer console
 
-<Message type='warning'>
-  V2 webhooks can be created only when the scope **Manage Webhooks**
+<Warning>
+V2 webhooks can be created only when the scope **Manage Webhooks**
   is selected and the application is authorized. See more about
   [Required Access Scopes][1] and [authorization][2].
-</Message>
+</Warning>
 
 To create a webhook follow the steps below.
 
@@ -44,9 +44,9 @@ To create a webhook follow the steps below.
 
 ## API
 
-<Message type='warning'>
-  This API requires the application to have the **Manage Webhooks** scope enabled.
-</Message>
+<Warning>
+This API requires the application to have the **Manage Webhooks** scope enabled.
+</Warning>
 
 To attach a webhook to a file, call the [create webhook][3] endpoint with the
 type of `file`, the ID of the file, a URL to send webhook notifications to, and
@@ -60,10 +60,10 @@ and a list of [triggers][4].
 
 <Samples id='post_webhooks' variant='for_folder' />
 
-<Message type='notice'>
-  Webhooks do cascade, so if a webhook is set on a parent folder,
+<Note>
+Webhooks do cascade, so if a webhook is set on a parent folder,
   it will also monitor sub-folders for the selected triggers.
-</Message>
+</Note>
 
 ## Ownership
 
@@ -94,9 +94,9 @@ when a user uploads a file, use `FILE.UPLOADED`.
 
 You can find a list of available triggers [in this guide][4].
 
-[1]: g://applications
-[2]: g://authorization
-[3]: e://post_webhooks
-[4]: g://webhooks/triggers
-[sa]: page://platform/user-types/#service-account
+[1]: /guides/applications
+[2]: /guides/authorization
+[3]: /reference/post_webhooks
+[4]: /guides/webhooks/triggers
+[sa]: pag/reference/platform/user-types/#service-account
 [console]: https://app.box.com/developers/console

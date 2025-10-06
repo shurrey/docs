@@ -17,28 +17,28 @@ account.
 
 There are two general methods that are employed to accomplish this within Box:
 
-* Using the direct [transfer owned folders](e://put_users_id_folders_0) API, which will move all content from one user directly to another.
+* Using the direct [transfer owned folders](/reference/put_users_id_folders_0) API, which will move all content from one user directly to another.
 * Using the collaboration transfer method to change ownership of one file or folder at a time from one user to another.
 
-<Message notice>
-  Files owned by a user will be inaccessible while they are being transferred.
+<Note>
+Files owned by a user will be inaccessible while they are being transferred.
   This also means that any shared content owned by the user may be inaccessible
   during the move.
 
   Depending on the volume of content, this operation may take a significant
   amount of time.
-</Message>
+</Note>
 
 ## Transfer Owned Folders API Method
 
-The [transfer owned folders endpoint](e://put_users_id_folders_0) is
+The [transfer owned folders endpoint](/reference/put_users_id_folders_0) is
 designed to move the entirety of content owned by one user over to another user.
 
-<Message type='notice'>
-  The transfer owned folders API is performed as a synchronous process, which
+<Note>
+The transfer owned folders API is performed as a synchronous process, which
   might lead to a slow response when the source user has a large number of
   items in all of its folders.
-</Message>
+</Note>
 
 To call the transfer endpoint, you will supply the user ID to transfer from and
 the user ID to transfer to.
@@ -48,14 +48,14 @@ the user ID to transfer to.
 ## Collaboration Transfer Method
 
 The collaboration transfer method is a process that uses the
-[collaboration endpoint](e://post_collaborations) to change the
+[collaboration endpoint](/reference/post_collaborations) to change the
 ownership of a single file or folder from one user to another instantaneously.
 
-<Message type='notice'>
-  This method will perform an instantaneous transfer of ownership of a single
+<Note>
+This method will perform an instantaneous transfer of ownership of a single
   file or folder, but **cannot** be used to transfer the root (all files and
   folders) from one user to another.
-</Message>
+</Note>
 
 The general process, between `transfer_from_user` to `transfer_to_user`, will
 follow these steps:
@@ -67,7 +67,7 @@ The first step is to add the `transfer_to_user` account as a collaborator with
 
 Making the call as the `transfer_from_user` account, add the `transfer_to_user`
 as a co-owner using the
-[add collaboration endpoint](e://post_collaborations).
+[add collaboration endpoint](/reference/post_collaborations).
 
 <Samples id='post_collaborations' />
 
@@ -79,7 +79,7 @@ returned will include a collaboration ID, which is used for the last step.
 
 Making the call as the `transfer_to_user` account, get the collaboration on the
 file or folder ID being transferred, using the
-[get collaboration endpoint](e://get_collaborations_id). Capture the
+[get collaboration endpoint](/reference/get_collaborations_id). Capture the
 collaboration ID.
 
 <Sample id='get_collaborations_id' />
@@ -88,7 +88,7 @@ collaboration ID.
 
 The final step is to remove the `transfer_from_user` account as an owner of the
 file or folder, which is accomplished using the
-[delete collaboration endpoint](e://delete_collaborations_id).
+[delete collaboration endpoint](/reference/delete_collaborations_id).
 
 Making call as the `transfer_to_user` account, remove the `transfer_from_user`
 as a collaborator on the file or folder.

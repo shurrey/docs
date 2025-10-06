@@ -63,7 +63,7 @@ as well as the [expiring embed link object][expiredembed].
 
 ## Installation
 
-[Learn how to install](g://embed/ui-elements/installation) Box UI elements
+[Learn how to install](/guides/embed/ui-elements/installation) Box UI elements
 either through NPM or the Box CDN.
 
 ## Authentication
@@ -72,9 +72,7 @@ UI Elements are designed in an authentication-agnostic way so whether
 they will work for Managed Box Users and non-Box users (App Users). The
 reason for this is that UI Elements only expect a [token][token] for authentication, and Box provides two different ways to generate tokens - OAuth and JWT.
 
-<CTA to="g://authentication/select">
-  Learn about selecting an authentication method
-</CTA>
+<Card title="Learn about selecting an authentication method" href="/guides/authentication/select"></Card>
 
 ## Supported File Types
 
@@ -82,13 +80,13 @@ Box Content Preview supports 120+ file types, including most document and image
 formats, HD video, 3D models, 360-degree images, and 360-degree videos. You can
 find the full list of supported file types [here][filetypes].
 
-<Message warning>
-  Note that where supported file types contain references to other
+<Warning>
+Note that where supported file types contain references to other
   objects, for example `DWG` files, those references are not supported in the
   Box preview. A notice will be displayed to all end users viewing a DWG file
   that contains unsupported references letting them know to take alternate steps
   to complete their workflow.
-</Message>
+</Warning>
 
 ## Demo
 
@@ -328,16 +326,16 @@ To add V4 annotations to preview:
 
 1. Run `npm i box-annotations@latest`to install [box annotations][annotations].
 
-<Message warning>
+<Warning>
 Box annotations version should be at least major version 4 and up.
-</Message>
+</Warning>
 
 2. Run `npm i box-ui-elements@16.0.0` to install [BUIE][buie] version with annotation related change.
 
-<Message warning>
+<Warning>
 Box UI elements should be the lowest working version that contains
 fully working V4 annotations.
-</Message>
+</Warning>
 
 3. Import content preview and box annotations into your application:
 
@@ -384,10 +382,10 @@ fully working V4 annotations.
    contentPreviewer.show(file_id, accessToken, options);
    ```
 
-<Message warning>
+<Warning>
 The property `features: { activityFeed: { annotations: { enabled: true  } } } }
 ` is subject to change in the future.
-</Message>
+</Warning>
 
 ```html
 <link href="https://cdn01.boxcdn.net/platform/elements/16.0.0/en-US/preview.css" rel="stylesheet" type="text/css"></link>
@@ -483,11 +481,9 @@ To do so, add:
 - `hasHeader` prop set to `true`,
 - `contentAnswersProps` prop. The fields `show`, `isCitationsEnabled`, `isMarkdownEnabled`, `isResetChatEnabled` and `suggestedQuestions` are included by default.
 
-<Message type='notice'>
-
+<Note>
 To localize the `suggestedQuestions` properly, make sure that the prompts are translated. The optional `label` property is for screen readers, while the `prompt` property is the text displayed to the user in the AI modal.
-
-</Message>
+</Note>
 
 ```js
 import ContentPreview from 'box-ui-elements/es/elements/content-preview';
@@ -560,11 +556,11 @@ more, see [Dedicated Scopes for Box UI Elements][scopes].
 | `annotation_view_all`  | Allows users to view all users' annotations.                                                                                                                                                                                                                                                                                                      |
 | `annotation_view_self` | Allows users to view their own annotations only.                                                                                                                                                                                                                                                                                                  |
 
-<Message>
-  # Enable highlight annotations with scopes The highlight scope is not included
+<Note>
+# Enable highlight annotations with scopes The highlight scope is not included
   with `annotation_edit` and `annotation_view_all` scopes. The downscoped access
   token will need to include the `item_download` scope to enable highlighting.
-</Message>
+</Note>
 
 ### Sample Scenarios
 
@@ -583,16 +579,16 @@ more, see [Dedicated Scopes for Box UI Elements][scopes].
 
 {/* i18n-disable localize-links */}
 
-[downscope]: guide://authentication/tokens/downscope
-[scopes]: g://api-calls/permissions-and-errors/scopes
+[downscope]: /guides/authentication/tokens/downscope
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 [annotations]: https://github.com/box/box-annotations
 [buie]: https://github.com/box/box-ui-elements/releases/tag/v16.0.0
-[annotationsguide]: g://embed/ui-elements/annotations.md
+[annotationsguide]: /guides/embed/ui-elements/annotations.md
 [previewlib]: https://github.com/box/box-content-preview
 [expiredembed]: r://file--full/#param-expiring_embed_link
-[token]: g://authentication/tokens/developer-tokens
+[token]: /guides/authentication/tokens/developer-tokens
 [aipackage]: https://www.npmjs.com/package/box-ui-elements/v/22.0.0
-[installation]: g://embed/ui-elements/installation
+[installation]: /guides/embed/ui-elements/installation
 [blueprint-web]: https://www.npmjs.com/package/@box/blueprint-web
 [box-ai-content-answers]: https://www.npmjs.com/package/@box/box-ai-content-answers
 [blueprint-web-assets]: https://www.npmjs.com/package/@box/blueprint-web-assets

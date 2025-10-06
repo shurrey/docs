@@ -97,14 +97,14 @@ Gives an application permission to manage [Managed Users][mu]. It
 allows the app to change the user's primary login, reset their password, and
 change roles for managed users.
 
-<Message type='notice'>
+<Note>
 Although this allows an application manage users, for client-side applications,
 the Access Token used must be associated with an Admin or Co-Admin with the
 correct permissions.
 
 Additionally, for JWT applications, the application must be configured with
 **App Access + Enterprise Access** [application access][appaccess].
-</Message>
+</Note>
 
 |                       |                    |
 | --------------------- | ------------------ |
@@ -125,14 +125,14 @@ Gives an application permission to manage an enterprise's groups. It
 allows the app to create, update, and delete groups, as well as manage group
 membership.
 
-<Message type='notice'>
+<Note>
 Although this allows an application manage groups, for client-side applications,
 the Access Token used must be associated with an Admin Co-Admin with the
 correct permissions.
 
 Additionally, for JWT applications, the application must be configured with
 **App Access + Enterprise Access** [application access][appaccess].
-</Message>
+</Note>
 
 ### Manage webhooks
 
@@ -142,7 +142,7 @@ Additionally, for JWT applications, the application must be configured with
 | **Application Scope** | Manage webhooks   |
 
 Gives an application permission to create webhooks for a user.
-Please review webhook [limitations](g://webhooks/v2/limitations-v2). Most
+Please review webhook [limitations](/guides/webhooks/v2/limitations-v2). Most
 notably, there is a limit of 1000 webhooks per application, per user.
 
 ### Manage enterprise properties
@@ -156,11 +156,11 @@ Gives an application permission to view the enterprise event stream, as well as
 view and edit the enterprise's attributes and reports. It also allows the
 application to edit and delete device pins.
 
-<Message type='notice'>
+<Note>
 Although this allows an application to enterprise properties, for client-side
 applications, the Access Token used must must be associated with an
 Admin Co-Admin with the correct permissions.
-</Message>
+</Note>
 
 ### Manage retention policies
 
@@ -174,10 +174,10 @@ Gives an application permission to view and create retention policies
 with Box Governance. This requires the enterprise to have purchased
 [Box Governance][governance].
 
-<Message type='warning'>
-  This scope also requires the `enterprise_content` scope to function properly.
+<Warning>
+This scope also requires the `enterprise_content` scope to function properly.
   These scopes can be requested by opening a ticket via our support channels.
-</Message>
+</Warning>
 
 ### Manage signature requests
 
@@ -217,16 +217,16 @@ This scope requires the application to also have read/write scopes.
 ## Available on request
 
 There are some additional scopes that are only available upon request. To do so,
-please submit a ticket to our [support team](page://support). They will review
+please submit a ticket to our [support team](pag/reference/support). They will review
 these requests on an individual basis and only provide approval if the use case
 requires the scope.
 
-<Message type='notice'>
+<Note>
 It is not possible to request extra scopes if your account is a free trial
 account. Before filing a support request for activation of the following
 scopes, log in to your paid enterprise account or
 [upgrade your free developer account][pricing] to an enterprise account tier.
-</Message>
+</Note>
 
 ### Manage Legal Holds
 
@@ -240,10 +240,10 @@ Gives an application permission to view and create retention policies
 with Box Governance. This requires the enterprise to have purchased Box
 Governance.
 
-<Message type='notice'>
-  This scope depends on the `enterprise_content` scope to function properly.
+<Note>
+This scope depends on the `enterprise_content` scope to function properly.
   This scope can be requested by opening a ticket via our support channels.
-</Message>
+</Note>
 
 ### Suppress email notifications
 
@@ -267,8 +267,8 @@ their enterprise settings.
 
 This scope is required to manage the retention policies and legal holds.
 
-<Message type='danger'>
-  # Side effects
+<Danger>
+# Side effects
 
 Enabling this scope on an application changes the behavior of some API calls,
 and most notably, makes it impossible to write content without explicitly
@@ -276,7 +276,7 @@ authenticating as a user using the `as-user` header. Additionally, enabling this
 scope disables accessing content that is owned by users in another enterprise.
 
 For this reason, this scope will not be provisioned unless absolutely necessary.
-</Message>
+</Danger>
 
 ## Scopes for downscoping
 
@@ -287,7 +287,7 @@ public environment like a browser. The primary example for this is when using
 browser.
 
 The following is a list of **additional** scopes that can be used with the
-[`POST /oauth2/token`](endpoint://post-oauth2-token) endpoint to downscope an
+[`POST /oauth2/token`](/reference/post-oauth2-token) endpoint to downscope an
 existing access token.
 
 | OAuth Scope            | UI Element affected | Description                                                                         |
@@ -324,20 +324,20 @@ The standard OAuth scopes are also supported when downscoping.
 [console]: https://app.box.com/developers/console
 [ui-elements]: https://github.com/box/box-ui-elements
 [pricing]: https://www.box.com/pricing/platform
-[reference]: page://reference
+[reference]: pag/reference/reference
 {/* i18n-disable localize-links */}
-[at]: g://authentication/tokens
-[security]: g://security
-[jwt]: g://authentication/jwt
-[mu]: page://platform/user-types/#managed-users
-[au]: g://authentication/jwt/as-user
-[uat]: g://authentication/jwt/user-access-tokens
-[appaccess]: g://authentication/jwt/jwt-setup/#application-access
-[appu]: page://platform/user-types/#app-user
+[at]: /guides/authentication/tokens
+[security]: /guides/security
+[jwt]: /guides/authentication/jwt
+[mu]: pag/reference/platform/user-types/#managed-users
+[au]: /guides/authentication/jwt/as-user
+[uat]: /guides/authentication/jwt/user-access-tokens
+[appaccess]: /guides/authentication/jwt/jwt-setup/#application-access
+[appu]: pag/reference/platform/user-types/#app-user
 {/* i18n-enable localize-links */}
 [governance]: https://www.box.com/security/governance-and-compliance
 {/* i18n-disable localize-links */}
-[suppress]: g://api-calls/suppress-notifications
-[ds]: g://authentication/tokens/downscope
-[sa]: page://platform/user-types/#service-account
+[suppress]: /guides/api-calls/suppress-notifications
+[ds]: /guides/authentication/tokens/downscope
+[sa]: pag/reference/platform/user-types/#service-account
 [ca]: [https://support.box.com/hc/en-us/articles/1500005433721-Users-Groups-Settings#h_01GSE1DYJKTY9EXEWJEDKFHCNV]

@@ -9,10 +9,10 @@ specific folders or their entire enterprise. Retention policies can be used to
 keep data for as long as is needed, and then automatically delete the content
 permanently when the data can no longer be legally held.
 
-<Message>
-  Retention Policies are a feature of the [Box Governance][governance] package,
+<Note>
+Retention Policies are a feature of the [Box Governance][governance] package,
   which can be added on to any Business Plus or Enterprise account.
-</Message>
+</Note>
 
 ## Policies, Assignments, and Retentions
 
@@ -23,11 +23,11 @@ distinct resources.
 * **Assignments:** A [Retention Policy Assignment][assignment] is a relation between a policy and folder or enterprise. Creating an assignment puts a retention on all the file versions that belong to that folder or enterprise. For example, if an assignment is created on a folder the policy is applied to all file versions within that folder.
 * **Retentions**: A [File Version Retention][retention] represents all the policies that are assigned to a specific file version. Note that every file version can have a maximum of one file version retention and that this resource contains a list of every assigned policy.
 
-<Message type='warning'>
-  The [file version retention][retention] section of the Box API
+<Warning>
+The [file version retention][retention] section of the Box API
   is now deprecated. Instead, you can use [files under retention][files-under] or
   [file versions under retention][file-versions-under] endpoints.
-</Message>
+</Warning>
 
 ## File Deletion with Retention Policies
 
@@ -50,11 +50,11 @@ and Manage Retention Policies scopes][scopes] enabled. These are not available
 in the Developer Console and need to instead be enabled by contacting customer
 support.
 
-[scopes]: g://api-calls/permissions-and-errors/scopes
+[scopes]: /guides/api-calls/permissions-and-errors/scopes
 [policy]: r://retention_policy
 [assignment]: r://retention_policy_assignment
 [retention]: r://file_version_retention
 [governance]: https://www.box.com/security/governance-and-compliance
-[files-under]: e://get-retention-policy-assignments-id-files-under-retention
-[file-versions-under]: e://get-retention-policy-assignments-id-file-versions-under-retention
-[extend-retention]: e://put-files-id/#param-disposition_at
+[files-under]: /reference/get-retention-policy-assignments-id-files-under-retention
+[file-versions-under]: /reference/get-retention-policy-assignments-id-file-versions-under-retention
+[extend-retention]: /reference/put-files-id/#param-disposition_at

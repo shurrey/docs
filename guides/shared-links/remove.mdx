@@ -14,16 +14,16 @@ alias_paths: []
 title: "Remove Shared Link"
 ---
 A shared link may be removed from a resource by calling the
-[update file](endpoint://put_files_id) or
-[update folder](endpoint://put_folders_id) or
-[update weblink](endpoint://put_web_links_id) endpoint and setting the
+[update file](/reference/put_files_id) or
+[update folder](/reference/put_folders_id) or
+[update weblink](/reference/put_web_links_id) endpoint and setting the
 `shared_link` value to `null`.
 
-<Message type='warning'>
-  If you delete the shared link and create a new one, the new shared link will
+<Warning>
+If you delete the shared link and create a new one, the new shared link will
   have a different URL and users with the old URL will not be able to access
   the resource.
-</Message>
+</Warning>
 
 ## Remove Shared Link on File
 

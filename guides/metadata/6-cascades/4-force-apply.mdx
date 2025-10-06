@@ -16,19 +16,17 @@ can be force-applied to all items in a folder by calling the
 
 <Samples id='post_metadata_cascade_policies_id_apply' />
 
-<Message>
-
-  To get the `id` of the policy,
+<Note>
+To get the `id` of the policy,
   [list all policies][g_list_policies] for the folder.
+</Note>
 
-</Message>
-
-<Message warning>
-  The metadata cascade operation will be started off asynchronously. The API
+<Warning>
+The metadata cascade operation will be started off asynchronously. The API
   call will return directly with the `202 Accepted` HTTP status code before
   the cascade operation is complete. There is currently no way to check for when
   this operation is finished.
-</Message>
+</Warning>
 
 ## Conflict resolution
 
@@ -41,5 +39,5 @@ preserve the existing value on any items. When the value is set to `overwrite`,
 it will force-apply the value of the template attached to the cascade policy
 over any existing value.
 
-[e_post]: e://post_metadata_cascade_policies_id_apply
-[g_list_policies]: g://metadata/cascades/list
+[e_post]: /reference/post_metadata_cascade_policies_id_apply
+[g_list_policies]: /guides/metadata/cascades/list

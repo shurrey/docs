@@ -19,12 +19,12 @@ curl https://api.box.com/2.0/folders/0 \
     -H "authorization: Bearer [ACCESS_TOKEN]"
 ```
 
-<Message>
+<Note>
 In this situation the user ID is the Box identifier for a user. User IDs can
 found for any user via the `GET /users` endpoint, which is only available to
 admins, or by calling the `GET /users/me` endpoint with an authenticated user
 session.
-</Message>
+</Note>
 
 ## Preconditions
 
@@ -37,13 +37,13 @@ The application must be configured to perform actions as users in the
 
 Additionally, the authenticated user needs to be a user with Admin permissions,
 meaning either an Admin or Co-Admin. See our guide on
-[User Types](page://platform/user-types) for more details.
+[User Types](pag/reference/platform/user-types) for more details.
 
-<Message>
+<Note>
 You cannot use the `user_id` of
-[Service Accounts](page://platform/user-types/#service-account)
+[Service Accounts](pag/reference/platform/user-types/#service-account)
 in the as-user header.
-</Message>
+</Note>
 
 ## as-user using SDKs
 
@@ -84,11 +84,11 @@ client.asUser('[USER_ID]');
   </Tab>
 </Tabs>
 
-<Message warning>
-  Please note that some of our SDKs create new clients for the other user, while
+<Warning>
+Please note that some of our SDKs create new clients for the other user, while
   others modify the existing client and provide a way to return to a state where
   the client authenticates for the original user itself.
-</Message>
+</Warning>
 
 [devconsole]: https://app.box.com/developers/console
-[sdk]: g://tooling/sdks
+[sdk]: /guides/tooling/sdks

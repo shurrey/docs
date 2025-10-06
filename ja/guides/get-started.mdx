@@ -1,0 +1,132 @@
+---
+title: "はじめに"
+description: "Box Platform開発をスタートするためのクイックガイド"
+---
+
+# Box Platform開発をはじめよう
+
+このガイドでは、Box Platformを使用して最初のアプリケーションを構築する手順を説明します。
+
+## 前提条件
+
+始める前に、以下が必要です：
+
+- Boxアカウント（[無料サインアップ](https://www.box.com/ja-jp/pricing)）
+- プログラミング経験（JavaScript、Python、Java、または.NET）
+- 開発環境（IDE、テキストエディタ）
+
+## ステップ1: Box開発者コンソールにアクセス
+
+1. [Box開発者コンソール](https://account.box.com/developers/console)にログイン
+2. 「新しいアプリを作成」をクリック
+3. アプリタイプを選択
+
+## ステップ2: アプリタイプの選択
+
+### カスタムアプリ
+最も柔軟性が高く、フル機能のアプリケーション向け
+
+**認証方法:**
+- **OAuth 2.0**: ユーザー認証が必要なアプリ
+- **JWT**: サーバー間認証、バックエンドアプリ
+- **アプリトークン**: 単純な読み取り専用アクセス
+
+### 制限付きアクセスアプリ
+特定のフォルダやファイルのみにアクセス
+
+### Box スキル
+AI/MLカスタム処理の追加
+
+## ステップ3: 認証設定
+
+### OAuth 2.0の場合
+```javascript
+const BoxSDK = require('box-node-sdk');
+
+const sdk = new BoxSDK({
+  clientID: 'あなたのクライアントID',
+  clientSecret: 'あなたのクライアントシークレット'
+});
+
+// ユーザー認証
+const authURL = sdk.getAuthorizationURL({
+  response_type: 'code'
+});
+```
+
+### JWTの場合
+```javascript
+const BoxSDK = require('box-node-sdk');
+
+const sdk = BoxSDK.getPreconfiguredInstance(configJSON);
+const client = sdk.getAppAuthClient('enterprise');
+```
+
+## ステップ4: 最初のAPI呼び出し
+
+```javascript
+// ユーザー情報を取得
+client.users.get(client.CURRENT_USER_ID)
+  .then(user => {
+    console.log('ユーザー名:', user.name);
+  });
+
+// ファイル一覧を取得
+client.folders.getItems('0')
+  .then(items => {
+    console.log('ファイル数:', items.entries.length);
+  });
+```
+
+## ステップ5: UI Elements統合
+
+HTMLページにBox UI Elementsを追加：
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Box プレビュー</title>
+  <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/elements/latest/ja-JP/preview.css">
+</head>
+<body>
+  <div class="preview-container"></div>
+
+  <script src="https://cdn01.boxcdn.net/platform/elements/latest/ja-JP/preview.js"></script>
+  <script>
+    var preview = new Box.ContentPreview();
+    preview.show('ファイルID', 'アクセストークン', {
+      container: '.preview-container',
+      locale: 'ja-JP'
+    });
+  </script>
+</body>
+</html>
+```
+
+## 📋 チェックリスト
+
+完了したらチェックしてください：
+
+- [ ] Box開発者アカウントを作成
+- [ ] アプリを作成し、認証方法を選択
+- [ ] 開発環境を設定
+- [ ] 最初のAPI呼び出しを実行
+- [ ] レスポンスデータを確認
+
+## 🎯 次のステップ
+
+基本設定が完了したら、以下を探索してください：
+
+- [Box AI](./box-ai/index)を使用したAI機能
+- [ファイル操作](./files/index)のAPIリファレンス
+- [コラボレーション](./collaborations/index)機能
+- [セキュリティ](./security/index)設定
+
+## 🆘 ヘルプが必要ですか？
+
+- [Box開発者コミュニティ](https://community.box.com/box-platform-5)
+- [サンプルコード](https://github.com/box-community)
+- [API リファレンス](/reference)
+
+頑張ってください！🚀

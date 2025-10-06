@@ -15,14 +15,14 @@ download URL for the data instead, use the following SDK methods.
 
 <Samples id='get_files_id_content' variant='get_url' />
 
-<Message warning>
-  # Redirects
+<Warning>
+# Redirects
 
   If you are not using one of our SDKs its important to make sure your HTTP
   client does not automatically follow HTTP redirects. When redirects are
   automatically followed, your code will detect the `location` header returned
   by the API and follow it to get the binary data.
-</Message>
+</Warning>
 
 ## Download URL expiry
 
@@ -32,4 +32,4 @@ further downloads. In most cases the download URL is valid for 15 minutes, after
 which a new URL needs to be requested. This expiration time may be subject to
 change without any prior notification.
 
-[api]: e://get_files_id_content
+[api]: /reference/get_files_id_content

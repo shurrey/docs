@@ -33,12 +33,12 @@ To complete an OAuth 2.0 flow the following steps need to be completed.
 At the end of this flow, the application has an Access Token that can be used to
 make API calls on behalf of this user.
 
-<Message notice>
-  The access token acquired through OAuth 2.0 is inherently tied to the user who
+<Note>
+The access token acquired through OAuth 2.0 is inherently tied to the user who
   authorized the application. Any API call made with this token will seem to
   come from this application, and the user needs to have access to any file or
   folder the application tries to access with this token.
-</Message>
+</Note>
 
 ## Parameters
 
@@ -98,22 +98,20 @@ var sdk = new BoxSDK({
   </Tab>
 </Tabs>
 
-<CTA to="guide://tooling/sdks">
-  Learn more about installing an SDK for your environment
-</CTA>
+<Card title="Learn more about installing an SDK for your environment" href="/guides/tooling/sdks"></Card>
 
 ## 2. Redirect user
 
 Next, redirect the user to the authorization URL. Most of the SDKs support a
 way to get the authorization URL for an SDK client.
 
-<Message warning>
+<Warning>
 If you configured multiple redirect URIs for the application, the authorization
 URL must include the `redirect_uri` parameter matching one of the URIs
 configured in the developer console. If the parameter is not specified, the
 user will see a `redirect_uri_missing` error and will not be redirected back to
 the app after granting application access.
-</Message>
+</Warning>
 
 <Tabs>
   <Tab title='.NET'>
@@ -155,32 +153,32 @@ var authorize_url = sdk.getAuthorizeURL({
   </Tab>
 </Tabs>
 
-<Message>
-  The way in which a user is redirected to a URL depends on the application
+<Note>
+The way in which a user is redirected to a URL depends on the application
   framework used. Most framework documentation provides extensive guidance on
   this topic.
-</Message>
+</Note>
 
-The [authorization URL](endpoint://get-authorize) can also be created manually
+The [authorization URL](/reference/get-authorize) can also be created manually
 as follows.
 
 ```curl
 https://account.box.com/api/oauth2/authorize?client_id=[CLIENT_ID]&redirect_uri=[REDIRECT_URI]&response_type=code
 ```
 
-<Message>
-  Additional query parameters can be passed along when redirecting the user to
+<Note>
+Additional query parameters can be passed along when redirecting the user to
   limit down the scope, or pass along some extra state. See the [reference
-  documentation](endpoint://get-authorize) for more information.
-</Message>
+  documentation](/reference/get-authorize) for more information.
+</Note>
 
-<Message type='tip'>
-  If you have [Box Verified Enterprise][1] for your Box
+<Tip>
+If you have [Box Verified Enterprise][1] for your Box
   instance turned on, you
   may encounter an issue using the standard
   `account.box.com` base URL.
   Instead, use `ent.box.com` in place of `account.box.com`.
-</Message>
+</Tip>
 
 ## 3. User grants application access
 
@@ -269,7 +267,7 @@ To learn more about OAuth 2.0 authentication for each SDK head over to:
 [Python]: https://github.com/box/box-python-sdk/blob/main/docs/usage/authentication.md#traditional-3-legged-oauth2
 [Node]: https://github.com/box/box-node-sdk/blob/main/docs/authentication.md#traditional-3-legged-oauth2
 [IOS]: https://github.com/box/box-ios-sdk/blob/main/docs/usage/authentication.md#traditional-3-legged-oauth2
-[tokens]: g://authentication/tokens/access-tokens
+[tokens]: /guides/authentication/tokens/access-tokens
 
 {/* i18n-enable localize-links */}
 

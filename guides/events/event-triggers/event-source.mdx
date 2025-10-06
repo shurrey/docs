@@ -12,12 +12,12 @@ alias_paths:
 title: "Event Source"
 ---
 If a user or item triggers an event, The response of the
-[`GET /events`](e://get_events) endpoint contains an event source object.
+[`GET /events`](/reference/get_events) endpoint contains an event source object.
 
 ## User Source Object
 
 If a user triggers an event, the source object will be the standard
-representation of the [user resource](e://resources/user).
+representation of the [user resource](/reference/resources/user).
 
 ```json
 {
@@ -49,13 +49,13 @@ representation of the [user resource](e://resources/user).
 ## Item Source Object
 
 If an item triggers an event, the source object will be the
-[event source resource](e://resources/event-source).
+[event source resource](/reference/resources/event-source).
 
-<Message type='notice'>
-  The below example contains a `classification` object. This does not appear if
+<Note>
+The below example contains a `classification` object. This does not appear if
   the item does not have a classification set. Also, it does not appear for
   every event type.
-</Message>
+</Note>
 
 ```json
 {

@@ -9,11 +9,11 @@ SDK** we can now make our first call to Box APIs.
 Using our blank iOS application, we will create a button to trigger
 a request to Box to fetch the name of the currently authenticated user.
 
-<Message warning>
-  Using a blocking actions as we use in these examples is slow. In a production
+<Warning>
+Using a blocking actions as we use in these examples is slow. In a production
   app these blocking actions would need to be replaced with proper task
   delegation and non-blocking actions.
-</Message>
+</Warning>
 
 ## Create a button
 
@@ -85,13 +85,13 @@ sleep(5)
 
 Build and run your sample application in the iOS emulator.
 
-<Message warning>
-  If you run this code an hour or more after you created the developer
+<Warning>
+If you run this code an hour or more after you created the developer
   token in the last step, you will need to revoke and generate a new developer
   token using the same method in the
-  [previous step](g://mobile/ios/quick-start/configure-box-app) as the
+  [previous step](/guides/mobile/ios/quick-start/configure-box-app) as the
   developer token will only persist for 60 minutes.
-</Message>
+</Warning>
 
 Once the application loads in the emulator you should see the button we
 created. Click it to start the API request.
@@ -114,10 +114,10 @@ with the last line showing the user print statement that we specified.
 Authenticated as Optional("Test User")
 ```
 
-<Message notice>
-  If you don't see the Xcode developer console, from the menu click **View** ->
+<Note>
+If you don't see the Xcode developer console, from the menu click **View** ->
   **Debug Area** -> **Activate Console**
-</Message>
+</Note>
 
 Congratulations, you've now configured the **Box iOS SDK** and have made your
 first call to the Box API.

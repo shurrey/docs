@@ -36,12 +36,12 @@ The Annotator Token is used instead of a regular Access Token, App Token, or Fil
 Token to generate a preview session (an expiring embed link) that is linked to a
 unique user ID and display name.
 
-<Message warning>
-  Since a preview session generated using an annotator token is tied to a
+<Warning>
+Since a preview session generated using an annotator token is tied to a
   specific external user, it is strongly recommended that an application
   generates different preview sessions using different annotator tokens for
   different end users of an application.
-</Message>
+</Warning>
 
 ## External user info
 
@@ -54,7 +54,7 @@ updated display name.
 ## Create without SDKs
 
 To create an annotator token, follow the instructions for [manually
-authenticating through JWT](g://authentication/jwt/without-sdk) but replace the
+authenticating through JWT](/guides/authentication/jwt/without-sdk) but replace the
 JWT claim with the following data.
 
 <Tabs>
@@ -156,7 +156,7 @@ $claims = [
 | `box_sub_type` | String | The external user name to tie this annotation to. This will be displayed in the Box UI                  |
 
 Then, convert this claim to an assertion according to the guide and pass this
-assertion to the [`POST /oauth2/token`](e://post-oauth2-token)
+assertion to the [`POST /oauth2/token`](/reference/post-oauth2-token)
 endpoint together with an existing valid Access Token, App Token, or File Token,
 as well as a set of scopes, and the resource for which to create the token.
 

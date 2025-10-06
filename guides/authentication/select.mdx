@@ -11,9 +11,7 @@ title: "Select Auth Method"
 The type of authorization your application can use depends on the type of
 Box Application that you've configured in the developer console.
 
-<CTA to="guide://applications/app-types/select">
-  Learn how to select the application type for your app
-</CTA>
+<Card title="Learn how to select the application type for your app" href="/guides/applications/app-types/select"></Card>
 
 The following authorization methods are available to each Box application type.
 
@@ -35,20 +33,17 @@ behalf.
   ![Box OAuth 2.0 approval](./oauth2-grant.png)
 </ImageFrame>
 
-<Message>
-  # When to use OAuth 2.0?
+<Note>
+# When to use OAuth 2.0?
 
 Client-side authentication is the ideal authentication method for apps that:
 
 - work with users who have existing Box accounts
 - use Box for identity management, so users know they are using Box
 - store data within each user account vs. within an application's Service Account
+</Note>
 
-</Message>
-
-<CTA to="guide://authentication/oauth2">
-  Learn about client-side authentication with OAuth 2.0
-</CTA>
+<Card title="Learn about client-side authentication with OAuth 2.0" href="/guides/authentication/oauth2"></Card>
 
 ## Server-side
 
@@ -64,8 +59,8 @@ public/private keypair.
 
 </ImageFrame>
 
-<Message>
-  # When to use JWT?
+<Note>
+# When to use JWT?
 
 Server-side authentication with JWT is the ideal authentication method for apps
 that:
@@ -74,12 +69,9 @@ that:
 - use their own identity system
 - do not want users to know they are using Box
 - store data within the application's Service Account and not a user's account
+</Note>
 
-</Message>
-
-<CTA to="guide://authentication/jwt">
-  Learn about server-side authentication with JWT
-</CTA>
+<Card title="Learn about server-side authentication with JWT" href="/guides/authentication/jwt"></Card>
 
 ### Client Credentials Grant
 
@@ -88,8 +80,8 @@ end-user interaction and, if granted the proper privileges, can be used to act
 on behalf of any user in an enterprise. Identity is validated using the
 application's client ID and client secret.
 
-<Message>
-  # When to use a Client Credentials Grant?
+<Note>
+# When to use a Client Credentials Grant?
 
 Server-side authentication with Client Credentials Grant is the ideal
 authentication method for apps that:
@@ -98,12 +90,9 @@ authentication method for apps that:
 - use their own identity management system
 - do not want users to know they are using Box
 - store data within the application's Service Account and not a user's account
+</Note>
 
-</Message>
-
-<CTA to="guide://authentication/client-credentials">
-  Learn about server-side authentication with Client Credentials Grant
-</CTA>
+<Card title="Learn about server-side authentication with Client Credentials Grant" href="/guides/authentication/client-credentials"></Card>
 
 ### App Token
 
@@ -113,8 +102,8 @@ View applications. By using this authentication method there is no need to
 authorize a user as the application is automatically authenticated as the
 application's Service Account.
 
-<Message>
-  # When to use App Tokens?
+<Note>
+# When to use App Tokens?
 
 Server-side authentication with App Tokens is the ideal authentication method
 for apps that:
@@ -123,12 +112,9 @@ for apps that:
 - use their own identity management system
 - do not want users to know they are using Box
 - store data within the application's Service Account and not a user's account
+</Note>
 
-</Message>
-
-<CTA to="guide://authentication/app-token">
-  Learn about server-side authentication with App Tokens
-</CTA>
+<Card title="Learn about server-side authentication with App Tokens" href="/guides/authentication/app-token"></Card>
 
 ## Comparison
 
@@ -143,17 +129,15 @@ server-side authentication.
 | Do users see Box?                 | Yes       | No  | No                 | No         |
 | Can create App Users?             | No        | Yes | Yes                | No         |
 
-<Message>
-
+<Note>
 An Access Token is tied to a specific Box user and the way the token has been
 obtained determines who that user is.
 
 For example, when using client-side authentication the token represents the
 user who granted access to their account, while while when using server-side
 authentication the token defaults to the application's Service Account.
+</Note>
 
-</Message>
-
-[custom-app]: g://applications/app-types/platform-apps
-[custom-skill]: g://applications/app-types/custom-skills
-[la-app]: g://applications/app-types/limited-access-apps
+[custom-app]: /guides/applications/app-types/platform-apps
+[custom-skill]: /guides/applications/app-types/custom-skills
+[la-app]: /guides/applications/app-types/limited-access-apps

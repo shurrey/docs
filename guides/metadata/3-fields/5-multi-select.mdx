@@ -17,13 +17,11 @@ list. The user can select multiple items from the list.
 
 </ImageFrame>
 
-<Message notice>
-
+<Note>
 A `multiSelect` field allows a user to select zero, one, or more values. To force
 a user to select only one value at most, use the [`enum`][g_enum_field] template
 field.
-
-</Message>
+</Note>
 
 ## Create a `multiSelect` field
 
@@ -85,16 +83,14 @@ the `editField` operation, which can be used to change the field's `key`,
 ]
 ```
 
-<Message>
-  The `fieldKey` here represents the original key of the field to change. The
+<Note>
+The `fieldKey` here represents the original key of the field to change. The
   `data.key` field is the new key of the field.
-</Message>
+</Note>
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Add an option
 
@@ -128,11 +124,9 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Reorder options
 
@@ -169,12 +163,10 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 New options can not be added with this operation. This will affect existing
 instances of this template.
-
-</Message>
+</Warning>
 
 ### Edit an option
 
@@ -210,11 +202,9 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template.
-
-</Message>
+</Warning>
 
 ### Remove an option
 
@@ -245,13 +235,11 @@ The list of options should now be as follows.
 ...
 ```
 
-<Message warning>
-
+<Warning>
 This will affect existing instances of this template. Any fields that were set
 to this value will have the value removed from its list of selected values.
+</Warning>
 
-</Message>
-
-[g_create_template]: g://metadata/templates/create
-[g_update_template]: g://metadata/templates/update
-[g_enum_field]: g://metadata/fields/enum
+[g_create_template]: /guides/metadata/templates/create
+[g_update_template]: /guides/metadata/templates/update
+[g_enum_field]: /guides/metadata/fields/enum

@@ -9,7 +9,7 @@ related_endpoints:
 title: "Create a custom metadata template"
 ---
 To create a custom metadata template for your enterprise you can use
-[our API directly](e://post-metadata-templates-schema) or
+[our API directly](/reference/post-metadata-templates-schema) or
 one of our SDKs to create a new template.
 
 For this `customerInfo` template, we're going to create a template with 3
@@ -17,7 +17,7 @@ fields. The first field is a text field to hold the customer's `name`, the
 second is a dropdown list of the possible values for the `industry` the customer
 operates in, and the final field represents the total annual contract value (`tav`).
 
-<CTA to='g://metadata/fields'>Learn about the different field types</CTA>
+<Card title="Learn about the different field types" href="/guides/metadata/fields"></Card>
 
 To create this template we need to pass in the configuration for the fields, as
 well as a display name for the field.
@@ -178,14 +178,14 @@ client.metadata.createTemplate(
   </Tab>
 </Tabs>
 
-<Message warning>
-  # Admin permissions required
+<Warning>
+# Admin permissions required
 
   Creating metadata templates is restricted to users with admin permission. This
   means that only admins, or co-admins who have been granted rights to **Create
   and edit metadata templates for your company** by the admin can use the web
   app or the API to manage templates.
-</Message>
+</Warning>
 
 The API will return the newly created metadata template.
 
@@ -229,12 +229,12 @@ The API will return the newly created metadata template.
 }
 ```
 
-<Message notice>
-  # Template key
+<Note>
+# Template key
 
   Although you did not explicitly set the template key the key is automatically
   derived from the `displayName` value. In this case, the `templateKey` would be
   `customerInfo`.
-</Message>
+</Note>
 
 <Next>I've created a custom template</Next>

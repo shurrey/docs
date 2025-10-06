@@ -35,7 +35,7 @@ Box currently supports 4 kinds of cards.
 ## Write metadata cards to file
 
 To write one or more cards to a file, you can use the [`POST
-/files/:id/metadata/global/boxSkillsCards`](e://post_files_id_metadata_global_boxSkillsCards)
+/files/:id/metadata/global/boxSkillsCards`](/reference/post_files_id_metadata_global_boxSkillsCards)
 API and pass along a list of Box Skill `cards`.
 
 <Tabs>
@@ -175,10 +175,10 @@ Dictionary<string, object> metadata = await client.MetadataManager
   </Tab>
 </Tabs>
 
-<Message warning>
-  If Box Skill cards have already been applied to this file, this API call will
+<Warning>
+If Box Skill cards have already been applied to this file, this API call will
   return an error with a HTTP status code of `409`.
-</Message>
+</Warning>
 
 ## Update metadata card on file
 
@@ -340,4 +340,4 @@ Dictionary<string, object> updatedMetadata = await client.MetadataManager
   </Tab>
 </Tabs>
 
-[update_skills]: e://put_files_id_metadata_global_boxSkillsCards
+[update_skills]: /reference/put_files_id_metadata_global_boxSkillsCards

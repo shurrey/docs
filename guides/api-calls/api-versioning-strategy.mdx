@@ -9,14 +9,11 @@ Box provides versioning capabilities for selected API endpoints. The version con
 
 API versioning empowers Box to continually enhance its platform, while also offering third-party developers a reliable avenue for feature updates and deprecations.
 
-<Message type='tip'>
+<Tip>
+To stay informed about the forthcoming API modifications, monitor the [Changelog](pag/reference/changelog) and maintain a current email address in the Developer Console's App Info section.
+</Tip>
 
-To stay informed about the forthcoming API modifications, monitor the [Changelog](page://changelog) and maintain a current email address in the Developer Console's App Info section.
-
-</Message>
-
-<Message type='notice'>
-
+<Note>
 In 2024, Box introduced year-based API versioning.
 
 All endpoints available at the end of 2024 were assigned the version `2024.0`.
@@ -24,16 +21,13 @@ All endpoints available at the end of 2024 were assigned the version `2024.0`.
 **No action is required for API users to continue using Box APIs.**
 
 To make version-aware API calls, include the `box-version` header with the value `2024.0` in your requests.
-
-</Message>
+</Note>
 
 ## How Box API versioning works
 
-<Message type='notice'>
-
+<Note>
 Box API supports versioning in `header`. To determine which version to use, look at the API reference and included sample requests.
-
-</Message>
+</Note>
 
 ### Versioning in `header`
 
@@ -50,7 +44,7 @@ If the provided version is correct and supported by the endpoint, a response is 
 If the endpoint is available in multiple versions, the response will include the `box-version` header,
 which indicates the version used to handle the request.
 Endpoints introduced after 2024 may return a `400` error code if the version is incorrect.
-More information about versioning errors can be found [here](g://api-calls/permissions-and-errors/versioning-errors).
+More information about versioning errors can be found [here](/guides/api-calls/permissions-and-errors/versioning-errors).
 
 If your request doesn't include a version, the API defaults to the initial Box API version - `2024.0` - the version of endpoints available before
 year-based versioning was introduced. However, relying on this behavior is not recommended when adopting deprecated
@@ -86,7 +80,7 @@ Box can issue a new breaking change to API endpoints **once** per year, reservin
 Each stable version is supported for a minimum of 12 months. This means that when a new version is released, the previous version becomes deprecated and will be available for use, but no new features will be added.
 It also means, that a new version cannot be released sooner than every 12 months.
 
-We strongly recommend updating your apps to make requests to the latest stable API version. However, if your app uses a stable version that is no longer supported, then you will get a response with an HTTP error code `400 - Bad Request`. For details, see [Versioning Errors](g://api-calls/permissions-and-errors/versioning-errors).
+We strongly recommend updating your apps to make requests to the latest stable API version. However, if your app uses a stable version that is no longer supported, then you will get a response with an HTTP error code `400 - Bad Request`. For details, see [Versioning Errors](/guides/api-calls/permissions-and-errors/versioning-errors).
 
 ### Endpoint versioning indication
 
@@ -104,11 +98,11 @@ To keep you informed about the current API state, and improve the readability of
 
 When using versioned API actions such as calling an incorrect API version in header or a deprecated version can lead to errors.
 
-For details on possible errors, see [versioning errors](g://api-calls/permissions-and-errors/versioning-errors).
+For details on possible errors, see [versioning errors](/guides/api-calls/permissions-and-errors/versioning-errors).
 
 ## How Box SDK versioning works
 
-The versioning strategy applies only to [next generation generated SDKs](page://sdks-and-tools/#next-generation-sdks).
+The versioning strategy applies only to [next generation generated SDKs](pag/reference/sdks-and-tools/#next-generation-sdks).
 
 Box SDKs support the **All Versions In** SDK approach.
 This means that every release of SDK provides access to all endpoints in any version which is currently live. All generated SDKs use manager's approach - they group all endpoints with the same domain in one manager.
@@ -194,14 +188,13 @@ Breaking changes in the Box API occur within versioned releases, typically accom
 | Removing or modifying error codes                        | Yes             |
 | Adding a member to an enumeration                        | Yes             |
 
-<Message type='tip'>
-
+<Tip>
 The [oasdiff](https://github.com/Tufin/oasdiff/blob/main/BREAKING-CHANGES-EXAMPLES.md) tool allows detecting most of the possible breaking changes.
-</Message>
+</Tip>
 
 ## AI agent configuration versioning
 
-[AI agent](g://box-ai/ai-agents) versioning gives the developers more control over model version management and ensures consistent responses. For details, see [AI agent configuration versioning guide](g://box-ai/ai-agents/ai-agent-versioning).
+[AI agent](/guides/box-ai/ai-agents) versioning gives the developers more control over model version management and ensures consistent responses. For details, see [AI agent configuration versioning guide](/guides/box-ai/ai-agents/ai-agent-versioning).
 
 ## Support policy and deprecation information
 
@@ -229,7 +222,7 @@ When building your request, consider the following:
  * Endpoints in version `2024.0` can be called without specifying the version in the `box-version` header. If no version is specified and the `2024.0` version of the called endpoint does not exist, the response will return an HTTP error code `400 - Bad Request`.
  * If the `box-version` version header is specified but the requested version does not exist, the response will return an HTTP error code `400 - Bad Request`.
 
-For details, see [versioning errors](g://api-calls/permissions-and-errors/versioning-errors).
+For details, see [versioning errors](/guides/api-calls/permissions-and-errors/versioning-errors).
 
 When Box deprecates a resource or a property of a resource in the API, the change is communicated in one or more of the following ways:
 
@@ -247,4 +240,4 @@ When Box deprecates a resource or a property of a resource in the API, the chang
 
 ## Additional resources
 
-* [API reference](page://reference)
+* [API reference](pag/reference/reference)

@@ -20,10 +20,10 @@ To list all metadata instances on a file, call the
 
 <Samples id="get_files_id_metadata" />
 
-<Message warning>
-  This API does not support paging and it will always return all of the metadata
+<Warning>
+This API does not support paging and it will always return all of the metadata
   instances for this file.
-</Message>
+</Warning>
 
 ## List metadata on a folder
 
@@ -32,10 +32,10 @@ the [`GET /folders/:file_id/metadata`][get_metadata_file] API endpoint.
 
 <Samples id="get_folders_id_metadata" />
 
-<Message warning>
-  This API does not support paging and it will always return all of the metadata
+<Warning>
+This API does not support paging and it will always return all of the metadata
   instances for this file. This API can not be used on the root folder with ID `0`.
-</Message>
+</Warning>
 
-[get_metadata_file]: e://get_files_id_metadata
-[get_metadata_folder]: e://get_folders_id_metadata
+[get_metadata_file]: /reference/get_files_id_metadata
+[get_metadata_folder]: /reference/get_folders_id_metadata

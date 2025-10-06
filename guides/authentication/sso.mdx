@@ -40,10 +40,10 @@ with their enterprise's configured SSO provider. In this case, any
 user that tries to log in must be configured on the SSO side, in addition to
 having a Box account matching the email address passed via SAML.
 
-<Message warning>
-  It is not possible to exempt a user from SSO in an enterprise with SSO
+<Warning>
+It is not possible to exempt a user from SSO in an enterprise with SSO
   set to required, even if it is only used for platform use cases.
-</Message>
+</Warning>
 
 ## Platform Apps with Server-side Authentication
 
@@ -74,19 +74,19 @@ event.
 In this case, the application does not directly interact with the users and
 therefore SSO is not involved.
 
-<Message>
-  Even when using Skills, a user uploading a file to a folder that might trigger
+<Note>
+Even when using Skills, a user uploading a file to a folder that might trigger
   a Skill event would still need to log in to the web or mobile app. This log in
   would require them to use SSO where needed.
-</Message>
+</Note>
 
-[mu]: page://platform/user-types/#managed-users
-[admin-approval]: g://authorization/platform-app-approval
-[jwt]: g://authentication/jwt
-[oauth2]: g://authentication/oauth2
-[ccg]: g:///authentication/client-credentials
-[la-app]: guide://applications/web-app-integrations
-[app_token]: g://authentication/app-token
-[platform_app]: g://applications/app-types/platform-apps
-[custom_skills]: g://applications/app-types/custom-skills
-[jwt]: g://authentication/jwt/jwt-setup
+[mu]: pag/reference/platform/user-types/#managed-users
+[admin-approval]: /guides/authorization/platform-app-approval
+[jwt]: /guides/authentication/jwt
+[oauth2]: /guides/authentication/oauth2
+[ccg]: /guides//authentication/client-credentials
+[la-app]: /guides/applications/web-app-integrations
+[app_token]: /guides/authentication/app-token
+[platform_app]: /guides/applications/app-types/platform-apps
+[custom_skills]: /guides/applications/app-types/custom-skills
+[jwt]: /guides/authentication/jwt/jwt-setup

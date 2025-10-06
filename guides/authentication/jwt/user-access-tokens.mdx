@@ -26,12 +26,12 @@ This setting can be found in the **Configuration** tab of the
 
 Additionally, the authenticated user needs to be a user with Admin permissions,
 meaning either an Admin, Co-Admin, or Service Account. See our guide on
-[User Types](page://platform/user-types) for more details.
+[User Types](pag/reference/platform/user-types) for more details.
 
 ## User Access Tokens with SDKs
 
 To create a Box SDK client that authenticates as a specific user, follow the
-steps described in the [JWT with SDK guide](g://authentication/jwt/with-sdk),
+steps described in the [JWT with SDK guide](/guides/authentication/jwt/with-sdk),
 but create a user client instead of an "Enterprise" client.
 
 <Tabs>
@@ -84,15 +84,13 @@ var client = sdk.getAppAuthClient('user', '12345');
   </Tab>
 </Tabs>
 
-<CTA to='g://authentication/jwt/with-sdk'>
-  Learn more about using the Box SDKs with JWT
-</CTA>
+<Card title="Learn more about using the Box SDKs with JWT" href="/guides/authentication/jwt/with-sdk"></Card>
 
 ## User Access Tokens without SDKs
 
 To create a user Access Token that authenticates as a specific user, follow the
 steps as described in the
-[JWT without SDK guide](g://authentication/jwt/without-sdk) but instead of creating
+[JWT without SDK guide](/guides/authentication/jwt/without-sdk) but instead of creating
 a claim for the enterprise, create one for a specific user ID.
 
 <Tabs>
@@ -193,9 +191,7 @@ $claims = [
   </Tab>
 </Tabs>
 
-<CTA to='g://authentication/jwt/with-sdk'>
-  Learn more about manually using JWT authentication
-</CTA>
+<Card title="Learn more about manually using JWT authentication" href="/guides/authentication/jwt/with-sdk"></Card>
 
 [devconsole]: https://app.box.com/developers/console
-[sa]: page://platform/user-types/#service-account
+[sa]: pag/reference/platform/user-types/#service-account

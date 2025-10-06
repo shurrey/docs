@@ -27,20 +27,18 @@ curl https://api.box.com/2.0/search?query=sales&offset=100&limit=100 \
     -H "authorization: Bearer ACCESS_TOKEN"
 ```
 
-<Message type='notice'>
-  Note that the `offset` should be increased by the previous `limit` and not by
+<Note>
+Note that the `offset` should be increased by the previous `limit` and not by
   the size of the entries in the response array, as this may be less than the
   limit. Generally we advise using the value of the `limit` in the response
   object to increase the `offset` value.
-</Message>
+</Note>
 
 The final page of items has been requested when the next `offset` value exceeds
 the `total_count` value in the response object. At this point there are no more
 items to fetch.
 
-<CTA to="g://api-calls/pagination/offset-based">
-  Learn more about offset-based pagination
-</CTA>
+<Card title="Learn more about offset-based pagination" href="/guides/api-calls/pagination/offset-based"></Card>
 
 ## SDK Pagination
 

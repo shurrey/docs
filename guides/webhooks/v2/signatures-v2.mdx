@@ -219,11 +219,11 @@ valid = not expired and (primary_sig_valid or secondary_sig_valid)
   </Tab>
 </Tabs>
 
-<Message warning>
-  HTTP header names are case insensitive. Your client should convert
+<Warning>
+HTTP header names are case insensitive. Your client should convert
   all header names to a standardized lowercase or uppercase format before trying
   to determine the value of a header.
-</Message>
+</Warning>
 
 ## Rotate signatures
 
@@ -247,5 +247,5 @@ without any conflicts.
 4. Update your application with the new primary key. Your application can still receive notifications with the old primary key, but your webhooks should be processed correctly since the secondary key is still valid.
 5. Once you are confident that no webhooks with the old primary key are in-flight, you can update the secondary key using the same process.
 
-[sdks]: g://tooling/sdks
+[sdks]: /guides/tooling/sdks
 [console]: https://app.box.com/developers/console

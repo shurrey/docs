@@ -1,0 +1,183 @@
+---
+title: "Simple Choose & Choice Test"
+---
+
+<script src="/snippets/choose-choice-simple.js"></script>
+
+# Simple Choose & Choice Components Test
+
+This page tests the simplified Choose and Choice components that work with any build system.
+
+**How it works:**
+- Uses pure JavaScript with no React dependencies
+- Components are initialized using HTML data attributes
+- Selections persist across page refreshes using localStorage
+- Compatible with Mintlify's build system
+
+## Basic Choice Selection
+
+**Select one of the options below to see conditional content appear:**
+
+<div data-grid='{"columns": 3}'>
+  <div data-choose='{"option": "simple.app_type", "value": "use_ours", "color": "green"}'>
+    # Use our Box App
+
+    If you don't have access to Box AI in your Box instance, you can still
+    experiment with the Box AI API by using our preconfigured Box App.
+  </div>
+
+  <div data-choose='{"option": "simple.app_type", "value": "create_new", "color": "blue"}'>
+    # Create new Box App
+
+    We can set up a Box App for you right here from the documentation. With a
+    few clicks you will be ready to go!
+  </div>
+
+  <div data-choose='{"option": "simple.app_type", "value": "use_existing", "color": "red"}'>
+    # Use existing Box App
+
+    If you've already created a Box App before that you want to use, then we
+    can use the credentials for that application.
+  </div>
+</div>
+
+## Conditional Content Based on Choice
+
+**Note:** The content below will appear when you make a choice above.
+
+<div data-choice='{"option": "simple.app_type", "value": "create_new", "color": "blue"}'>
+  # Create a Box App
+
+  To use your own **Box App** you will need to create a
+  new Box App in the **Box Developer Console**.
+
+  <button onclick="window.triggerChoice('simple.app_type', 'clicked')" style="background: #0061d5; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+    **Click here to simulate app creation**
+  </button>
+
+  <div data-choice='{"option": "simple.app_type", "value": "clicked", "color": "none"}'>
+    ✅ **App created!** We will use these credentials to authenticate in the next step.
+  </div>
+</div>
+
+<div data-choice='{"option": "simple.app_type", "value": "use_existing", "color": "red"}'>
+  # Use existing Box App
+
+  If you have already created a Box App before you can use that as well. We
+  require a few settings to be set for this to work.
+
+  1. Go to the Developer Console
+  2. Select your application
+  3. Configure OAuth 2.0 settings
+  4. Set the redirect URI to `http://localhost:3000/callback`
+  5. Save your changes
+
+  **Your Client ID and Client Secret will be needed for the next step.**
+</div>
+
+<div data-choice='{"option": "simple.app_type", "value": "use_ours", "color": "green"}'>
+  # Using Our Preconfigured App
+
+  Great! You've selected to use our preconfigured Box App. This means:
+
+  - No additional setup required
+  - You can start testing immediately
+  - Authentication will be handled for you
+  - Perfect for experimentation and learning
+</div>
+
+## Multi-Value Choice Display
+
+<div data-choice='{"option": "simple.app_type", "value": "create_new,use_existing,clicked", "color": "none"}'>
+
+<div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 4px; margin: 20px 0;">
+**Security Notice**
+
+Your API credentials are now configured. We recommend clearing your browser cache
+when you're done with this tutorial for security purposes.
+</div>
+
+</div>
+
+## Summary Section
+
+<div data-choice='{"option": "simple.app_type", "value": "use_ours,create_new,use_existing,clicked", "color": "none"}'>
+
+## Summary
+
+You have successfully configured your Box App setup:
+
+- ✅ Selected your preferred Box App configuration
+- ✅ Completed the necessary setup steps
+- ✅ Ready to proceed with Box API integration
+
+</div>
+
+## Unset State Example
+
+<div data-grid='{"columns": 2}'>
+  <div data-choose='{"option": "simple.demo", "value": "option1", "color": "blue"}'>
+    # Option 1
+    Click me to see the change below
+  </div>
+
+  <div data-choose='{"option": "simple.demo", "value": "option2", "color": "red"}'>
+    # Option 2
+    Click me to see the change below
+  </div>
+</div>
+
+<div data-choice='{"option": "simple.demo", "unset": true}'>
+**Default state:** No option has been selected yet. Choose an option above to see conditional content.
+</div>
+
+<div data-choice='{"option": "simple.demo", "value": "option1", "color": "blue"}'>
+You selected **Option 1**! This content only appears when Option 1 is chosen.
+</div>
+
+<div data-choice='{"option": "simple.demo", "value": "option2", "color": "red"}'>
+You selected **Option 2**! This content only appears when Option 2 is chosen.
+</div>
+
+## Debug Information
+
+<div id="debug-info" style="padding: 10px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; font-family: monospace; font-size: 12px; margin-top: 20px;">
+  <strong>Choice Debug:</strong><br/>
+  <span id="debug-content">Initializing...</span>
+</div>
+
+<script>
+// Debug display
+function updateDebug() {
+  const debugEl = document.getElementById('debug-content');
+  if (debugEl && window.choiceStateManager) {
+    const state = window.choiceStateManager.getState();
+    debugEl.innerHTML =
+      'App Type: ' + (window.getChoiceValue('simple.app_type') || 'undefined') + '<br/>' +
+      'Demo: ' + (window.getChoiceValue('simple.demo') || 'undefined') + '<br/>' +
+      'All State: ' + JSON.stringify(state, null, 2).replace(/\n/g, '<br/>').replace(/ /g, '&nbsp;');
+  }
+}
+
+// Update debug info on state changes
+window.addEventListener('choiceStateUpdate', updateDebug);
+
+// Initial debug update
+setTimeout(updateDebug, 100);
+</script>
+
+---
+
+## Testing Instructions
+
+1. **Test Basic Choices**: Click the different app type options and verify that conditional content shows/hides correctly
+2. **Test Button Trigger**: Select "Create new Box App" and click the blue button to test the trigger functionality
+3. **Test Multi-Value**: Verify that the security notice appears when you select appropriate options
+4. **Test Unset State**: The demo section should show default text until you make a choice
+5. **Test Persistence**: Navigate to another page and come back - your choices should be remembered
+6. **Test Grid Layout**: Verify that the Grid displays items in the correct number of columns
+7. **Test Visual Feedback**: Selected options should have thicker borders, scaling, and color changes
+
+The debug information at the bottom shows the current state for testing purposes.
+
+This simplified implementation should work reliably with Mintlify's build system without React or module dependencies.

@@ -35,11 +35,11 @@ To create a public file preview URL for a file that was uploaded to the App
 Token application, you may either use a direct SDK method or make the request
 directly to the APIs.
 
-<Message type='notice'>
-  When generating the embed URL directly from the APIs, use the
-  [Get File Information endpoint](e://get_files_id) and request
+<Note>
+When generating the embed URL directly from the APIs, use the
+  [Get File Information endpoint](/reference/get_files_id) and request
   `expiring_embed_link` via the `fields` parameter.
-</Message>
+</Note>
 
 <Tabs>
   <Tab title='cURL'>
@@ -96,10 +96,10 @@ cfhp3jdLYrK5hnr6KMq5H6r-AW31AcFtDJi1lnT0M4b3bvvZUaE2RRJGGINMauvS6MAT2luae5PvbFSx
 Ctqqx6XlN6QrqbhfJc0UeJF9qwMv3-O8q5fWn0qr8OTY4lkeYidtTs3Ux...
 ```
 
-<Message type='warning'>
-  For security reasons, the generated embed link will expire after 1 minute and
+<Warning>
+For security reasons, the generated embed link will expire after 1 minute and
   should be immediately embedded in the app once generated.
-</Message>
+</Warning>
 
 ### Add the embed URL to an `<iframe>`
 
@@ -116,13 +116,11 @@ attribute set to generated embed URL.
 ## Customized Previewer (UI Elements)
 
 To leverage advanced preview customization and event handling capabilities, use
-the Box [UI Preview Element](guide://embed/ui-elements/preview).
+the Box [UI Preview Element](/guides/embed/ui-elements/preview).
 
 To set up the Preview Element, start by installing the required components.
 
-<CTA to='guide://embed/ui-elements/installation'>
-  Install Box Elements and Preview
-</CTA>
+<Card title="Install Box Elements and Preview" href="/guides/embed/ui-elements/installation"></Card>
 
 The basic code will resemble the below when adding the JavaScript code to
 display a new previewer.
@@ -140,11 +138,11 @@ Replace the placeholders in the code sample with the following:
 * `FILE_ID`: The ID of the file uploaded to the App Token application, which can be obtained from the object returned when uploading the file.
 * `ACCESS_TOKEN`: The primary Access Token set up when configuring the application or a downscoped version of the token.
 
-<Message type='warning'>
-  Due to the elevated privileges of the primary access token it's highly
+<Warning>
+Due to the elevated privileges of the primary access token it's highly
   recommended that you use a downscoped version of the token in the Javascript
   code. See
-  [best practices for downscoping](guide://embed/box-view/best-practices#use-downscoped-tokens).
-</Message>
+  [best practices for downscoping](/guides/embed/box-view/best-practices#use-downscoped-tokens).
+</Warning>
 
-[uie]: g://embed/ui-elements
+[uie]: /guides/embed/ui-elements

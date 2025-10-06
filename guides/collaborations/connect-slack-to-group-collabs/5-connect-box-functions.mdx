@@ -65,10 +65,10 @@ used to make API calls. At this point it is scoped to the
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 ## Add a Box user to a group
@@ -133,10 +133,10 @@ public void addGroupUser(String groupId, String userEmail) {
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 Since we're matching a Slack user to a Box user via their email address, we
@@ -144,12 +144,12 @@ first find a matching Box user using the Slack profile email. If found, a call
 is made to add that user to the channel group. The group was created when the
 bot was first added.
 
-<Message type='tip'>
-  The Box [Get User](endpoint://get-users-id) endpoint only permits user lookup
+<Tip>
+The Box [Get User](/reference/get-users-id) endpoint only permits user lookup
   by user ID. To lookup a user by email address, use the
-  [List Enterprise Users](endpoint://get-users) endpoint and set the
+  [List Enterprise Users](/reference/get-users) endpoint and set the
   `filter_term` option to the email address you're searching for.
-</Message>
+</Tip>
 
 ## Remove a Box user to a group
 
@@ -198,10 +198,10 @@ public void removeGroupUser(String groupId, String userEmail) {
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 This code will take the group ID, which will be the Slack channel ID, and get
@@ -209,8 +209,8 @@ all members of the group. If a matching member is found for the person that
 left the Slack channel, based on email address, that person is removed from the
 group using their membership ID.
 
-<Message type='tip'>
-  # Improving performance with a data store
+<Tip>
+# Improving performance with a data store
 
   While looking up group memberships to obtain a membership ID negates the need
   to store membership IDs in a local data store (like a database), this code
@@ -220,7 +220,7 @@ group using their membership ID.
   By using a local data store, the membership ID can be retrieved from the data
   store rather than having to call the Box API repeatedly to search for the
   membership ID.
-</Message>
+</Tip>
 
 ## Fetch a Box group ID for a group name
 
@@ -281,10 +281,10 @@ public String getGroupId(String groupName) {
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 The code fetches all the groups in the enterprise, and then tries to match the
@@ -382,10 +382,10 @@ public void processContent(JSONObject userResponse, String channel, String fType
 
 </Choice>
 <Choice option='programming.platform' unset color='none'>
-  <Message danger>
-    # Incomplete previous step
+  <Danger>
+# Incomplete previous step
     Please select a preferred language / framework in step 1 to get started.
-  </Message>
+</Danger>
 </Choice>
 
 The code starts by capturing the Box group ID for the Slack channel, which
@@ -407,5 +407,5 @@ Lastly, we make a call to collaborate content with the group via the group ID.
   <Next>I've set up my Box functions</Next>
 </Observe>
 
-[step2]: g://collaborations/connect-slack-to-group-collabs/configure-box
-[service-account]: page://platform/user-types/#service-account/
+[step2]: /guides/collaborations/connect-slack-to-group-collabs/configure-box
+[service-account]: pag/reference/platform/user-types/#service-account/

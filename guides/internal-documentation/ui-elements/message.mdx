@@ -16,9 +16,9 @@ The lowest level of message is default message. Either explicitly set the type, 
 omit the type. Use this message type for messages that are not essential to be read.
 
 ```html
-<Message>
-  A default note
-</Message>
+<Note>
+A default note
+</Note>
 
 <default type='default'>
   A default note
@@ -26,9 +26,9 @@ omit the type. Use this message type for messages that are not essential to be r
 ```
 
 <H>
-  <Message>
-    A default note
-  </Message>
+  <Note>
+A default note
+</Note>
 </H>
 
 ## Tip message
@@ -37,19 +37,19 @@ The next level is a tip. Use this message type for messages that are general
 good tips and best practices.
 
 ```html
-<Message type='tip'>
-  A tip message
-</Message>
+<Tip>
+A tip message
+</Tip>
 
-<Message tip>
-  A tip message
-</Message>
+<Tip>
+A tip message
+</Tip>
 ```
 
 <H>
-  <Message tip>
-    A tip message
-  </Message>
+  <Tip>
+A tip message
+</Tip>
 </H>
 
 ## Notice message
@@ -58,19 +58,19 @@ The next level is a notice. Use this message type for messages that are notices
 but would not break anything for the user if ignored.
 
 ```html
-<Message type='notice'>
-  A notice message
-</Message>
+<Note>
+A notice message
+</Note>
 
-<Message notice>
-  A notice message
-</Message>
+<Note>
+A notice message
+</Note>
 ```
 
 <H>
-  <Message Notice>
-    A notice message
-  </Message>
+  <Note>
+A notice message
+</Note>
 </H>
 
 ## Warning message
@@ -81,19 +81,19 @@ to point out that an error or exception might occur when they complete the
 action previously described.
 
 ```html
-<Message type='warning'>
-  A warning note
-</Message>
+<Warning>
+A warning note
+</Warning>
 
-<Message warning>
-  A warning note
-</Message>
+<Warning>
+A warning note
+</Warning>
 ```
 
 <H>
-<Message warning>
-  A warning note
-</Message>
+<Warning>
+A warning note
+</Warning>
 </H>
 
 ## Danger message
@@ -103,19 +103,19 @@ messages that are notices that can be attached to actions that will likely cause
 an error or exception for the user.
 
 ```html
-<Message type='danger'>
-  Danger zone!
-</Message>
+<Danger>
+Danger zone!
+</Danger>
 
-<Message danger>
-  Danger zone!
-</Message>
+<Danger>
+Danger zone!
+</Danger>
 ```
 
 <H>
-<Message danger>
-  Danger zone!
-</Message>
+<Danger>
+Danger zone!
+</Danger>
 </H>
 
 ## Title
@@ -123,19 +123,19 @@ an error or exception for the user.
 A message can have a title. Please only use `<h1>` titles.
 
 ```html
-<Message>
-  # A title
+<Note>
+# A title
 
   A default note
-</Message>
+</Note>
 ```
 
 <H>
-<Message>
-  # A title
+<Note>
+# A title
 
   A default note
-</Message>
+</Note>
 </H>
 
 ## Size
@@ -143,13 +143,13 @@ A message can have a title. Please only use `<h1>` titles.
 A message can be made smaller than the default.
 
 ```html
-<Message size='small'>
-  A small note
-</Message>
+<Note>
+A small note
+</Note>
 ```
 
 <H>
-<Message size='small'>
-  A small note
-</Message>
+<Note>
+A small note
+</Note>
 </H>

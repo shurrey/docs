@@ -17,7 +17,7 @@ Linux, the files and folders within `/etc/skel` are copied to the new user's
 home directory.
 
 When creating a
-[JWT-based Box application](g://authentication/jwt/jwt-setup), a
+[JWT-based Box application](/guides/authentication/jwt/jwt-setup), a
 [Service Account][sa] is created
 within the Box Enterprise. A Service Account is similar in functionality to a
 co-admin within a Box Enterprise, and most useful to this use case, can own,
@@ -26,17 +26,17 @@ don't have to use a Service Account strictly for developing platform application
 for users, and instead, can use a Service Account in more of an automation
 capacity.
 
-<Message>
-  # Box Platform Application Requirements
+<Note>
+# Box Platform Application Requirements
 
   When creating your JWT-based custom Box application for this recipe, you'll
   need to enable the following scopes: **Manage users**, **Manage groups**,
   **Perform Actions as Users**, and **Generate User Access Tokens**.
 
-  See [JWT Application Setup](g://authentication/jwt/jwt-setup) for
+  See [JWT Application Setup](/guides/authentication/jwt/jwt-setup) for
   more information on creating a JWT-based Box application and the scopes in a
   Box application.
-</Message>
+</Note>
 
 We'll start by creating the `etc` and `skel` folders and granting ownership of
 the folders to the Service Account.
@@ -456,4 +456,4 @@ namespace BoxPlayground {
   </Tab>
 </Tabs>
 
-[sa]: page://platform/user-types/#service-account
+[sa]: pag/reference/platform/user-types/#service-account
