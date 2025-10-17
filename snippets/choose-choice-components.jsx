@@ -121,6 +121,7 @@ export const Choose = ({
 }) => {
   const [isSelected, setIsSelected] = useState(false);
   const [hasOptionTriggered, setHasOptionTriggered] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     // Check initial state
@@ -139,6 +140,41 @@ export const Choose = ({
     return unsubscribe;
   }, [option, value]);
 
+  useEffect(() => {
+    // Detect initial dark mode
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') ||
+                     window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(isDark);
+    };
+
+    checkDarkMode();
+
+    // Listen for dark mode changes via media query
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleMediaChange = (e) => {
+      if (!document.documentElement.classList.contains('dark') && !document.documentElement.classList.contains('light')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    // Listen for class changes on documentElement (Mintlify theme toggle)
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+      observer.disconnect();
+    };
+  }, []);
+
   const handleClick = () => {
     window.triggerChoice?.(option, value);
   };
@@ -152,11 +188,11 @@ export const Choose = ({
 
   const getColorStyles = () => {
     const baseStyles = {
-      border: '1px dashed #e1e5e9',
+      border: isDarkMode ? '1px dashed #4a5568' : '1px dashed #e1e5e9',
       cursor: 'pointer',
       padding: '20px',
       position: 'relative',
-      backgroundColor: '#f8f9fa',
+      backgroundColor: isDarkMode ? '#2d3748' : '#f8f9fa',
       outline: 'none',
       height: '100%',
       borderRadius: '8px',
@@ -166,12 +202,21 @@ export const Choose = ({
     };
 
     const colorMap = {
-      green: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
-      red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
-      blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+      green: {
+        light: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
+        dark: { backgroundColor: '#1a3a2a', borderColor: '#66bb6a' }
+      },
+      red: {
+        light: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
+        dark: { backgroundColor: '#3a1a1a', borderColor: '#ef5350' }
+      },
+      blue: {
+        light: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+        dark: { backgroundColor: '#1a2a3a', borderColor: '#42a5f5' }
+      },
     };
 
-    const colorStyles = colorMap[color] || {};
+    const colorStyles = colorMap[color]?.[isDarkMode ? 'dark' : 'light'] || {};
 
     if (isSelected) {
       return {
@@ -179,9 +224,11 @@ export const Choose = ({
         ...colorStyles,
         borderStyle: 'solid',
         borderWidth: '3px',
-        borderColor: colorStyles.borderColor || '#0061d5',
-        backgroundColor: colorStyles.backgroundColor || '#e3f2fd',
-        boxShadow: '0 2px 8px rgba(0, 97, 213, 0.3)',
+        borderColor: colorStyles.borderColor || (isDarkMode ? '#42a5f5' : '#0061d5'),
+        backgroundColor: colorStyles.backgroundColor || (isDarkMode ? '#1a2a3a' : '#e3f2fd'),
+        boxShadow: isDarkMode
+          ? '0 2px 8px rgba(66, 165, 245, 0.3)'
+          : '0 2px 8px rgba(0, 97, 213, 0.3)',
         transform: 'scale(1.02)'
       };
     }
@@ -207,7 +254,9 @@ export const Choose = ({
     marginRight: '12px',
     width: '20px',
     height: '20px',
-    color: isSelected ? '#0061d5' : '#666'
+    color: isSelected
+      ? (isDarkMode ? '#42a5f5' : '#0061d5')
+      : (isDarkMode ? '#a0aec0' : '#666')
   };
 
   return (
@@ -246,6 +295,7 @@ export const Choice = ({
 }) => {
   const [shouldShow, setShouldShow] = useState(false);
   const [hasEverShown, setHasEverShown] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const updateVisibility = () => {
@@ -273,25 +323,73 @@ export const Choice = ({
     return unsubscribe;
   }, [option, value, unset, hasEverShown]);
 
+  useEffect(() => {
+    // Detect initial dark mode
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') ||
+                     window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(isDark);
+    };
+
+    checkDarkMode();
+
+    // Listen for dark mode changes via media query
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleMediaChange = (e) => {
+      if (!document.documentElement.classList.contains('dark') && !document.documentElement.classList.contains('light')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    // Listen for class changes on documentElement (Mintlify theme toggle)
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+      observer.disconnect();
+    };
+  }, []);
+
   const getColorStyles = () => {
     const baseStyles = {
-      border: '1px dashed #e1e5e9',
+      border: isDarkMode ? '1px dashed #4a5568' : '1px dashed #e1e5e9',
       padding: '20px',
       marginBottom: '20px',
       borderRadius: '8px',
-      backgroundColor: '#ffffff'
+      backgroundColor: isDarkMode ? '#1a202c' : '#ffffff'
     };
 
     const colorMap = {
-      green: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
-      red: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
-      blue: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+      green: {
+        light: { backgroundColor: '#e8f5e8', borderColor: '#4caf50' },
+        dark: { backgroundColor: '#1a3a2a', borderColor: '#66bb6a' }
+      },
+      red: {
+        light: { backgroundColor: '#ffeaea', borderColor: '#f44336' },
+        dark: { backgroundColor: '#3a1a1a', borderColor: '#ef5350' }
+      },
+      blue: {
+        light: { backgroundColor: '#e3f2fd', borderColor: '#2196f3' },
+        dark: { backgroundColor: '#1a2a3a', borderColor: '#42a5f5' }
+      },
       none: { backgroundColor: 'transparent', padding: '0', margin: '0', border: 'none' },
     };
 
+    const colorStyles = color !== 'none'
+      ? (colorMap[color]?.[isDarkMode ? 'dark' : 'light'] || {})
+      : colorMap.none;
+
     return {
       ...baseStyles,
-      ...(colorMap[color] || {})
+      ...colorStyles
     };
   };
 
@@ -369,6 +467,7 @@ export const Observe = ({ option, value, children, ...props }) => {
 export const ChoiceDebug = ({ option }) => {
   const [currentValue, setCurrentValue] = useState(null);
   const [allState, setAllState] = useState({});
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const updateState = () => {
@@ -391,16 +490,52 @@ export const ChoiceDebug = ({ option }) => {
     };
   }, [option]);
 
+  useEffect(() => {
+    // Detect initial dark mode
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') ||
+                     window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(isDark);
+    };
+
+    checkDarkMode();
+
+    // Listen for dark mode changes via media query
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleMediaChange = (e) => {
+      if (!document.documentElement.classList.contains('dark') && !document.documentElement.classList.contains('light')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    // Listen for class changes on documentElement (Mintlify theme toggle)
+    const observer = new MutationObserver(() => {
+      checkDarkMode();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div
       style={{
         padding: '10px',
-        backgroundColor: '#f5f5f5',
-        border: '1px solid #ddd',
+        backgroundColor: isDarkMode ? '#2d3748' : '#f5f5f5',
+        border: isDarkMode ? '1px solid #4a5568' : '1px solid #ddd',
         borderRadius: '4px',
         fontSize: '12px',
         fontFamily: 'monospace',
-        marginTop: '20px'
+        marginTop: '20px',
+        color: isDarkMode ? '#e2e8f0' : 'inherit'
       }}
     >
       <strong>Choice Debug:</strong>

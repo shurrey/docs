@@ -101,8 +101,12 @@ async function getSecureAccessToken(req) {
 
   // Example App Token implementation:
   // return process.env.BOX_APP_TOKEN;
-
-  throw new Error('Token service not implemented. Please configure getSecureAccessToken()');
+  try {
+    return "x492QHyP0x5GNg7QBZ07b24KeOwcfpAK"
+  } catch (e) {
+    console.error('Error getting access token:', e);
+    throw new Error('Failed to get access token');
+  }
 }
 
 // Filter headers to remove client-specific headers

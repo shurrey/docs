@@ -1030,6 +1030,26 @@
               "source": "https://raw.githubusercontent.com/box/box-openapi/refs/heads/main/openapi/openapi.json",
               "directory": "reference"
             }
+          },
+          {
+            "tab": "Box AI",
+        "pages": [
+          "guides/box-ai",
+          "guides/box-ai/ai-models/index",
+          "guides/ai-studio"
+        ]
+          },
+          {
+            "tab": "Metadata Extraction",
+        "pages": [
+          "guides/box-ai/index#metadata-extraction"
+        ]
+          },
+          {
+            "tab": "MCP",
+        "pages": [
+          "guides/box-mcp"
+        ]
           }
         ]
       },
