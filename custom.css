@@ -1,0 +1,81 @@
+/* Custom gradient header styling for Box Developer Documentation */
+
+/* Apply gradient to the navbar (includes logo, search bar, and navigation tabs) */
+#navbar {
+  background: linear-gradient(to right, #25B8F4 0%, #B422E0 50%, #D2617D 100%) !important;
+}
+
+/* Ensure navbar container has white text but keeps gradient background */
+#navbar {
+  color: white !important;
+}
+
+/* Ensure child elements in navbar are white with transparent backgrounds */
+#navbar a,
+#navbar button,
+#navbar input,
+#navbar span,
+#navbar div {
+  color: white !important;
+  background: transparent !important;
+}
+
+/* Make all navbar elements transparent background */
+#navbar * {
+  background: transparent !important;
+}
+
+/* Style links on hover */
+#navbar a:hover {
+  color: white !important;
+  opacity: 0.9;
+}
+
+/* Style the search bar */
+#navbar input[type="search"],
+#navbar input[type="text"] {
+  color: white !important;
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#navbar input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Style the language picker */
+#navbar select,
+#navbar [class*="language"],
+#navbar [class*="Language"] {
+  color: white !important;
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Style the CTA button */
+#topbar-cta-button {
+  color: white !important;
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+#topbar-cta-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ensure SVG icons in navbar are white */
+#navbar svg,
+#navbar path {
+  fill: white !important;
+  stroke: white !important;
+}
+
+/* Override dark mode styles */
+html[class*="dark"] #navbar {
+  background: linear-gradient(to right, #25B8F4 0%, #B422E0 50%, #D2617D 100%) !important;
+}
+
+html[class*="dark"] #navbar * {
+  color: white !important;
+  background: transparent !important;
+}

@@ -1105,10 +1105,7 @@
       ]
     }
   },
-  "logo": {
-    "light": "/logo/boxdev-light.png",
-    "dark": "/logo/boxdev-dark.svg"
-  },
+  "logo": "/logo/boxdev-dark.svg",
   "navbar": {
     "links": [
       {
