@@ -1034,6 +1034,7 @@
           {
             "tab": "Box AI",
         "pages": [
+          "ai-dev-zone",
           "guides/box-ai",
           "guides/box-ai/ai-models/index",
           "guides/ai-studio"
@@ -1049,6 +1050,12 @@
             "tab": "MCP",
         "pages": [
           "guides/box-mcp"
+        ]
+          },
+          {
+            "tab": "SDKs and Tools",
+        "pages": [
+          "sdks-and-tools"
         ]
           }
         ]
@@ -1105,7 +1112,10 @@
       ]
     }
   },
-  "logo": "/logo/boxdev-dark.svg",
+  "logo": {
+    "light": "/logo/boxdev-light.png",
+    "dark": "/logo/boxdev-dark.svg"
+  },
   "navbar": {
     "links": [
       {

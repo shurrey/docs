@@ -1,0 +1,193 @@
+---
+title: "SDKs & Tools"
+description: "The following SDKs and tools are developed and supported by Box"
+---
+
+The following SDKs and tools are developed and supported by Box.
+
+## SDKs
+
+Here you will find a list of SDKs you can use to build your application.
+
+The tables below list SDKs along with additional information telling you if the project is maintained and has API parity.
+
+**Status:** Describes the current project status. To learn more about statuses visit [Box Open Source website](https://opensource.box.com/badges/). Active projects are actively developed by Box. They receive the latest security updates and new features. For support with these projects please visit GitHub or [our Platform support forum](https://community.box.com/).
+
+**API Parity**: Projects with full API parity are actively updated with all platform functionality as this becomes available on the Box Platform. Projects with partial API parity lack some functionality while we work on bringing these projects to full parity.
+
+### Core SDKs
+
+The table lists Box SDKs that you can use when building your applications. For latest API support and features, use the next generation SDKs.
+
+#### Latest SDKs
+
+For all new development, we recommend using the latest version (v10 and above) of the Box SDKs. These SDKs are auto-generated from the Box OpenAPI specification and provide full API coverage, rapid updates, embedded documentation, and enhanced convenience methods.
+
+<CardGroup cols={3}>
+  <Card title="Java SDK" href="https://github.com/box/box-java-sdk/tree/sdk-gen" icon="java">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="Python SDK" href="https://github.com/box/box-python-sdk/tree/sdk-gen" icon="python">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="Node SDK" href="https://github.com/box/box-node-sdk/tree/sdk-gen" icon="node">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title=".NET SDK" href="https://github.com/box/box-windows-sdk-v2/tree/sdk-gen" icon="microsoft">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="iOS Content SDK" href="https://github.com/box/box-ios-sdk/tree/sdk-gen" icon="apple">
+    * Active
+    * Full API Parity
+  </Card>
+</CardGroup>
+
+#### Combined SDKs
+
+For developers migrating from or adding new features to an existing application using earlier versions of the Box SDKs, we recommend using the combined SDKs. These SDKs provide a stable interface while still being actively maintained and updated with the latest Box Platform features.
+
+<CardGroup cols={3}>
+  <Card title="Java SDK" href="https://github.com/box/box-java-sdk/tree/combined-sdk" icon="java">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="Python SDK" href="https://github.com/box/box-python-sdk/tree/combined-sdk" icon="python">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="Node SDK" href="https://github.com/box/box-node-sdk/tree/combined-sdk" icon="node">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title=".NET SDK" href="https://github.com/box/box-windows-sdk-v2/tree/combined-sdk" icon="microsoft">
+    * Active
+    * Full API Parity
+  </Card>
+  <Card title="iOS Content SDK" href="https://github.com/box/box-ios-sdk/tree/combined-sdk" icon="apple">
+    * Active
+    * Full API Parity
+  </Card>
+
+</CardGroup>
+
+### Deprecations
+
+<CardGroup cols={3}>
+  <Card title="SDK versioning strategy document" href="https://github.com/box/sdks/blob/main/README.md" icon="warning">
+    Learn more about Box SDK versioning strategy.
+  </Card>
+  <Card title="Box Next Generation SDKs" icon="warning">
+    As of September 17, 2025 Box Next Generation SDKs are no longer supported as separate artifacts.
+  </Card>
+  <Card title="Box Android SDK" icon="warning">
+    As of May 31, 2023 Box Android SDK is no longer supported. We recommend using the Java SDK to build apps on Android.
+  </Card>
+</CardGroup>
+
+## Developer Tools
+Box provides a variety of tools to help you build and test your applications.
+
+### Box CLI
+
+Box CLI is a user-friendly command line tool that allows both technical and non-technical users to leverage Box API to perform routine or bulk actions.
+
+<CardGroup cols={2}>
+  <Card title="CLI Quick Start" href="/guides/cli/quick-start/0-index">
+    Get started with Box CLI in minutes
+  </Card>
+  <Card title="CLI Documentation" href="/guides/cli/cli-docs">
+    Complete CLI reference and guides
+  </Card>
+  <Card title="CLI Scripts" href="/guides/cli/scripts">
+    Sample scripts for common automation tasks
+  </Card>
+  <Card title="GitHub Repository" href="https://github.com/box/boxcli">
+    View source code and contribute
+  </Card>
+</CardGroup>
+
+### Postman Collection
+
+[Postman](https://postman.com) is a tool that lets you build and test HTTP requests in an easy-to-use interface without configuring a full development environment. The **Box Postman Collection** is a set of preconfigured requests that make it possible to get started with the Box API without having to manually configure the requests.
+
+<CardGroup cols={2}>
+  <Card title="Postman Quick Start" href="/guides/tooling/postman/quick-start/0-index">
+    Get started with the Box Postman Collection
+  </Card>
+  <Card title="Install Collection" href="/guides/tooling/postman/install">
+    Install and configure Postman for Box
+  </Card>
+  <Card title="Make API Calls" href="/guides/tooling/postman/make-api-call">
+    Learn how to make your first API call
+  </Card>
+  <Card title="Access Tokens" href="/guides/tooling/postman/access-token">
+    Configure authentication in Postman
+  </Card>
+</CardGroup>
+
+### Salesforce Developer Toolkit
+
+The Box for Salesforce Developer Toolkit allows customers to programmatically customize the behavior of the Box for Salesforce integration. The Toolkit consists of several global APEX methods that can be used to trigger and extend the default behavior.
+
+<Note>
+The Toolkit is not a full-featured APEX wrapper for the Box Content API. If this is what you are looking for, have a look at the [Box SDK for Salesforce](https://github.com/box/box-salesforce-sdk).
+</Note>
+
+## Official UI Libraries
+
+Extend your application with pre-built UI components to browse, share, and preview files on Box.
+
+<CardGroup cols={3}>
+  <Card title="Browse" href="/guides/embed/ui-elements" icon="folder">
+    Navigate and manipulate your files on Box using our pre-built UI.
+  </Card>
+  <Card title="Share" href="/guides/embed/ui-elements" icon="share">
+    Share files with our pre-built UI elements for file & folder collaboration.
+  </Card>
+  <Card title="Preview" href="/guides/embed/ui-elements" icon="eye">
+    Review over 120 files types, from PDFs to HD videos, with a rich preview experience.
+  </Card>
+</CardGroup>
+
+### Platform-Specific UI SDKs
+
+<CardGroup cols={2}>
+  <Card title="iOS UI SDKs" href="https://github.com/box?q=ios+sdk">
+    Browse SDK, Share SDK, and Preview SDK for iOS
+  </Card>
+  <Card title="Android UI SDKs" href="https://github.com/box?q=android+sdk">
+    Browse SDK, Share SDK, and Preview SDK for Android
+  </Card>
+  <Card title="JavaScript UI Elements" href="/guides/embed/ui-elements">
+    Web-based UI components for Box integration
+  </Card>
+</CardGroup>
+
+## Unofficial & Community Tools
+
+The following tools are developed by Box and maintained by Box and its community members. These tools do not receive regular product updates or security updates.
+
+<CardGroup cols={3}>
+  <Card title="Salesforce SDK" href="https://github.com/box/box-salesforce-sdk" icon="salesforce">
+    * Limited maintenance
+    * Partial API Parity
+  </Card>
+  <Card title="Ruby SDK" href="https://github.com/cburnette/boxr" icon="gem">
+    * Limited maintenance
+    * Partial API Parity
+  </Card>
+  <Card title="Client-side JS SDK" href="https://github.com/allenmichael/box-javascript-sdk" icon="js">
+    * Limited maintenance
+    * Partial API Parity
+  </Card>
+</CardGroup>
+
+<Warning>
+**Maintained:** Projects with limited maintenance are updated by Box in collaboration with the community. They receive irregular security updates. If you are a Box customer on a premium support plan, please contact customer services for any urgent feature requests for these tools.
+
+**API Parity:** Projects with limited API parity can lack some functionality as new features are not automatically rolled out to these projects as they become available for the Box Platform.
+</Warning>
